@@ -1,0 +1,87 @@
+body{
+    background: #353535;
+}
+#loader {
+    width: 100%;
+    height: 100%;
+    background-color: white;
+    margin: 0;
+    z-index: 30;
+}
+.landing-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    
+    min-height: 100vh;
+    background-color: rgba(26, 30, 43, 0.8);
+    color: white;
+    
+}
+
+div.landing-content2{
+    text-align: center;
+   
+    font-size: 10px;
+    padding: 30px;
+    
+}
+
+.login{
+    border-radius: 25px;
+    border: 1.5px solid #e0dada;
+    padding: 60px;
+    background: rgba(0, 0, 0, 0.5);
+    text-align: center;
+}
+
+#carouselExampleFade{
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    min-width: 100%;
+    min-width: 2048px;
+    
+    z-index: -1;
+}
+
+.loginTitle{
+    font-size: 20px; 
+    color: rgb(173, 173, 173);
+    display: block;
+}
+
+.loginTitle:hover{
+    cursor: pointer;
+}
+
+
+.navbar{
+    position: fixed;
+    width: 100%;
+    z-index: 10;
+    border-bottom: 1px solid rgb(136, 135, 135);
+}
+
+.container{
+    align-content: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.lead-content{
+    display: inline-block;
+}
+
+
+.col-sm{
+    margin: 30px;
+    cursor: pointer;
+}
+
+.footer-copyright{
+    color: white;
+    background: rgba(0, 0, 0, 0.3);
+}
+
