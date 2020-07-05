@@ -1,0 +1,163 @@
+body{
+    background-color: rgba(26, 30, 43);
+    min-height: 100%;
+}
+
+#loader {
+    width: 100%;
+    height: 100%;
+    background-color: white;
+    margin: 0;
+    z-index: 30;
+}
+
+.content{
+    width: 100%;
+}
+
+#registerSection{
+    width: 100%;
+    margin: 0;
+}
+
+
+
+.landing-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    min-height: 100vh;
+    background-color: rgba(26, 30, 43, 0.8);
+    color: white;
+    
+}
+
+#registrationCarousel{
+    width: 100%;
+    margin:0;
+    top: 0;
+    left: 0;
+}
+
+
+@media only screen and (max-width: 840px) {
+    #registrationCarousel{
+        display: none;
+        margin: 0;
+        padding: 0;
+    }
+}
+
+div.landing-content2{
+    text-align: center;
+   
+    font-size: 10px;
+}
+
+.register{
+    border-radius: 25px;
+    
+    padding: 60px;
+   
+    text-align: center;
+}
+
+.registerTitle{
+    font-size: 20px; 
+    color: rgb(255, 254, 254);
+    display: block;
+}
+
+.registerTitle:hover{
+    cursor: pointer;
+}
+
+
+.navbar{
+    position: fixed;
+    width: 100%;
+    z-index: 10;
+    border-bottom: 1px solid rgb(136, 135, 135);
+}
+
+.container{
+    align-content: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.lead-content{
+    display: inline-block;
+}
+
+
+.col-sm{
+    cursor: pointer;
+}
+
+.footer-copyright{
+    color: white;
+    background: rgba(0, 0, 0, 0.3);
+}
+
+.form-control{
+    box-shadow: none;;
+}
+
+
+
+
+.pace {
+    pointer-events: none;
+    user-select: none;
+    z-index: 2000;
+    position: fixed;
+    margin: auto;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 400px;
+    border: 0px;
+    height: 1px;
+    overflow: hidden;
+    background:#1b1b1b;
+  }
+  
+  .pace .pace-progress {
+    box-sizing: border-box;
+    transform: translate3d(0, 0, 0);
+    max-width: 400px;
+    position: fixed;
+    z-index: 2000;
+    display: block;
+    position: absolute;
+    top: 0;
+    right: 100%;
+    height: 100%;
+    width: 100%;
+    background: grey;
+  }
+  
+  .pace.pace-inactive {
+    display: none;
+  }
+  
+  /*#preloader{
+    width:100%;
+    height:100vh;
+    background:#101010;
+    overflow:hidden;
+    position:fixed;
+    transition-timing-function: cubic-bezier(0.19, 1, 0.22, 1);
+  }
+  
+  .p {
+      position: absolute;
+      top: 40%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      color: #fff;
+  }*/
