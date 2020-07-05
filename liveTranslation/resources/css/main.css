@@ -1,1 +1,27 @@
+html,body{
+    height: 100%;
+}
 
+#contentSection{
+    height: 100%;
+}
+
+#detailsSection{
+    padding: 0 0 0 0;
+    color: white;
+    background: rgb(44, 47, 51); 
+    height: 100%;
+}
+
+#cvSection{
+    padding: 0 0 0 0;
+}
+
+.form-control{
+    background: rgba(0, 0, 0, 0.9);
+}
+
+.footer-copyright{
+    color: white;
+    background: rgba(0, 0, 0, 0.3);
+}

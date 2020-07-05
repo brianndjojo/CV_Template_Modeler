@@ -4,30 +4,45 @@
 
  /*https://inimino.org/~inimino/blog/javascript_live_text_input*/
  
- 
+ //adds text properly to the field.
 function set(el,text){
-  while(el.firstChild)el.removeChild(el.firstChild);
-  el.appendChild(document.createTextNode(text))}
+  while(el.firstChild)
+    el.removeChild(el.firstChild);
+  el.appendChild(document.createTextNode(text))
+}
   
  /* setupUpdater will be called once, on page load.
   */
   
-function setupUpdater(){
+function setupUpdater(index){
   var input=document.getElementsByTagName('input')
-    , orig=document.getElementById('original')
+    , //orig=document.getElementById('original')
+    orig=document.getElementsByClassName('textarea')
     , oldText=input.value
-    , timeout=null;
+    , timeout=null
+    //, selectedIndex=index
+    ;
   
  /* handleChange is called 50ms after the user stops 
     typing. */
 
 
   function handleChange(){
-    var newText = input[0].value + input[1].value;
+    var inputs = document.getElementsByTagName('input');
+    var originals = document.getElementsByClassName('textarea');
+    //var newText = input[selectedIndex].value;
+    console.log(inputs.length);
+    console.log(originals.length);
+    for(i=0; i < inputs.length; i++){
+      inputs[i].addEventListener('change', function(){
+        var newText = 'test';
+        console.log(newText);
+        if (newText==oldText) return; else oldText=newText;
+        set(originals[i], newText);
+      })
+      
+    }
     
-    
-    if (newText==oldText) return; else oldText=newText;
-    set(orig, newText);
   }
   
  /* eventHandler is called on keyboard and mouse events.
@@ -41,14 +56,25 @@ function setupUpdater(){
   for(i= 0 ; i < input.length; i++){
     input[i].onkeydown=input[i].onkeyup=input[i].onclick=eventHandler;
   }
-  return input;
 }
-  
 
+//MODULARIZATION CODE APPEARS TO NOT BE WORKING.
 
-var inputList = setupUpdater();
+/*var retrieve = document.getElementsByTagName('input');
+var retrieveIndex;
 
-for( i = 0; i < inputList.length; i++){
-  document.getElementsByTagName[i]('input').focus();
+for( i = 0; i < retrieve.length; i++){
+  document.getElementsByTagName('input')[i].focus();
 }
+
+for(i = 0; i < retrieve.length; i++){
+  document.getElementsByTagName('input')[i].addEventListener('keydown',function(){
+    retrieveIndex = i;
+  })
+}*/
+
+var retrieveIndex = 0;
+setupUpdater(retrieveIndex);
+
+
  
