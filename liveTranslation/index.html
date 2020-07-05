@@ -12,69 +12,133 @@
   </head>
 
   <body>
-    <div class="container">
-      <div class="row align-items-center">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+      <a class="navbar-brand" href="#">
+        <img src="https://img.icons8.com/nolan/100/weight-kg.png" width="30" height="30" class="d-inline-block align-top" alt="">
+        CVSpace
+      </a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav mr-auto">
+          <li class="dropdown-header">SERVICES</li> 
+          <li class="nav-item active">
+            <a class="nav-link" href="#">Dashboard</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Blog</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Terms of Service</a>
+          </li>
+          
+          <!--<li class="nav-item">
+            <a class="nav-link disabled" href="#">Disabled</a>
+          </li>-->
 
-        <div class="col-sm">
-          <div id="formSection">
-            <div class="dropdown">
-              <label for="validationCustom01">Switch Sections</label>
-              <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                Dropdown button
-              </button>
-              <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                <a class="dropdown-item" href="#">Action</a>
-                <a class="dropdown-item" href="#">Another action</a>
-                <a class="dropdown-item" href="#">Something else here</a>
-              </div>
-            </div>
+        </ul>
 
+        <ul class="navbar-nav">
+          <li class="dropdown-header">ACCOUNT</li> 
+          <li class="nav-item divider">
+            <a class="nav-link" href="{{ url('/login') }}">Login</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{{ url('/register') }}">Register</a>
+          </li>
+      </ul>
+      </div>
+    </nav>
+
+    
+
+    <div id="contentSection" class="d-md-flex h-md-100">
+
+      <!-- First Half -->
+        
+      <div id="detailsSection"" class="col-md-6 p-0 bg-indigo h-md-100">
+        <div class="d-md-flex h-100 p-5 justify-content-center">
+          <div class="pt-0 pb-0">
             <form>
-              <label for="validationCustom01">Personal Details</label>
+              <label>Personal Details</label>
               <div class="form-row">
-                <div class="col-md-6 mb-3">
-                  <input type="text" class="form-control" placeholder="First name">
+                <div class="col-md-3  mb-3">
+                  <select class="custom-select mr-sm-2" id="inlineFormCustomSelect">
+                    <option selected>Choose...</option>
+                    <option>Dr.</option>
+                    <option>Mr.</option>
+                    <option>Ms.</option>
+                  </select>
                 </div>
-                <div class="col-md-6">
-                  <input type="text" class="form-control" placeholder="Last name">
+                  <div class="col-md-4 mb-3">
+                    <input type="text" class="form-control" placeholder="First name">
+                  </div>
+                  <div class="col-md-5  mb-3">
+                    <input type="text" class="form-control" placeholder="Last name">
+                  </div>
                 </div>
-              </div>
+      
+                <div class="form-row">
+                  <div class="col-md-6 mb-3">
+                    <input type="text" class="form-control" placeholder="Email">
+                  </div>
+                  <div class="col-md-6  mb-3">
+                    <input type="text" class="form-control" placeholder="Phone Number">
+                  </div>
+                </div>
 
-              <div class="form-row">
-                <div class="col-md-6 mb-3">
-                  <input type="text" class="form-control" placeholder="Email">
+                <div class="form-row">
+                  <div class="col-md-4 mb-3">
+                    <input type="text" class="form-control" placeholder="Department">
+                  </div>
+                  <div class="col-md-8 mb-3">
+                    <input type="text" class="form-control" placeholder="University">
+                  </div>
                 </div>
-                <div class="col-md-6">
-                  <input type="text" class="form-control" placeholder="Phone Number">
-                </div>
+                <button type="button" class="mb-6 btn btn-outline-light">Submit</button>
+
+
+                <div><label>Research Interest</label></div>
+                <div class="form-row">
+                  <div class="col-md-6 mb-3">
+                    <input type="text" class="form-control" placeholder="Email">
+                  </div>
+                  <div class="col-md-6">
+                    <input type="text" class="form-control" placeholder="Phone Number">
+                  </div>
+                
               </div>
-              <button type="submit" class="btn btn-primary">Submit</button>
-              <button type="submit" class="btn btn-primary">Experience</button>
             </form>
           </div>
         </div>
-
-        <div class="col-sm">
-          <div id="CVSection">
+      </div>
+        
+      <!-- Second Half -->
+      
+      <div id="cvSection"" class="col-md-6 p-0 bg-indigo h-md-100">
+        <div class="d-md-flex h-100 p-5 justify-content-center">
+          <div class="pt-0 pb-0">
             <div class="d-flex flex-column">
               <div class="d-flex flex-nowrap">
-                <div class="order-3 p-2" id="original"></div>
-                <div class="order-2 p-2">Second flex item</div>
-                <div class="order-1 p-2">Third flex item</div>
+                <div class="order-1 p-2 textarea" id="original">Name:</div>
+                <div class="order-2 p-2 textarea">Email:</div>
+                <div class="order-3 p-2 textarea">Contact-No:</div>
               </div>
-              <div class="p-2">Flex item 2</div>
-              <div class="p-2">Flex item 3</div>
-            </div>
-            <div class="d-flex flex-column-reverse">
-              <div class="p-2">Flex item 1</div>
-              <div class="p-2">Flex item 2</div>
-              <div class="p-2">Flex item 3</div>
+              <div class="d-flex flex-column-reverse">
+                <div class="p-2">Flex item 1</div>
+                <div class="p-2">Flex item 2</div>
+                <div class="p-2">Flex item 3</div>
+              </div>
             </div>
           </div>
         </div>
       </div>
+        
+      
+ 
     </div>
-
+ 
       
 
     <!-- Optional JavaScript -->
