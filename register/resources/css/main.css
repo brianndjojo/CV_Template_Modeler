@@ -110,7 +110,7 @@ div.landing-content2{
 
 
 
-.pace {
+/*.pace {
     pointer-events: none;
     user-select: none;
     z-index: 2000;
@@ -145,7 +145,7 @@ div.landing-content2{
   .pace.pace-inactive {
     display: none;
   }
-  
+  */
   /*#preloader{
     width:100%;
     height:100vh;
