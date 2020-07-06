@@ -1,4 +1,5 @@
 body{
+    overflow-x: hidden;
     background-color: rgba(26, 30, 43);
     min-height: 100%;
 }
@@ -42,7 +43,7 @@ body{
 }
 
 
-@media only screen and (max-width: 840px) {
+@media only screen and (max-width: 850px) {
     #registrationCarousel{
         display: none;
         margin: 0;

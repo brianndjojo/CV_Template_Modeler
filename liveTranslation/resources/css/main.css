@@ -1,26 +1,50 @@
 html,body{
-    height: 100%;
+    overflow-x: hidden;
+    min-width: 100%;
+    min-height: 100%;
+    
+}
+
+hr{
+    color: white;
 }
 
 #contentSection{
-    height: 100%;
+    min-height: 100%;
 }
 
 #detailsSection{
     padding: 0 0 0 0;
     color: white;
-    background: rgb(44, 47, 51); 
+    background: rgba(26, 30, 43);
     height: 100%;
 }
 
 #cvSection{
     padding: 0 0 0 0;
+    width: 100%;
+}
+
+@media only screen and (max-width: 850px) {
+    #cvSection{
+        display: none;
+        margin: 0;
+        padding: 0;
+    }
 }
 
 .form-control{
     background: rgba(0, 0, 0, 0.9);
 }
 
+.custom-select{
+    fill: white;
+    background: rgba(0, 0, 0, 0.9);
+}
+
+.textarea{
+    font-size: 1em;
+}
 .footer-copyright{
     color: white;
     background: rgba(0, 0, 0, 0.3);

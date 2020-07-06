@@ -53,18 +53,18 @@
 
     
 
-    <div id="contentSection" class="d-md-flex h-md-100">
+    <div id="contentSection" class="row d-md-flex h-md-100">
 
       <!-- First Half -->
         
-      <div id="detailsSection"" class="col-md-6 p-0 bg-indigo h-md-100">
+      <div id="detailsSection" class="col-md-6 p-0 bg-indigo h-md-100">
         <div class="d-md-flex h-100 p-5 justify-content-center">
           <div class="pt-0 pb-0">
             <form>
-              <label>Personal Details</label>
+              <label><b>Personal Details</b></label>
               <div class="form-row">
                 <div class="col-md-3  mb-3">
-                  <select class="custom-select mr-sm-2" id="inlineFormCustomSelect">
+                  <select class="custom-select mr-sm-2 text-light" id="inlineFormCustomSelect">
                     <option selected>Choose...</option>
                     <option>Dr.</option>
                     <option>Mr.</option>
@@ -96,19 +96,47 @@
                     <input type="text" class="form-control" placeholder="University">
                   </div>
                 </div>
-                <button type="button" class="mb-6 btn btn-outline-light">Submit</button>
+                <button type="button" class="btn btn-outline-light">Edit</button>
+                <hr/>
 
-
-                <div><label>Research Interest</label></div>
+                <div><label><b>Research Interest</b></label></div>
                 <div class="form-row">
-                  <div class="col-md-6 mb-3">
-                    <input type="text" class="form-control" placeholder="Email">
+                  <div class="col-md-12 mb-3">
+                    <input type="text" class="form-control" placeholder="Fill out your research interests.">
                   </div>
-                  <div class="col-md-6">
-                    <input type="text" class="form-control" placeholder="Phone Number">
+                </div>
+                <button type="button" class="btn btn-outline-light">Edit</button>
+                <hr/>
+
+                <div><label><b>Publication</b></label></div>
+                <div class="form-row">
+                  <div class="col-md-5 mb-3">
+                    <input type="text" class="form-control" placeholder="Authors">
                   </div>
-                
-              </div>
+                  <div class="col-md-4  mb-3">
+                    <input type="text" class="form-control" placeholder="Article-Title">
+                  </div>
+                  <div class="col-md-3  mb-3">
+                    <input type="date" class="form-control" placeholder="Issue-Date">
+                  </div>
+                </div>
+                <button type="button" class="btn btn-outline-light">Add</button>
+                <hr/>
+
+                <div><label><b>Others</b></label></div>
+                <div class="form-row">
+                  <div class="col-md-5 mb-3">
+                    <input type="text" class="form-control" placeholder="Authors">
+                  </div>
+                  <div class="col-md-4  mb-3">
+                    <input type="text" class="form-control" placeholder="Article-Title">
+                  </div>
+                  <div class="col-md-3  mb-3">
+                    <input type="date" class="form-control" placeholder="Issue-Date">
+                  </div>
+                </div>
+                <button type="button" class="btn btn-outline-light">Add</button>
+                <hr/>
             </form>
           </div>
         </div>
@@ -116,21 +144,37 @@
         
       <!-- Second Half -->
       
-      <div id="cvSection"" class="col-md-6 p-0 bg-indigo h-md-100">
-        <div class="d-md-flex h-100 p-5 justify-content-center">
+      <div id="cvSection"" class="col-md-6 p-0 mt-3 bg-indigo h-md-100">
+        
+        <!--Personal Details-->
+        <div class="d-md-flex flex-nowrap h-100 p-5">
           <div class="pt-0 pb-0">
-            <div class="d-flex flex-column">
-              <div class="d-flex flex-nowrap">
-                <div class="order-1 p-2 textarea" id="original">Name:</div>
-                <div class="order-2 p-2 textarea">Email:</div>
-                <div class="order-3 p-2 textarea">Contact-No:</div>
+              <div class="row">
+                <div class="col-md-12 mb-3">
+                  <div class="order-1 p-2 textarea" id="original">
+                    <h1>NamePlaceHolder</h1>
+                  </div>
+                </div>
               </div>
-              <div class="d-flex flex-column-reverse">
-                <div class="p-2">Flex item 1</div>
-                <div class="p-2">Flex item 2</div>
-                <div class="p-2">Flex item 3</div>
+
+              <div class="row">
+
+                <div class="col-md-6 mb-3">
+                  <div class="order-1 p-2 textarea" id="original">
+                    EmailPlaceHolder
+                  </div>
+                </div>
+
+                <div class="col-md-6 mb-3">
+                  <div class="order-2 p-2 textarea" id="original">
+                    ContactNoPlaceHolder
+                  </div>
+                </div>
               </div>
             </div>
+
+           
+
           </div>
         </div>
       </div>
@@ -147,6 +191,22 @@
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
     <script src="resources/js/translation.js"></script>
+
+    <script>
+      gsap.from('form', {opacity: 0, duration: 1, y: -20})
+      gsap.from('label', {opacity: 0, duration: 3})
+
+      $(window).on('resize', function() {
+        var win = $(this);
+        if (win.width() > 850) {
+            $('div#detailsSection').addClass('col-md-6')
+        }
+        else{
+            $('div#detailsSection').removeClass('col-md-6');
+            $('div#detailsSection').addClass('col');
+        }
+      });
+    </script>
   </body>
 </html>
 
