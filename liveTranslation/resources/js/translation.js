@@ -14,34 +14,28 @@ function set(el,text){
  /* setupUpdater will be called once, on page load.
   */
   
-function setupUpdater(index){
+function setupUpdater(){
   var input=document.getElementsByTagName('input')
-    , //orig=document.getElementById('original')
-    orig=document.getElementsByClassName('textarea')
+    , orig=document.getElementById('original')
+    , origClass=document.getElementsByClassName('textarea')
     , oldText=input.value
-    , timeout=null
-    //, selectedIndex=index
-    ;
+    , timeout=null;
   
  /* handleChange is called 50ms after the user stops 
     typing. */
 
 
   function handleChange(){
-    var inputs = document.getElementsByTagName('input');
-    var originals = document.getElementsByClassName('textarea');
-    //var newText = input[selectedIndex].value;
-    console.log(inputs.length);
-    console.log(originals.length);
-    for(i=0; i < inputs.length; i++){
-      inputs[i].addEventListener('change', function(){
-        var newText = 'test';
-        console.log(newText);
-        if (newText==oldText) return; else oldText=newText;
-        set(originals[i], newText);
+    var newText = input[0].value;
+    for(i = 0; i < input.length; i++){
+      input[i].addEventListener('change', function(){
+        newText = input[i].value;
       })
-      
     }
+    console.log(newText);
+    if (newText==oldText) return; else oldText=newText;
+    set(orig, newText);
+
     
   }
   
@@ -73,8 +67,12 @@ for(i = 0; i < retrieve.length; i++){
   })
 }*/
 
-var retrieveIndex = 0;
-setupUpdater(retrieveIndex);
+var retrieve = document.getElementsByTagName('input');
+for( i = 0; i < retrieve.length; i++){
+  document.getElementsByTagName('input')[i].focus();
+}
+
+setupUpdater();
 
 
  
