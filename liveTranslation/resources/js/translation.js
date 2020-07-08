@@ -17,6 +17,8 @@ function set(el,text){
 function setupUpdater(){
   var input=document.getElementsByTagName('input')
     , orig=document.getElementById('original')
+    , foo= document.getElementById('a')
+    , bar= document.getElementById('b')
     , origClass=document.getElementsByClassName('textarea')
     , oldText=input.value
     , timeout=null;
@@ -26,15 +28,25 @@ function setupUpdater(){
 
 
   function handleChange(){
-    var newText = input[0].value;
-    for(i = 0; i < input.length; i++){
-      input[i].addEventListener('change', function(){
+    var newText1 = input[1].value;
+    var newText2 = input[2].value;
+    
+    var newText0 = input[0].value;
+    
+    var selectedIndex = 0;
+    for(i = 0; i < input.length-1; i++){
+      input[i].addEventListener("change", function(){
         newText = input[i].value;
+        selectedIndex = i
+        console.log("log: " + i); //12
       })
     }
-    console.log(newText);
-    if (newText==oldText) return; else oldText=newText;
-    set(orig, newText);
+    console.log(input.length, newText0, input[1].value, input[2].value, selectedIndex);
+    // if (newText==oldText) return; else oldText=newText;
+    set(orig, newText0);
+    set(foo, newText1);
+    
+    set(bar, newText2);
 
     
   }
