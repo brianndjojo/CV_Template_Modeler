@@ -16,11 +16,12 @@ function set(el,text){
   
 function setupUpdater(){
   var input=document.getElementsByTagName('input')
-    , orig=document.getElementById('original')
-    , foo= document.getElementById('a')
-    , bar= document.getElementById('b')
-    , origClass=document.getElementsByClassName('textarea')
-    , oldText=input.value
+    , name=document.getElementById('namePlaceHolder')
+    , email=document.getElementById('emailPlaceHolder')
+    , contactTemp=document.getElementById('phonePlaceHolder')
+    , univ=document.getElementById('universityPlaceHolder')
+    , depart=document.getElementById('departmentPlaceHolder')
+    , researchTemp=document.getElementById('researchInterestPlaceHolder')
     , timeout=null;
   
  /* handleChange is called 50ms after the user stops 
@@ -28,26 +29,25 @@ function setupUpdater(){
 
 
   function handleChange(){
-    var newText1 = input[1].value;
-    var newText2 = input[2].value;
-    
-    var newText0 = input[0].value;
-    
-    var selectedIndex = 0;
-    for(i = 0; i < input.length-1; i++){
-      input[i].addEventListener("change", function(){
-        newText = input[i].value;
-        selectedIndex = i
-        console.log("log: " + i); //12
-      })
-    }
-    console.log(input.length, newText0, input[1].value, input[2].value, selectedIndex);
+    var fullName = document.getElementById('maritalStatus').value + ' ' + input[0].value + ' ' + input[1].value;
+    var emailAddr = input[2].value;
+    var contactNo = input[3].value;
+    var university = input[4].value;
+    var department = input[5].value;
+    var researchInterest = input[6].value;
     // if (newText==oldText) return; else oldText=newText;
-    set(orig, newText0);
-    set(foo, newText1);
-    
-    set(bar, newText2);
+    set(name, fullName);
+    set(email, emailAddr)
+    set(contactTemp, contactNo)
+    set(univ, university);
+    set(depart, department);
+    set(researchTemp, researchInterest);
 
+    for(i = 0; i < config.publications.length; i++){
+      var newPub = config.publications[i][0].value + config.publications[i][1].value + config.publications[i][2].value;
+      set(config.publicationPlaceholders[i], newPub);
+      console.log('test');
+    }
     
   }
   
@@ -63,21 +63,6 @@ function setupUpdater(){
     input[i].onkeydown=input[i].onkeyup=input[i].onclick=eventHandler;
   }
 }
-
-//MODULARIZATION CODE APPEARS TO NOT BE WORKING.
-
-/*var retrieve = document.getElementsByTagName('input');
-var retrieveIndex;
-
-for( i = 0; i < retrieve.length; i++){
-  document.getElementsByTagName('input')[i].focus();
-}
-
-for(i = 0; i < retrieve.length; i++){
-  document.getElementsByTagName('input')[i].addEventListener('keydown',function(){
-    retrieveIndex = i;
-  })
-}*/
 
 var retrieve = document.getElementsByTagName('input');
 for( i = 0; i < retrieve.length; i++){

@@ -64,8 +64,8 @@
               <label><b>Personal Details</b></label>
               <div class="form-row">
                 <div class="col-md-3  mb-3">
-                  <select class="custom-select mr-sm-2 text-light" id="inlineFormCustomSelect">
-                    <option selected>Choose...</option>
+                  <select class="custom-select mr-sm-2 text-light" id="maritalStatus">
+                    <option selected>..</option>
                     <option>Dr.</option>
                     <option>Mr.</option>
                     <option>Ms.</option>
@@ -79,64 +79,65 @@
                   </div>
               </div>
       
-                <div class="form-row">
-                  <div class="col-md-6 mb-3">
-                    <input type="text" class="form-control" placeholder="Email">
-                  </div>
-                  <div class="col-md-6  mb-3">
-                    <input type="text" class="form-control" placeholder="Phone Number">
-                  </div>
+              <div class="form-row">
+                <div class="col-md-6 mb-3">
+                  <input type="text" class="form-control" placeholder="Email">
                 </div>
+                <div class="col-md-6  mb-3">
+                  <input type="text" class="form-control" placeholder="Phone Number">
+                </div>
+              </div>
 
-                <div class="form-row">
-                  <div class="col-md-4 mb-3">
-                    <input type="text" class="form-control" placeholder="Department">
-                  </div>
-                  <div class="col-md-8 mb-3">
-                    <input type="text" class="form-control" placeholder="University">
-                  </div>
+              <div class="form-row">
+                <div class="col-md-4 mb-3">
+                  <input type="text" class="form-control" placeholder="Department">
                 </div>
-                <button type="button" class="btn btn-outline-light">Edit</button>
-                <hr/>
+                <div class="col-md-8 mb-3">
+                  <input type="text" class="form-control" placeholder="University">
+                </div>
+              </div>
+              <hr/>
 
-                <div><label><b>Research Interest</b></label></div>
-                <div class="form-row">
-                  <div class="col-md-12 mb-3">
-                    <input type="text" class="form-control" placeholder="Fill out your research interests.">
-                  </div>
+              <div><label><b>Research Interest</b></label></div>
+              <div class="form-row">
+                <div class="col-md-12 mb-3">
+                  <input type="text" class="form-control" placeholder="Fill out your research interests.">
                 </div>
-                <button type="button" class="btn btn-outline-light">Edit</button>
-                <hr/>
+              </div>
+              <hr/>
 
-                <div><label><b>Publication</b></label></div>
-                <div class="form-row">
-                  <div class="col-md-5 mb-3">
-                    <input type="text" class="form-control" placeholder="Authors">
-                  </div>
-                  <div class="col-md-4  mb-3">
-                    <input type="text" class="form-control" placeholder="Article-Title">
-                  </div>
-                  <div class="col-md-3  mb-3">
-                    <input type="date" class="form-control" placeholder="Issue-Date">
-                  </div>
+              <div><label><b>Publication</b></label></div>
+              <div class="form-row">
+                <div class="col-md-5 mb-3">
+                  <input type="text" class="form-control inputPublications" placeholder="Authors">
                 </div>
-                <button type="button" class="btn btn-outline-light">Add</button>
-                <hr/>
+                <div class="col-md-4  mb-3">
+                  <input type="text" class="form-control inputPublications" placeholder="Article-Title">
+                </div>
+                <div class="col-md-3  mb-3">
+                  <input type="date" class="form-control inputPublications" placeholder="Issue-Date">
+                </div>
+              </div>
+              <div id="fillingPos"></div>
+              <button type="button" class="btn btn-outline-light" id="addPublication">Add</button>
+              <button type="button" class="btn btn-outline-light" id="removePublication">Remove</button>
+              <hr/>
 
-                <div><label><b>Others</b></label></div>
-                <div class="form-row">
-                  <div class="col-md-5 mb-3">
-                    <input type="text" class="form-control" placeholder="Authors">
-                  </div>
-                  <div class="col-md-4  mb-3">
-                    <input type="text" class="form-control" placeholder="Article-Title">
-                  </div>
-                  <div class="col-md-3  mb-3">
-                    <input type="date" class="form-control" placeholder="Issue-Date">
-                  </div>
+              <div><label><b>Others</b></label></div>
+              <div class="form-row">
+                <div class="col-md-5 mb-3">
+                  <input type="text" class="form-control" placeholder="Authors">
                 </div>
-                <button type="button" class="btn btn-outline-light">Add</button>
-                <hr/>
+                <div class="col-md-4  mb-3">
+                  <input type="text" class="form-control" placeholder="Article-Title">
+                </div>
+                <div class="col-md-3  mb-3">
+                  <input type="date" class="form-control" placeholder="Issue-Date">
+                </div>
+              </div>
+              <button type="button" class="btn btn-outline-light">Add</button>
+              <button type="button" class="btn btn-outline-light" id="removeOthers">Remove</button>
+              <hr/>
             </form>
           </div>
         </div>
@@ -144,56 +145,53 @@
         
       <!-- Second Half -->
       
-      <div id="cvSection"" class="col-md-6 p-0 mt-3 bg-indigo h-md-100">
-        
+      <div id="cvSection"" class="col-md-6 p-0 bg-indigo h-md-100">
         <!--Personal Details-->
-        <div class="d-md-flex flex-nowrap h-100 p-5">
-          <div class="pt-0 pb-0">
-
-              <div class="row">
-                <div class="col-md-12 mb-3">
-                  <div class="order-1 p-2 textarea" id="original">
-                    <h1>NamePlaceHolder</h1>
-                  </div>
-                </div>
+        <div class="row w-100 borderTemplate" id="personalDetails">
+          <div class="col">
+            <div class="d-flex">
+              <div class="mr-auto p-2">
+                <p id="namePlaceHolder">NamePlaceHolder</p>
+                <p id="universityPlaceHolder">University PlaceHolder</p>
+                <p id="departmentPlaceHolder">Department PlaceHolder</p>
               </div>
-
-              <div class="row">
-
-                <div class="col-md-6 mb-3" >
-                  <div class="order-1 p-2 textarea" id = "a">
-                    <h1>EmailPlaceHolder</h1>
-                  </div>
-                </div>
-
-                <div class="col-md-6 mb-3" >
-                  <div class="order-2 p-2 textarea" id = "b" >
-                    ContactNoPlaceHolder
-                  </div>
-                </div>
-                
-              </div>
+              <div class="p-2" id="emailPlaceHolder">Email PlaceHolder</div>
+              <div class="p-2" id="phonePlaceHolder">Contact PlaceHolder</div>
+            </div>
           </div>
-
-           
-
         </div>
-        
+         
+
+        <div class="row w-100 borderTemplate" id="researchInterest">
+          <div class="col">
+            <div class="d-flex">
+              <div class="p-2">
+                <p id="researchInterestPlaceHolder">ResearchInterestPlaceHolder</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="row" id="publications"></div>
+        <div class="row" id="others"></div>
+
+        <div class="row " id="education"></div>
+        <div class="row" id="workHistory"></div>
+        <div class="row" id="additionalSkills"></div>
+        <div class="row" id="references"></div>
+        <div class="row" id="phdSynopsis"></div>
       </div>
-        
-      
- 
     </div>
  
       
-
-    <!-- Optional JavaScript -->
+<!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+    <script src="resources/js/config.js"></script>
     <script src="resources/js/translation.js"></script>
-
+    <script src="resources/js/addPublication.js"></script>
     <script>
       $(window).on('resize', function() {
         var win = $(this);

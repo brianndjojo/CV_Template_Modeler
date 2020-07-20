@@ -5,6 +5,16 @@ html,body{
     
 }
 
+html::-webkit-scrollbar {
+    display: none;
+}
+  
+  /* Hide scrollbar for IE, Edge and Firefox */
+html{
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+}
+
 hr{
     color: white;
 }
@@ -18,11 +28,13 @@ hr{
     color: white;
     background: rgba(26, 30, 43);
     height: 100%;
+    overflow: auto;
 }
 
 #cvSection{
     padding: 0 0 0 0;
     width: 100%;
+    overflow: auto;
 }
 
 @media only screen and (max-width: 850px) {
@@ -45,7 +57,16 @@ hr{
 .textarea{
     font-size: 1em;
 }
+
 .footer-copyright{
     color: white;
     background: rgba(0, 0, 0, 0.3);
+}
+
+.borderTemplate{
+    border-bottom: 1px dashed black;
+}
+
+#removePublication{
+    display: none;
 }
