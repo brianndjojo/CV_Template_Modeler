@@ -70,3 +70,7 @@ hr{
 #removePublication{
     display: none;
 }
+
+#removeOthers{
+    display: none;
+}

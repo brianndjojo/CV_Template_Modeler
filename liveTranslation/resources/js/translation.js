@@ -10,7 +10,6 @@ function set(el,text){
     el.removeChild(el.firstChild);
   el.appendChild(document.createTextNode(text))
 }
-  
  /* setupUpdater will be called once, on page load.
   */
   
@@ -35,6 +34,7 @@ function setupUpdater(){
     var university = input[4].value;
     var department = input[5].value;
     var researchInterest = input[6].value;
+    var newPub, newOthers;
     // if (newText==oldText) return; else oldText=newText;
     set(name, fullName);
     set(email, emailAddr)
@@ -43,12 +43,20 @@ function setupUpdater(){
     set(depart, department);
     set(researchTemp, researchInterest);
 
-    for(i = 0; i < config.publications.length; i++){
-      var newPub = config.publications[i][0].value + config.publications[i][1].value + config.publications[i][2].value;
-      set(config.publicationPlaceholders[i], newPub);
-      console.log('test');
+    console.log(config.actionPub);
+    for(i = 0; i < config.publicationPlaceholders.length; i++){
+      newPub = config.publications[i][0].value + config.publications[i][1].value + config.publications[i][2].value;
+      console.log(config.publications[i][0].value );
+      
+      set(config.publicationPlaceholders[i], newPub)
     }
-    
+
+    for(i = 0; i < config.otherPlaceholders.length; i++){
+      newOthers = config.others[i][0].value + config.others[i][1].value + config.others[i][2].value;
+      console.log(config.others[i][0].value );
+      
+      set(config.otherPlaceholders[i], newOthers)
+    }
   }
   
  /* eventHandler is called on keyboard and mouse events.
@@ -64,12 +72,6 @@ function setupUpdater(){
   }
 }
 
-var retrieve = document.getElementsByTagName('input');
-for( i = 0; i < retrieve.length; i++){
-  document.getElementsByTagName('input')[i].focus();
-}
-
 setupUpdater();
-
 
  

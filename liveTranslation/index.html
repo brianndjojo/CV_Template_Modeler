@@ -118,7 +118,7 @@
                   <input type="date" class="form-control inputPublications" placeholder="Issue-Date">
                 </div>
               </div>
-              <div id="fillingPos"></div>
+              <div id="fillingPublication"></div>
               <button type="button" class="btn btn-outline-light" id="addPublication">Add</button>
               <button type="button" class="btn btn-outline-light" id="removePublication">Remove</button>
               <hr/>
@@ -126,16 +126,17 @@
               <div><label><b>Others</b></label></div>
               <div class="form-row">
                 <div class="col-md-5 mb-3">
-                  <input type="text" class="form-control" placeholder="Authors">
+                  <input type="text" class="form-control inputOthers" placeholder="Authors">
                 </div>
                 <div class="col-md-4  mb-3">
-                  <input type="text" class="form-control" placeholder="Article-Title">
+                  <input type="text" class="form-control inputOthers" placeholder="Article-Title">
                 </div>
                 <div class="col-md-3  mb-3">
-                  <input type="date" class="form-control" placeholder="Issue-Date">
+                  <input type="date" class="form-control inputOthers" placeholder="Issue-Date">
                 </div>
               </div>
-              <button type="button" class="btn btn-outline-light">Add</button>
+              <div id="fillingOthers"></div>
+              <button type="button" class="btn btn-outline-light" id="addOthers">Add</button>
               <button type="button" class="btn btn-outline-light" id="removeOthers">Remove</button>
               <hr/>
             </form>
@@ -149,6 +150,8 @@
         <!--Personal Details-->
         <div class="row w-100 borderTemplate" id="personalDetails">
           <div class="col">
+            <div class="p-2">Personal Details</div>
+
             <div class="d-flex">
               <div class="mr-auto p-2">
                 <p id="namePlaceHolder">NamePlaceHolder</p>
@@ -164,6 +167,7 @@
 
         <div class="row w-100 borderTemplate" id="researchInterest">
           <div class="col">
+            <div class="p-2">Research Interest</div>
             <div class="d-flex">
               <div class="p-2">
                 <p id="researchInterestPlaceHolder">ResearchInterestPlaceHolder</p>
@@ -172,8 +176,16 @@
           </div>
         </div>
 
-        <div class="row" id="publications"></div>
-        <div class="row" id="others"></div>
+        <div class="borderTemplate">
+          <div class="p-2">Publications</div>
+          <div class="d-flex flex-column" id="publications">
+          </div>
+        </div>
+        <div class="borderTemplate">
+          <div class="p-2">Others</div>
+          <div class="d-flex flex-column" id="others">
+          </div>
+        </div>
 
         <div class="row " id="education"></div>
         <div class="row" id="workHistory"></div>
@@ -189,20 +201,24 @@
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+   
     <script src="resources/js/config.js"></script>
+    <script src="resources/js/publications/addPublication.js"></script>
+    <script src="resources/js/publications/addOthers.js"></script>
     <script src="resources/js/translation.js"></script>
-    <script src="resources/js/addPublication.js"></script>
+    
     <script>
       $(window).on('resize', function() {
         var win = $(this);
         if (win.width() > 850) {
-            $('div#detailsSection').addClass('col-md-6')
+            $('div6#detailsSection').addClass('col-md-6')
         }
         else{
             $('div#detailsSection').removeClass('col-md-6');
             $('div#detailsSection').addClass('col');
         }
       });
+      
     </script>
   </body>
 </html>
