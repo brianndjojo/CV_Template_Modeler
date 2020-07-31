@@ -64,7 +64,7 @@ function addOthers(){
 
         outputPos.removeChild(outputPos.lastChild);
         infoPos.removeChild(infoPos.lastChild);
-        if(outputPos.childElementCount < 3){
+        if(outputPos.childElementCount < 2){
             removeButton.style.display = 'none';
         }
            

@@ -1,8 +1,10 @@
 //CONFIGURATIONS FOR PUBLICAIONS
 var config = {
-    actionPub: 0,
+    currentCarousel:0,
+    prevCarousel:0,
     publications: [],
     publicationPlaceholders:[],
     others: [],
-    otherPlaceholders:[]
+    otherPlaceholders:[],
+    
 }
