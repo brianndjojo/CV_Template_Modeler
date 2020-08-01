@@ -96,3 +96,7 @@ hr{
     display: none;
     
 }
+
+.selectPub, .pubOutput{
+    display: none;
+}

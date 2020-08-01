@@ -16,6 +16,8 @@ function switchCarousel(){
             inputs[config.prevCarousel].style.display="none";
             inputs[config.currentCarousel].style.display="block";
             
+            switchSection[config.prevCarousel].classList.remove('active');
+            switchSection[config.currentCarousel].classList.add('active');
             console.log(config.currentCarousel);
             console.log(config.prevCarousel);
             

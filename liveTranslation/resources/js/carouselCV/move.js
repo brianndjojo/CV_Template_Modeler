@@ -2,7 +2,7 @@ function moveCV(){
     var inputs = document.getElementsByClassName('detailsForm');
     var nextButton = document.getElementsByClassName('nextButton');
     var prevButton = document.getElementsByClassName('prevButton');
-        
+    var switchSection = document.getElementsByClassName('switchSection');
 
     inputs[config.currentCarousel].style.display="block";
 
@@ -14,6 +14,9 @@ function moveCV(){
 
                 inputs[config.prevCarousel].style.display="none";
                 inputs[config.currentCarousel].style.display="block";
+
+                switchSection[config.prevCarousel].classList.remove('active');
+                switchSection[config.currentCarousel].classList.add('active');
             }
             console.log(config.currentCarousel);
         })
@@ -27,6 +30,9 @@ function moveCV(){
                 config.currentCarousel--;
                 inputs[config.prevCarousel].style.display="none";
                 inputs[config.currentCarousel].style.display="block";
+                
+                switchSection[config.prevCarousel].classList.remove('active');
+                switchSection[config.currentCarousel].classList.add('active');
             }
             console.log(config.currentCarousel);
         })

@@ -62,7 +62,7 @@
           <div class="pt-0 pb-0">
             <form>
              
-              <div class="dropdown mb-2">
+              <div class="dropdown mb-2" id="dropdownSections">
                 <div><label class="mr-3"><b>Switch Sections</b></label></div>
                 <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                   Select
@@ -140,24 +140,65 @@
 
               <div id="publicationsInput" class="detailsForm">
                 <div><label><b><h1>Publications</h1></b></label></div>
-                <div><label class="mr-3">Please select a type of publication...</label></div>
-                <div class="form-row">
-                  <div class="col-md-5 mb-3">
-                    <input type="text" class="form-control inputPublications" placeholder="Authors">
-                  </div>
-                  <div class="col-md-4  mb-3">
-                    <input type="text" class="form-control inputPublications" placeholder="Article-Title">
-                  </div>
-                  <div class="col-md-3  mb-3">
-                    <input type="date" class="form-control inputPublications" placeholder="Issue-Date">
+                
+                
+                <div class="dropdown mb-3" id="dropdownPubs">
+                  <label class="mr-1">Please select a type of publication...</label>
+                  <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Choose...
+                  </button>
+                  <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
+                    <button class="dropdown-item" type="button"><input type="checkbox" class="form-check-input mr-2 switchPublication"><label class="pubCarousel">Journal Manuscripts</label></button>
+                    <button class="dropdown-item" type="button"><input type="checkbox" class="form-check-input mr-2 switchPublication"><label class="pubCarousel">Conference Manuscripts</label></button>
+                    <button class="dropdown-item" type="button"><input type="checkbox" class="form-check-input mr-2 switchPublication"><label class="pubCarousel">Monographs</label></button>
+                    <button class="dropdown-item" type="button"><input type="checkbox" class="form-check-input mr-2 switchPublication"><label class="pubCarousel">Book Chapters</label></button>
+                    <button class="dropdown-item" type="button"><input type="checkbox" class="form-check-input mr-2 switchPublication"><label class="pubCarousel">Under Review</label></button>
+                    <button class="dropdown-item" type="button"><input type="checkbox" class="form-check-input mr-2 switchPublication"><label class="pubCarousel">Pending Submission</label></button>
+                    <button class="dropdown-item" type="button"><input type="checkbox" class="form-check-input mr-2 switchPublication"><label class="pubCarousel">Patents</label></button>
                   </div>
                 </div>
-                <div id="fillingPublication"></div>
+
+                <!--Journal Manuscripts-->
+                <div class="selectPub">
+                  <div><label class="mr-3"><b>Journal Manuscripts</b></label></div>
+                  <div class="form-row">
+                    <div class="col-md-5 mb-3">
+                      <input type="text" class="form-control inputPublications" placeholder="Authors">
+                    </div>
+                    <div class="col-md-4  mb-3">
+                      <input type="text" class="form-control inputPublications" placeholder="Article-Title">
+                    </div>
+                    <div class="col-md-3  mb-3">
+                      <input type="date" class="form-control inputPublications" placeholder="Issue-Date">
+                    </div>
+                  </div>
+                  <div id="fillingPublication"></div>
+                  <button type="button" class="btn btn-outline-light p-2" id="addPublication">Add</button>
+                  <button type="button" class="btn btn-outline-light ml-1 p-2" id="removePublication">Remove</button>
+                </div>
+
+                <!--Conference Manuscripts-->
+                <div class="selectPub">
+                  <div><label class="mr-3"><b>Conference Manuscripts</b></label></div>
+                  <div class="form-row">
+                    <div class="col-md-5 mb-3">
+                      <input type="text" class="form-control inputConference" placeholder="Authors">
+                    </div>
+                    <div class="col-md-4  mb-3">
+                      <input type="text" class="form-control inputConference" placeholder="Article-Title">
+                    </div>
+                    <div class="col-md-3  mb-3">
+                      <input type="date" class="form-control inputConference" placeholder="Issue-Date">
+                    </div>
+                  </div>
+                  <div id="fillingConference"></div>
+                  <button type="button" class="btn btn-outline-light p-2" id="addConference">Add</button>
+                  <button type="button" class="btn btn-outline-light ml-1 p-2" id="removeConference">Remove</button>
+                </div>
+               
                 
 
                 <div class="d-flex">
-                  <button type="button" class="btn btn-outline-light p-2" id="addPublication">Add</button>
-                  <button type="button" class="btn btn-outline-light ml-1 p-2" id="removePublication">Remove</button>
                   <button type="button" class="btn btn-outline-light ml-auto p-2 prevButton"><</button>
                   <button type="button" class="btn btn-outline-light ml-1 p-2 nextButton">></button>
                 </div>
@@ -232,11 +273,18 @@
           </div>
         </div>
 
-        <div class="borderTemplate">
-          <div class="p-2"><b>Publications</b></div>
+        <div class="borderTemplate pubOutput">
+          <div class="p-2"><b>Journal Manuscripts</b></div>
           <div class="d-flex flex-column" id="publications">
           </div>
         </div>
+
+        <div class="borderTemplate pubOutput">
+          <div class="p-2"><b>Conference Manuscripts</b></div>
+          <div class="d-flex flex-column" id="publications">
+          </div>
+        </div>
+
         <div class="borderTemplate">
           <div class="p-2"><b>Others</b></div>
           <div class="d-flex flex-column" id="others">
@@ -265,7 +313,8 @@
     
     <script src="resources/js/carouselCV/move.js"></script>
     <script src="resources/js/carouselCV/switchSection.js"></script>
-    <script src="resources/js/publications/addPublication.js"></script>
+    <script src="resources/js/publications/selectPublication.js"></script>
+    <script src="resources/js/publications/addJournal.js"></script>
     <script src="resources/js/publications/addOthers.js"></script>
     <script src="resources/js/translation.js"></script>
     
@@ -275,10 +324,12 @@
         var win = $(this);
         if (win.width() > 850) {
             $('div6#detailsSection').addClass('col-md-6')
+            $('.navbar').css({"opacity": "30%"});
         }
         else{
             $('div#detailsSection').removeClass('col-md-6');
             $('div#detailsSection').addClass('col');
+            $('.navbar').css({"opacity": "100%"});
         }
       });
     </script>
@@ -289,6 +340,7 @@
       gsap.from('div#detailsSection', {opacity: 0, duration: 1, y: -10})
       gsap.from('div#cvSection', {opacity: 0, duration: 3})
 
+      //switch sections
       var nextButton = document.getElementsByClassName('nextButton');
       var prevButton = document.getElementsByClassName('prevButton');
       var switchSection = document.getElementsByClassName('switchSection');
@@ -311,7 +363,22 @@
         })
       }
 
-      //animation scripts when sections change!
+      //for adding output publication into cv section
+      var selectpubdrop = document.getElementsByClassName('switchPublication');
+      var outputpubcv = document.getElementsByClassName('pubOutput');
+      var selectpubCarousel = document.getElementsByClassName('pubCarousel');
+      var selectForms = document.getElementsByClassName('selectPub');
+      for(let i = 0; i < selectpubdrop.length; i++){
+        selectpubdrop[i].addEventListener('click', function(){
+          gsap.from(outputpubcv[i], {opacity: 0, duration: 1, x: -20})
+        })
+      }
+      for(let j = 0; j < selectpubCarousel.length; j++){
+        selectpubCarousel[j].addEventListener('click', function(){
+          gsap.from(selectForms[j], {opacity:0, duration:1, x: -20})
+        })
+      }
+      //for adding publications in form
       var addPubButt = document.getElementById('addPublication');
       var removePubButt = document.getElementById('removePublication');
       var addOthersButt = document.getElementById('addOthers');
@@ -330,6 +397,7 @@
       /*removePubButt.addEventListener('click', function(){
         gsap.to(infoPosPubs.lastChild, {opacity: 0, duration: 1, x: 20})
       })*/
+      
       
     </script>
 
