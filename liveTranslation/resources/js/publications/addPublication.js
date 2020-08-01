@@ -8,7 +8,6 @@ function addPublication(){
     var init = document.getElementsByClassName('inputPublications');
     var initFields = [];
 
-    var delayInMilliseconds = 1000; //1 second
     
     initFields.push(init[0]);
     initFields.push(init[1]);
@@ -64,9 +63,8 @@ function addPublication(){
         config.publications.pop(config.publications);
         config.publicationPlaceholders.pop(config.publicationPlaceholders);   
 
-        gsap.to(infoPos.lastChild, {opacity: 0, duration: 1, y: 20})
-        outputPos.removeChild(outputPos.lastChild);
-        infoPos.removeChild(infoPos.lastChild);
+        setTimeout()
+        
         if(outputPos.childElementCount < 2){
             removeButton.style.display = 'none';
         }
