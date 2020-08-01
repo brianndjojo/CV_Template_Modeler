@@ -7,7 +7,6 @@ function addPublication(){
     
     var init = document.getElementsByClassName('inputPublications');
     var initFields = [];
-
     
     initFields.push(init[0]);
     initFields.push(init[1]);
@@ -63,8 +62,9 @@ function addPublication(){
         config.publications.pop(config.publications);
         config.publicationPlaceholders.pop(config.publicationPlaceholders);   
 
-        setTimeout()
-        
+        outputPos.removeChild(outputPos.lastChild);
+        infoPos.removeChild(infoPos.lastChild);
+
         if(outputPos.childElementCount < 2){
             removeButton.style.display = 'none';
         }
