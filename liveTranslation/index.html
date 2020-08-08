@@ -539,6 +539,14 @@
       var removeReviewButt = document.getElementById('removeReview');
       var infoPosReview = document.getElementById('fillingReview');
 
+      var addPendingButt = document.getElementById('addPending');
+      var removePendingButt = document.getElementById('removePending');
+      var infoPosPending = document.getElementById('fillingPending');
+
+      var addPatentButt = document.getElementById('addPatents');
+      var removePatentButt = document.getElementById('removePatents');
+      var infoPosPatents = document.getElementById('fillingPatents')
+
       var addOthersButt = document.getElementById('addOthers');
       var removeOthersButt = document.getElementById('addOthers');
       var infoPosOthers = document.getElementById('fillingOthers');
@@ -563,6 +571,17 @@
       addReviewButt.addEventListener('click', function(){
         gsap.from(infoPosReview.lastChild, {opacity:0, duration:1, y:-20})
       })
+
+      //Pending Submissions
+      addPendingButt.addEventListener('click', function(){
+        gsap.from(infoPosPending.lastChild, {opacity:0, duration:1, y:-20})
+      })
+
+      //Patents
+      addPatentButt.addEventListener('click', function(){
+        gsap.from(infoPosPatents.lastChild, {opacity:0, duration: 1, y:-20})
+      })
+
       //Others
       addOthersButt.addEventListener('click', function(){
         gsap.from(infoPosOthers.lastChild, {opacity: 0, duration: 1, y: -20})
