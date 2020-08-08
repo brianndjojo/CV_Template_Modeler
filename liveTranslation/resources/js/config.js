@@ -17,6 +17,15 @@ var config = {
     chapters:[],
     chaptersPlaceholders:[],
 
+    reviews:[],
+    reviewsPlaceholders:[],
+
+    pendings:[],
+    pendingsPlaceholders:[],
+
+    patents:[],
+    patentsPlaceholders:[],
+
     others: [],
     otherPlaceholders:[],
     

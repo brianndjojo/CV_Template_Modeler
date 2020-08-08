@@ -286,7 +286,7 @@
                       <input type="date" class="form-control inputPatents" placeholder="Issue-Date">
                     </div>
                   </div>
-                  <div id="fillingPending"></div>
+                  <div id="fillingPatents"></div>
                   <button type="button" class="btn btn-outline-light p-2" id="addPatents">Add</button>
                   <button type="button" class="btn btn-outline-light ml-1 p-2" id="removePatents">Remove</button>
                 </div>
@@ -449,6 +449,9 @@
     <script src="resources/js/publications/addConference.js"></script>
     <script src="resources/js/publications/addMonograph.js"></script>
     <script src="resources/js/publications/addChapter.js"></script>
+    <script src="resources/js/publications/addReview.js"></script>
+    <script src="resources/js/publications/addPending.js"></script>
+    <script src="resources/js/publications/addPatent.js"></script>
     <script src="resources/js/publications/addOthers.js"></script>
     
     <script src="resources/js/translation.js"></script>
@@ -515,25 +518,52 @@
       }
       
       //for adding publications in form
+      
       var addPubButt = document.getElementById('addPublication');
       var removePubButt = document.getElementById('removePublication');
       var infoPosPubs = document.getElementById('fillingPublication');
       
       var addConfButt = document.getElementById('addConference');
       var removeConfButt = document.getElementById('removeConference');
-      var infoPosConf = document.getElementById('fillingConference')
+      var infoPosConf = document.getElementById('fillingConference');
+
+      var addMonButt = document.getElementById('addMonograph');
+      var removeMonButt = document.getElementById('removeMonograph');
+      var infoPosMon = document.getElementById('fillingMonograph');
+
+      var addChapButt = document.getElementById('addChapter');
+      var removeChapButt = document.getElementById('removeChapter');
+      var infoPosChapter = document.getElementById('fillingChapter');
+
+      var addReviewButt = document.getElementById('addReview');
+      var removeReviewButt = document.getElementById('removeReview');
+      var infoPosReview = document.getElementById('fillingReview');
 
       var addOthersButt = document.getElementById('addOthers');
       var removeOthersButt = document.getElementById('addOthers');
       var infoPosOthers = document.getElementById('fillingOthers');
      
-
+      //Journals
       addPubButt.addEventListener('click', function(){
         gsap.from(infoPosPubs.lastChild, {opacity: 0, duration: 1, y: -20})
       })
+      //Conferences
       addConfButt.addEventListener('click', function(){
         gsap.from(infoPosConf.lastChild, {opacity: 0, duration: 1, y:-20})
       })
+      //Monographs
+      addMonButt.addEventListener('click', function(){
+        gsap.from(infoPosMon.lastChild, {opacity:0, duration: 1, y:-20})
+      })
+      //Book Chapters
+      addChapButt.addEventListener('click', function(){
+        gsap.from(infoPosChapter.lastChild, {opacity:0, duration: 1, y:-20})
+      })
+      //Reviews
+      addReviewButt.addEventListener('click', function(){
+        gsap.from(infoPosReview.lastChild, {opacity:0, duration:1, y:-20})
+      })
+      //Others
       addOthersButt.addEventListener('click', function(){
         gsap.from(infoPosOthers.lastChild, {opacity: 0, duration: 1, y: -20})
       })

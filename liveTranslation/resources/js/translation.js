@@ -69,6 +69,24 @@ function setupUpdater(){
       set(config.chaptersPlaceholders[m], newChapter);
     }
 
+    //Under Review
+    for(let n = 0; n < config.reviewsPlaceholders.length; n++){
+      newReview = config.reviews[n][0].value + config.reviews[n][1].value + config.reviews[n][2].value;
+      set(config.reviewsPlaceholders[n], newReview);
+    }
+
+    //Pending Submissions
+    for(let o = 0; o < config.pendingsPlaceholders.length; o++){
+      newPending = config.pendings[o][0].value + config.pendings[o][1].value + config.pendings[o][2].value;
+      set(config.pendingsPlaceholders[o], newPending);
+    }
+
+    //Patents
+    for(let p = 0; p < config.patentsPlaceholders.length; p++){
+      newPatents = config.patents[p][0].value + config.patents[p][1].value + config.patents[p][2].value;
+      set(config.patentsPlaceholders[p], newPatents);
+    }
+
     //Others
     for(let j = 0; j < config.otherPlaceholders.length; j++){
       newOthers = config.others[j][0].value + config.others[j][1].value + config.others[j][2].value;
