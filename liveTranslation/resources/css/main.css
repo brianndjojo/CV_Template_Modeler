@@ -21,14 +21,9 @@ hr{
 
 .navbar{
     position: fixed;
-    opacity: 30%;
     width: 100%;
     z-index: 1;
     border-bottom: 1px solid rgb(136, 135, 135);
-}
-.navbar:hover{
-    opacity: 100%;
-    cursor: pointer;
 }
 
 #contentSection{
@@ -84,11 +79,7 @@ hr{
     border-bottom: 1px dashed black;
 }
 
-#removePublication{
-    display: none;
-}
-
-#removeOthers{
+#removePublication, #removeConference, #removeMonograph, #removeChapter, #removeOthers{
     display: none;
 }
 

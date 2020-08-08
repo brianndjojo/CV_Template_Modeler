@@ -2,10 +2,21 @@
 var config = {
     currentCarousel:0,
     prevCarousel:0,
-    //publication inputs
+
+    //publication inputs for Journal
     publications: [],
-    //publication placeholder on cv
+    //publication placeholder for Journal on cv
     publicationPlaceholders:[],
+
+    conferences: [],
+    conferencesPlaceholders:[],
+
+    monographs: [],
+    monographsPlaceholders: [],
+    
+    chapters:[],
+    chaptersPlaceholders:[],
+
     others: [],
     otherPlaceholders:[],
     

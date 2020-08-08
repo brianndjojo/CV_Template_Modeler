@@ -53,7 +53,7 @@
 
     
 
-    <div id="contentSection" class="row d-md-flex h-md-100">
+    <div id="contentSection" class="row d-md-flex h-md-100 pt-5">
 
       <!-- First Half -->
         
@@ -148,13 +148,13 @@
                     Choose...
                   </button>
                   <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
-                    <button class="dropdown-item" type="button"><input type="checkbox" class="form-check-input mr-2 switchPublication"><label class="pubCarousel">Journal Manuscripts</label></button>
-                    <button class="dropdown-item" type="button"><input type="checkbox" class="form-check-input mr-2 switchPublication"><label class="pubCarousel">Conference Manuscripts</label></button>
-                    <button class="dropdown-item" type="button"><input type="checkbox" class="form-check-input mr-2 switchPublication"><label class="pubCarousel">Monographs</label></button>
-                    <button class="dropdown-item" type="button"><input type="checkbox" class="form-check-input mr-2 switchPublication"><label class="pubCarousel">Book Chapters</label></button>
-                    <button class="dropdown-item" type="button"><input type="checkbox" class="form-check-input mr-2 switchPublication"><label class="pubCarousel">Under Review</label></button>
-                    <button class="dropdown-item" type="button"><input type="checkbox" class="form-check-input mr-2 switchPublication"><label class="pubCarousel">Pending Submission</label></button>
-                    <button class="dropdown-item" type="button"><input type="checkbox" class="form-check-input mr-2 switchPublication"><label class="pubCarousel">Patents</label></button>
+                    <button class="dropdown-item" type="button"><input type="checkbox" class="form-check-input mr-3 switchPublication"><label class="pubCarousel">Journal Manuscripts</label></button>
+                    <button class="dropdown-item" type="button"><input type="checkbox" class="form-check-input mr-3 switchPublication"><label class="pubCarousel">Conference Manuscripts</label></button>
+                    <button class="dropdown-item" type="button"><input type="checkbox" class="form-check-input mr-3 switchPublication"><label class="pubCarousel">Monographs</label></button>
+                    <button class="dropdown-item" type="button"><input type="checkbox" class="form-check-input mr-3 switchPublication"><label class="pubCarousel">Book Chapters</label></button>
+                    <button class="dropdown-item" type="button"><input type="checkbox" class="form-check-input mr-3 switchPublication"><label class="pubCarousel">Under Review</label></button>
+                    <button class="dropdown-item" type="button"><input type="checkbox" class="form-check-input mr-3 switchPublication"><label class="pubCarousel">Pending Submission</label></button>
+                    <button class="dropdown-item" type="button"><input type="checkbox" class="form-check-input mr-3 switchPublication"><label class="pubCarousel">Patents</label></button>
                   </div>
                 </div>
 
@@ -195,8 +195,101 @@
                   <button type="button" class="btn btn-outline-light p-2" id="addConference">Add</button>
                   <button type="button" class="btn btn-outline-light ml-1 p-2" id="removeConference">Remove</button>
                 </div>
-               
                 
+                <!--Monographs-->
+                <div class="selectPub">
+                  <div><label class="mr-3"><b>Monographs</b></label></div>
+                  <div class="form-row">
+                    <div class="col-md-5 mb-3">
+                      <input type="text" class="form-control inputMonograph" placeholder="Authors">
+                    </div>
+                    <div class="col-md-4  mb-3">
+                      <input type="text" class="form-control inputMonograph" placeholder="Article-Title">
+                    </div>
+                    <div class="col-md-3  mb-3">
+                      <input type="date" class="form-control inputMonograph" placeholder="Issue-Date">
+                    </div>
+                  </div>
+                  <div id="fillingMonograph"></div>
+                  <button type="button" class="btn btn-outline-light p-2" id="addMonograph">Add</button>
+                  <button type="button" class="btn btn-outline-light ml-1 p-2" id="removeMonograph">Remove</button>
+                </div>
+                
+                 <!--Book Chapters-->
+                 <div class="selectPub">
+                  <div><label class="mr-3"><b>Book Chapters</b></label></div>
+                  <div class="form-row">
+                    <div class="col-md-5 mb-3">
+                      <input type="text" class="form-control inputChapter" placeholder="Authors">
+                    </div>
+                    <div class="col-md-4  mb-3">
+                      <input type="text" class="form-control inputChapter" placeholder="Article-Title">
+                    </div>
+                    <div class="col-md-3  mb-3">
+                      <input type="date" class="form-control inputChapter" placeholder="Issue-Date">
+                    </div>
+                  </div>
+                  <div id="fillingChapter"></div>
+                  <button type="button" class="btn btn-outline-light p-2" id="addChapter">Add</button>
+                  <button type="button" class="btn btn-outline-light ml-1 p-2" id="removeChapter">Remove</button>
+                </div>
+
+                <!--Under Review-->
+                <div class="selectPub">
+                  <div><label class="mr-3"><b>Completed Works (Under Review)</b></label></div>
+                  <div class="form-row">
+                    <div class="col-md-5 mb-3">
+                      <input type="text" class="form-control inputReview" placeholder="Authors">
+                    </div>
+                    <div class="col-md-4  mb-3">
+                      <input type="text" class="form-control inputReview" placeholder="Article-Title">
+                    </div>
+                    <div class="col-md-3  mb-3">
+                      <input type="date" class="form-control inputReview" placeholder="Issue-Date">
+                    </div>
+                  </div>
+                  <div id="fillingReview"></div>
+                  <button type="button" class="btn btn-outline-light p-2" id="addReview">Add</button>
+                  <button type="button" class="btn btn-outline-light ml-1 p-2" id="removeReview">Remove</button>
+                </div>
+
+                 <!--Pending Submissions-->
+                <div class="selectPub">
+                  <div><label class="mr-3"><b>Completed Works (Pending Submission)</b></label></div>
+                  <div class="form-row">
+                    <div class="col-md-5 mb-3">
+                      <input type="text" class="form-control inputPending" placeholder="Authors">
+                    </div>
+                    <div class="col-md-4  mb-3">
+                      <input type="text" class="form-control inputPending" placeholder="Article-Title">
+                    </div>
+                    <div class="col-md-3  mb-3">
+                      <input type="date" class="form-control inputPending" placeholder="Issue-Date">
+                    </div>
+                  </div>
+                  <div id="fillingPending"></div>
+                  <button type="button" class="btn btn-outline-light p-2" id="addPending">Add</button>
+                  <button type="button" class="btn btn-outline-light ml-1 p-2" id="removePending">Remove</button>
+                </div>
+
+                <!--Patents-->
+                <div class="selectPub">
+                  <div><label class="mr-3"><b>Patents</b></label></div>
+                  <div class="form-row">
+                    <div class="col-md-5 mb-3">
+                      <input type="text" class="form-control inputPatents" placeholder="Authors">
+                    </div>
+                    <div class="col-md-4  mb-3">
+                      <input type="text" class="form-control inputPatents" placeholder="Article-Title">
+                    </div>
+                    <div class="col-md-3  mb-3">
+                      <input type="date" class="form-control inputPatents" placeholder="Issue-Date">
+                    </div>
+                  </div>
+                  <div id="fillingPending"></div>
+                  <button type="button" class="btn btn-outline-light p-2" id="addPatents">Add</button>
+                  <button type="button" class="btn btn-outline-light ml-1 p-2" id="removePatents">Remove</button>
+                </div>
 
                 <div class="d-flex">
                   <button type="button" class="btn btn-outline-light ml-auto p-2 prevButton"><</button>
@@ -236,7 +329,7 @@
         
       <!-- Second Half -->
       
-      <div id="cvSection"" class="col-md-6 p-0 bg-indigo h-md-100">
+      <div id="cvSection"" class="col-md-6 p-0 bg-indigo h-md-100 pt-3">
         <!--Personal Details-->
         <div class="row w-100 borderTemplate" id="personalDetails">
           <div class="col">
@@ -261,7 +354,6 @@
           </div>
         </div>
          
-
         <div class="row w-100 borderTemplate" id="researchInterest">
           <div class="col">
             <div class="p-2"><b>Research Interest</b></div>
@@ -273,18 +365,56 @@
           </div>
         </div>
 
+        <!--Journals-->
         <div class="borderTemplate pubOutput">
-          <div class="p-2"><b>Journal Manuscripts</b></div>
+          <div class="p-2"><b>PUBLICATIONS - Journal Manuscripts</b></div>
           <div class="d-flex flex-column" id="publications">
           </div>
         </div>
 
+        <!--Conference-->
         <div class="borderTemplate pubOutput">
-          <div class="p-2"><b>Conference Manuscripts</b></div>
-          <div class="d-flex flex-column" id="publications">
+          <div class="p-2"><b>PUBLICATIONS - Conference Manuscripts</b></div>
+          <div class="d-flex flex-column" id="conferences">
           </div>
         </div>
 
+        <!--Monographs-->
+        <div class="borderTemplate pubOutput">
+          <div class="p-2"><b>PUBLICATIONS - Monographs</b></div>
+          <div class="d-flex flex-column" id="monographs">
+          </div>
+        </div>
+
+        <!--Book Chapters-->
+        <div class="borderTemplate pubOutput">
+          <div class="p-2"><b>PUBLICATIONS - Book Chapters</b></div>
+          <div class="d-flex flex-column" id="chapters">
+          </div>
+        </div>
+
+        <!--Under Review-->
+        <div class="borderTemplate pubOutput">
+          <div class="p-2"><b>PUBLICATIONS - Completed Works (Under Review)</b></div>
+          <div class="d-flex flex-column" id="underReviews">
+          </div>
+        </div>
+
+        <!--Pending Submission-->
+        <div class="borderTemplate pubOutput">
+          <div class="p-2"><b>PUBLICATIONS - Completed Works (Pending Submission)</b></div>
+          <div class="d-flex flex-column" id="pendingSubmissions">
+          </div>
+        </div>
+
+        <!--Patents-->
+        <div class="borderTemplate pubOutput">
+          <div class="p-2"><b>PATENTS</b></div>
+          <div class="d-flex flex-column" id="patents">
+          </div>
+        </div>
+
+        <!--Others-->
         <div class="borderTemplate">
           <div class="p-2"><b>Others</b></div>
           <div class="d-flex flex-column" id="others">
@@ -313,9 +443,14 @@
     
     <script src="resources/js/carouselCV/move.js"></script>
     <script src="resources/js/carouselCV/switchSection.js"></script>
-    <script src="resources/js/publications/selectPublication.js"></script>
+    <script src="resources/js/publications/select/selectPublication.js"></script>
+
     <script src="resources/js/publications/addJournal.js"></script>
+    <script src="resources/js/publications/addConference.js"></script>
+    <script src="resources/js/publications/addMonograph.js"></script>
+    <script src="resources/js/publications/addChapter.js"></script>
     <script src="resources/js/publications/addOthers.js"></script>
+    
     <script src="resources/js/translation.js"></script>
     
     <!--Script for responsive resizing adjustment-->
@@ -378,17 +513,26 @@
           gsap.from(selectForms[j], {opacity:0, duration:1, x: -20})
         })
       }
+      
       //for adding publications in form
       var addPubButt = document.getElementById('addPublication');
       var removePubButt = document.getElementById('removePublication');
+      var infoPosPubs = document.getElementById('fillingPublication');
+      
+      var addConfButt = document.getElementById('addConference');
+      var removeConfButt = document.getElementById('removeConference');
+      var infoPosConf = document.getElementById('fillingConference')
+
       var addOthersButt = document.getElementById('addOthers');
       var removeOthersButt = document.getElementById('addOthers');
-      var infoPosPubs = document.getElementById('fillingPublication');
       var infoPosOthers = document.getElementById('fillingOthers');
      
 
       addPubButt.addEventListener('click', function(){
         gsap.from(infoPosPubs.lastChild, {opacity: 0, duration: 1, y: -20})
+      })
+      addConfButt.addEventListener('click', function(){
+        gsap.from(infoPosConf.lastChild, {opacity: 0, duration: 1, y:-20})
       })
       addOthersButt.addEventListener('click', function(){
         gsap.from(infoPosOthers.lastChild, {opacity: 0, duration: 1, y: -20})
