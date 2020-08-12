@@ -79,7 +79,7 @@ hr{
     border-bottom: 1px dashed black;
 }
 
-#removePublication, #removeConference, #removeMonograph, #removeChapter, #removeReview, #removePending, #removePatents, #removeOthers{
+#removePublication, #removeConference, #removeMonograph, #removeChapter, #removeReview, #removePending, #removePatents, #removeOthers, #removePHD, #removeMasters, #removeBachelors, #removeSecondary{
     display: none;
 }
 
@@ -88,6 +88,6 @@ hr{
     
 }
 
-.selectPub, .pubOutput{
+.selectPub, .selectEducation, .pubOutput, .educationOutput{
     display: none;
 }

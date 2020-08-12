@@ -70,6 +70,8 @@
                 <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
                   <button class="dropdown-item switchSection" type="button">Personal Details</button>
                   <button class="dropdown-item switchSection" type="button">Research Interest</button>
+                  <button class="dropdown-item switchSection" type="button">Current Position</button>
+                  <button class="dropdown-item switchSection" type="button">Education</button>
                   <button class="dropdown-item switchSection" type="button">Publications</button>
                   <button class="dropdown-item switchSection" type="button">Others</button>
                 </div>
@@ -118,8 +120,6 @@
                 
               </div>
 
-          
-
               <div id="researchInterest" class="detailsForm">
                 <div><label><b><h1>Research Interest</h1></b></label></div>
                 <div></div><label class="mr-3">Please describe your field of interest...</label>
@@ -136,7 +136,132 @@
                 </div>
               </div>
 
-              
+              <div id="currentPosition" class="detailsForm">
+                <label><b><h1>Current Position</h1></b></label>
+                <div></div><label class="mr-3">Please enter details about your current position...</label>
+                
+                <div class="form-row">
+                  <div class="col-md-4 mb-3">
+                    <input type="date" class="form-control" placeholder="Date">
+                  </div>
+                  <div class="col-md-4 mb-3">
+                    <input type="text" class="form-control" placeholder="Position">
+                  </div>
+                  <div class="col-md-4 mb-3">
+                    <input type="text" class="form-control" placeholder="Institution">
+                  </div>
+                </div>
+                <div class="d-flex">
+                  <button type="button" class="btn btn-outline-light ml-auto p-2 prevButton"><</button>
+                  <button type="button" class="btn btn-outline-light ml-1 p-2 nextButton">></button>
+                </div>
+                
+              </div>
+
+              <div id="educationInput" class="detailsForm">
+                <label><b><h1>Education</h1></b></label>
+                <div class="dropdown mb-3" id="dropdownEducation">
+                  <div></div><label class="mr-1 mb-3">Please enter details about your attained education...</label>
+                  <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Choose...
+                  </button>
+                  <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
+                    <button class="dropdown-item" type="button"><input type="checkbox" class="form-check-input mr-3 switchEducation"><label class="educationCarousel">Tertiary (Ph.D)</label></button>
+                    <button class="dropdown-item" type="button"><input type="checkbox" class="form-check-input mr-3 switchEducation"><label class="educationCarousel">Tertiary (Masters/MPHIL) </label></button>
+                    <button class="dropdown-item" type="button"><input type="checkbox" class="form-check-input mr-3 switchEducation"><label class="educationCarousel">Tertiary (Bachelors)</label></button>
+                    <button class="dropdown-item" type="button"><input type="checkbox" class="form-check-input mr-3 switchEducation"><label class="educationCarousel">Secondary</label></button>
+                  </div>
+                </div>
+                
+                <!--PHD-->
+                <div class="selectEducation">
+                  <div><label class="mr-3"><b>Tertiary (PHD)</b></label></div>
+                  <div class="form-row">
+                    <div class="col-md-5 mb-3">
+                      <input type="text" class="form-control inputPHD" placeholder="Authors">
+                    </div>
+                    <div class="col-md-4  mb-3">
+                      <input type="text" class="form-control inputPHD" placeholder="Article-Title">
+                    </div>
+                    <div class="col-md-3  mb-3">
+                      <input type="date" class="form-control inputPHD" placeholder="Issue-Date">
+                    </div>
+                  </div>
+                  <div id="fillingPHD"></div>
+
+                  <div class="d-flex">
+                    <button type="button" class="btn btn-outline-light ml-auto p-2 prevButton"><</button>
+                    <button type="button" class="btn btn-outline-light ml-1 p-2 nextButton">></button>
+                  </div>
+                </div>
+
+                 <!--Masters-->
+                 <div class="selectEducation">
+                  <div><label class="mr-3"><b>Tertiary (Masters/MPHIL)</b></label></div>
+                  <div class="form-row">
+                    <div class="col-md-5 mb-3">
+                      <input type="text" class="form-control inputMasters" placeholder="Authors">
+                    </div>
+                    <div class="col-md-4  mb-3">
+                      <input type="text" class="form-control inputMasters" placeholder="Article-Title">
+                    </div>
+                    <div class="col-md-3  mb-3">
+                      <input type="date" class="form-control inputMasters" placeholder="Issue-Date">
+                    </div>
+                  </div>
+                  <div id="fillingMasters"></div>
+
+                  <div class="d-flex">
+                    <button type="button" class="btn btn-outline-light ml-auto p-2 prevButton"><</button>
+                    <button type="button" class="btn btn-outline-light ml-1 p-2 nextButton">></button>
+                  </div>
+                </div>
+
+                 <!--Bachelors-->
+                 <div class="selectEducation">
+                  <div><label class="mr-3"><b>Tertiary (Bachelors)</b></label></div>
+                  <div class="form-row">
+                    <div class="col-md-5 mb-3">
+                      <input type="text" class="form-control inputMasters" placeholder="Authors">
+                    </div>
+                    <div class="col-md-4  mb-3">
+                      <input type="text" class="form-control inputMasters" placeholder="Article-Title">
+                    </div>
+                    <div class="col-md-3  mb-3">
+                      <input type="date" class="form-control inputMasters" placeholder="Issue-Date">
+                    </div>
+                  </div>
+                  <div id="fillingBachelors"></div>
+
+                  <div class="d-flex">
+                    <button type="button" class="btn btn-outline-light ml-auto p-2 prevButton"><</button>
+                    <button type="button" class="btn btn-outline-light ml-1 p-2 nextButton">></button>
+                  </div>
+                </div>
+
+                 <!--Secondary-->
+                 <div class="selectEducation">
+                  <div><label class="mr-3"><b>Secondary</b></label></div>
+                  <div class="form-row">
+                    <div class="col-md-5 mb-3">
+                      <input type="text" class="form-control inputSecondary" placeholder="Authors">
+                    </div>
+                    <div class="col-md-4  mb-3">
+                      <input type="text" class="form-control inputSecondary" placeholder="Article-Title">
+                    </div>
+                    <div class="col-md-3  mb-3">
+                      <input type="date" class="form-control inputSecondary" placeholder="Issue-Date">
+                    </div>
+                  </div>
+                  <div id="fillingSecondary"></div>
+
+                  <div class="d-flex">
+                    <button type="button" class="btn btn-outline-light ml-auto p-2 prevButton"><</button>
+                    <button type="button" class="btn btn-outline-light ml-1 p-2 nextButton">></button>
+                  </div>
+                </div>
+
+              </div>
 
               <div id="publicationsInput" class="detailsForm">
                 <div><label><b><h1>Publications</h1></b></label></div>
@@ -173,8 +298,13 @@
                     </div>
                   </div>
                   <div id="fillingPublication"></div>
-                  <button type="button" class="btn btn-outline-light p-2" id="addPublication">Add</button>
-                  <button type="button" class="btn btn-outline-light ml-1 p-2" id="removePublication">Remove</button>
+
+                  <div class="d-flex">
+                    <button type="button" class="btn btn-outline-light p-2" id="addPublication">Add</button>
+                    <button type="button" class="btn btn-outline-light ml-1 p-2" id="removePublication">Remove</button>
+                    <button type="button" class="btn btn-outline-light ml-auto p-2 prevButton"><</button>
+                    <button type="button" class="btn btn-outline-light ml-1 p-2 nextButton">></button>
+                  </div>
                 </div>
 
                 <!--Conference Manuscripts-->
@@ -192,8 +322,12 @@
                     </div>
                   </div>
                   <div id="fillingConference"></div>
-                  <button type="button" class="btn btn-outline-light p-2" id="addConference">Add</button>
-                  <button type="button" class="btn btn-outline-light ml-1 p-2" id="removeConference">Remove</button>
+                  <div class="d-flex">
+                    <button type="button" class="btn btn-outline-light p-2" id="addConference">Add</button>
+                    <button type="button" class="btn btn-outline-light ml-1 p-2" id="removeConference">Remove</button>
+                    <button type="button" class="btn btn-outline-light ml-auto p-2 prevButton"><</button>
+                    <button type="button" class="btn btn-outline-light ml-1 p-2 nextButton">></button>
+                  </div>
                 </div>
                 
                 <!--Monographs-->
@@ -211,8 +345,13 @@
                     </div>
                   </div>
                   <div id="fillingMonograph"></div>
-                  <button type="button" class="btn btn-outline-light p-2" id="addMonograph">Add</button>
-                  <button type="button" class="btn btn-outline-light ml-1 p-2" id="removeMonograph">Remove</button>
+                
+                  <div class="d-flex">
+                    <button type="button" class="btn btn-outline-light p-2" id="addMonograph">Add</button>
+                    <button type="button" class="btn btn-outline-light ml-1 p-2" id="removeMonograph">Remove</button>
+                    <button type="button" class="btn btn-outline-light ml-auto p-2 prevButton"><</button>
+                    <button type="button" class="btn btn-outline-light ml-1 p-2 nextButton">></button>
+                  </div>
                 </div>
                 
                  <!--Book Chapters-->
@@ -230,8 +369,14 @@
                     </div>
                   </div>
                   <div id="fillingChapter"></div>
-                  <button type="button" class="btn btn-outline-light p-2" id="addChapter">Add</button>
-                  <button type="button" class="btn btn-outline-light ml-1 p-2" id="removeChapter">Remove</button>
+                  
+
+                  <div class="d-flex">
+                    <button type="button" class="btn btn-outline-light p-2" id="addChapter">Add</button>
+                    <button type="button" class="btn btn-outline-light ml-1 p-2" id="removeChapter">Remove</button>
+                    <button type="button" class="btn btn-outline-light ml-auto p-2 prevButton"><</button>
+                    <button type="button" class="btn btn-outline-light ml-1 p-2 nextButton">></button>
+                  </div>
                 </div>
 
                 <!--Under Review-->
@@ -249,8 +394,14 @@
                     </div>
                   </div>
                   <div id="fillingReview"></div>
-                  <button type="button" class="btn btn-outline-light p-2" id="addReview">Add</button>
-                  <button type="button" class="btn btn-outline-light ml-1 p-2" id="removeReview">Remove</button>
+
+                  <div class="d-flex">
+                    <button type="button" class="btn btn-outline-light p-2" id="addReview">Add</button>
+                    <button type="button" class="btn btn-outline-light ml-1 p-2" id="removeReview">Remove</button>
+                    <button type="button" class="btn btn-outline-light ml-auto p-2 prevButton"><</button>
+                    <button type="button" class="btn btn-outline-light ml-1 p-2 nextButton">></button>
+                  </div>
+                  
                 </div>
 
                  <!--Pending Submissions-->
@@ -268,8 +419,14 @@
                     </div>
                   </div>
                   <div id="fillingPending"></div>
-                  <button type="button" class="btn btn-outline-light p-2" id="addPending">Add</button>
-                  <button type="button" class="btn btn-outline-light ml-1 p-2" id="removePending">Remove</button>
+
+                  <div class="d-flex">
+                    <button type="button" class="btn btn-outline-light p-2" id="addPending">Add</button>
+                    <button type="button" class="btn btn-outline-light ml-1 p-2" id="removePending">Remove</button>
+                    <button type="button" class="btn btn-outline-light ml-auto p-2 prevButton"><</button>
+                    <button type="button" class="btn btn-outline-light ml-1 p-2 nextButton">></button>
+                  </div>
+                 
                 </div>
 
                 <!--Patents-->
@@ -287,16 +444,17 @@
                     </div>
                   </div>
                   <div id="fillingPatents"></div>
-                  <button type="button" class="btn btn-outline-light p-2" id="addPatents">Add</button>
-                  <button type="button" class="btn btn-outline-light ml-1 p-2" id="removePatents">Remove</button>
-                </div>
 
-                <div class="d-flex">
-                  <button type="button" class="btn btn-outline-light ml-auto p-2 prevButton"><</button>
-                  <button type="button" class="btn btn-outline-light ml-1 p-2 nextButton">></button>
+                  <div class="d-flex">
+                    <button type="button" class="btn btn-outline-light p-2" id="addPatents">Add</button>
+                    <button type="button" class="btn btn-outline-light ml-1 p-2" id="removePatents">Remove</button>
+                    <button type="button" class="btn btn-outline-light ml-auto p-2 prevButton"><</button>
+                    <button type="button" class="btn btn-outline-light ml-1 p-2 nextButton">></button>
+                  </div>
+                  
                 </div>
+                
               </div>
-
 
               <div id="othersInput" class="detailsForm">
                 <div><label><b><h1>Others</h1></b></label></div>
@@ -331,7 +489,7 @@
       
       <div id="cvSection"" class="col-md-6 p-0 bg-indigo h-md-100 pt-3">
         <!--Personal Details-->
-        <div class="row w-100 borderTemplate" id="personalDetails">
+        <div class="row w-100 borderTemplate" id="personaldetails">
           <div class="col">
             <div class="d-flex">
               <div class="p-2"><b>Personal Details</b></div>
@@ -353,8 +511,8 @@
             </div>
           </div>
         </div>
-         
-        <div class="row w-100 borderTemplate" id="researchInterest">
+         <!--Research Interest-->
+        <div class="row w-100 borderTemplate" id="researchinterest">
           <div class="col">
             <div class="p-2"><b>Research Interest</b></div>
             <div class="d-flex">
@@ -362,6 +520,42 @@
                 <p id="researchInterestPlaceHolder"></p>
               </div>
             </div>
+          </div>
+        </div>
+        <!--Current Position-->
+        <div class="row w-100 borderTemplate" id="currentposition">
+          <div class="col">
+            <div class="p-2"><b>Current Position</b></div>
+            <div class="d-flex">
+              <div class="p-2">
+                <p id="currentPositionPlaceHolder"></p>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <!--phd-->
+        <div class="borderTemplate educationOutput">
+          <div class="p-2"><b>Education - Teritiary (PHD)</b></div>
+          <div class="d-flex flex-column" id="phd">
+          </div>
+        </div>
+        <!--Masters-->
+        <div class="borderTemplate educationOutput">
+          <div class="p-2"><b>Education - Teritiary (Masters)</b></div>
+          <div class="d-flex flex-column" id="masters">
+          </div>
+        </div>
+        <!--Bachelors-->
+        <div class="borderTemplate educationOutput">
+          <div class="p-2"><b>Education - Teritiary (Bachelors)</b></div>
+          <div class="d-flex flex-column" id="bachelors">
+          </div>
+        </div>
+        <!--Secondary-->
+        <div class="borderTemplate educationOutput">
+          <div class="p-2"><b>Education - Secondary</b></div>
+          <div class="d-flex flex-column" id="secondary">
           </div>
         </div>
 
@@ -453,6 +647,8 @@
     <script src="resources/js/publications/addPending.js"></script>
     <script src="resources/js/publications/addPatent.js"></script>
     <script src="resources/js/publications/addOthers.js"></script>
+
+    <script src="resources/js/education/select/selectEducation.js"></script>
     
     <script src="resources/js/translation.js"></script>
     
