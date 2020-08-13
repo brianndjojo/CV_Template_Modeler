@@ -159,6 +159,7 @@
               </div>
 
               <div id="educationInput" class="detailsForm">
+
                 <label><b><h1>Education</h1></b></label>
                 <div class="dropdown mb-3" id="dropdownEducation">
                   <div></div><label class="mr-1 mb-3">Please enter details about your attained education...</label>
@@ -178,10 +179,10 @@
                   <div><label class="mr-3"><b>Tertiary (PHD)</b></label></div>
                   <div class="form-row">
                     <div class="col-md-5 mb-3">
-                      <input type="text" class="form-control inputEducation" placeholder="Authors">
+                      <input type="text" class="form-control inputEducation" placeholder="Program">
                     </div>
                     <div class="col-md-4  mb-3">
-                      <input type="text" class="form-control inputEducation" placeholder="Article-Title">
+                      <input type="text" class="form-control inputEducation" placeholder="Honors/GPA">
                     </div>
                     <div class="col-md-3  mb-3">
                       <input type="date" class="form-control inputEducation" placeholder="Issue-Date">
@@ -199,10 +200,10 @@
                   <div><label class="mr-3"><b>Tertiary (Masters/MPHIL)</b></label></div>
                   <div class="form-row">
                     <div class="col-md-5 mb-3">
-                      <input type="text" class="form-control inputEducation" placeholder="Authors">
+                      <input type="text" class="form-control inputEducation" placeholder="Program">
                     </div>
                     <div class="col-md-4  mb-3">
-                      <input type="text" class="form-control inputEducation" placeholder="Article-Title">
+                      <input type="text" class="form-control inputEducation" placeholder="Honors/GPA">
                     </div>
                     <div class="col-md-3  mb-3">
                       <input type="date" class="form-control inputEducation" placeholder="Issue-Date">
@@ -220,10 +221,10 @@
                   <div><label class="mr-3"><b>Tertiary (Bachelors)</b></label></div>
                   <div class="form-row">
                     <div class="col-md-5 mb-3">
-                      <input type="text" class="form-control inputEducation" placeholder="Authors">
+                      <input type="text" class="form-control inputEducation" placeholder="Program">
                     </div>
                     <div class="col-md-4  mb-3">
-                      <input type="text" class="form-control inputEducation" placeholder="Article-Title">
+                      <input type="text" class="form-control inputEducation" placeholder="Honors/GPA">
                     </div>
                     <div class="col-md-3  mb-3">
                       <input type="date" class="form-control inputEducation" placeholder="Issue-Date">
@@ -241,10 +242,10 @@
                   <div><label class="mr-3"><b>Secondary</b></label></div>
                   <div class="form-row">
                     <div class="col-md-5 mb-3">
-                      <input type="text" class="form-control inputEducation" placeholder="Authors">
+                      <input type="text" class="form-control inputEducation" placeholder="Program">
                     </div>
                     <div class="col-md-4  mb-3">
-                      <input type="text" class="form-control inputEducation" placeholder="Article-Title">
+                      <input type="text" class="form-control inputEducation" placeholder="Honors/Program">
                     </div>
                     <div class="col-md-3  mb-3">
                       <input type="date" class="form-control inputEducation" placeholder="Issue-Date">
@@ -484,7 +485,9 @@
       <!-- Second Half -->
       
       <div id="cvSection"" class="col-md-6 p-0 bg-indigo h-md-100 pt-3">
-        <!--Personal Details-->
+
+        
+          <!--Personal Details-->
         <div class="row w-100 borderTemplate" id="personaldetails">
           <div class="col">
             <div class="d-flex">
@@ -530,9 +533,9 @@
           </div>
         </div>
         
-        <!--phd-->
-        <div class="col w-100 borderTemplate">
-          
+        <!--Education section-->
+        <div class="col w-100 borderTemplate" id="educationCVSection">
+           <!--phd-->
           <div class="row educationOutput">
             <div class="p-2"><b>Education - Teritiary (PHD)</b></div>
             <div class="d-flex">
@@ -568,62 +571,61 @@
               </div>
             </div>
           </div>
+        </div>
+        
+        <div id="publicationCVSection">
+            <!--Journals-->
+          <div class="borderTemplate pubOutput">
+            <div class="p-2"><b>PUBLICATIONS - Journal Manuscripts</b></div>
+            <div class="d-flex flex-column" id="publications">
+            </div>
+          </div>
 
-              
+          <!--Conference-->
+          <div class="borderTemplate pubOutput">
+            <div class="p-2"><b>PUBLICATIONS - Conference Manuscripts</b></div>
+            <div class="d-flex flex-column" id="conferences">
+            </div>
+          </div>
+
+          <!--Monographs-->
+          <div class="borderTemplate pubOutput">
+            <div class="p-2"><b>PUBLICATIONS - Monographs</b></div>
+            <div class="d-flex flex-column" id="monographs">
+            </div>
+          </div>
+
+          <!--Book Chapters-->
+          <div class="borderTemplate pubOutput">
+            <div class="p-2"><b>PUBLICATIONS - Book Chapters</b></div>
+            <div class="d-flex flex-column" id="chapters">
+            </div>
+          </div>
+
+          <!--Under Review-->
+          <div class="borderTemplate pubOutput">
+            <div class="p-2"><b>PUBLICATIONS - Completed Works (Under Review)</b></div>
+            <div class="d-flex flex-column" id="underReviews">
+            </div>
+          </div>
+
+          <!--Pending Submission-->
+          <div class="borderTemplate pubOutput">
+            <div class="p-2"><b>PUBLICATIONS - Completed Works (Pending Submission)</b></div>
+            <div class="d-flex flex-column" id="pendingSubmissions">
+            </div>
+          </div>
+
+          <!--Patents-->
+          <div class="borderTemplate pubOutput">
+            <div class="p-2"><b>PATENTS</b></div>
+            <div class="d-flex flex-column" id="patents">
+            </div>
+          </div>
         </div>
        
-
-        <!--Journals-->
-        <div class="borderTemplate pubOutput">
-          <div class="p-2"><b>PUBLICATIONS - Journal Manuscripts</b></div>
-          <div class="d-flex flex-column" id="publications">
-          </div>
-        </div>
-
-        <!--Conference-->
-        <div class="borderTemplate pubOutput">
-          <div class="p-2"><b>PUBLICATIONS - Conference Manuscripts</b></div>
-          <div class="d-flex flex-column" id="conferences">
-          </div>
-        </div>
-
-        <!--Monographs-->
-        <div class="borderTemplate pubOutput">
-          <div class="p-2"><b>PUBLICATIONS - Monographs</b></div>
-          <div class="d-flex flex-column" id="monographs">
-          </div>
-        </div>
-
-        <!--Book Chapters-->
-        <div class="borderTemplate pubOutput">
-          <div class="p-2"><b>PUBLICATIONS - Book Chapters</b></div>
-          <div class="d-flex flex-column" id="chapters">
-          </div>
-        </div>
-
-        <!--Under Review-->
-        <div class="borderTemplate pubOutput">
-          <div class="p-2"><b>PUBLICATIONS - Completed Works (Under Review)</b></div>
-          <div class="d-flex flex-column" id="underReviews">
-          </div>
-        </div>
-
-        <!--Pending Submission-->
-        <div class="borderTemplate pubOutput">
-          <div class="p-2"><b>PUBLICATIONS - Completed Works (Pending Submission)</b></div>
-          <div class="d-flex flex-column" id="pendingSubmissions">
-          </div>
-        </div>
-
-        <!--Patents-->
-        <div class="borderTemplate pubOutput">
-          <div class="p-2"><b>PATENTS</b></div>
-          <div class="d-flex flex-column" id="patents">
-          </div>
-        </div>
-
         <!--Others-->
-        <div class="borderTemplate">
+        <div class="borderTemplate" id="othersCVSection">
           <div class="p-2"><b>Others</b></div>
           <div class="d-flex flex-column" id="others">
           </div>
