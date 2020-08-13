@@ -178,16 +178,15 @@
                   <div><label class="mr-3"><b>Tertiary (PHD)</b></label></div>
                   <div class="form-row">
                     <div class="col-md-5 mb-3">
-                      <input type="text" class="form-control inputPHD" placeholder="Authors">
+                      <input type="text" class="form-control inputEducation" placeholder="Authors">
                     </div>
                     <div class="col-md-4  mb-3">
-                      <input type="text" class="form-control inputPHD" placeholder="Article-Title">
+                      <input type="text" class="form-control inputEducation" placeholder="Article-Title">
                     </div>
                     <div class="col-md-3  mb-3">
-                      <input type="date" class="form-control inputPHD" placeholder="Issue-Date">
+                      <input type="date" class="form-control inputEducation" placeholder="Issue-Date">
                     </div>
                   </div>
-                  <div id="fillingPHD"></div>
 
                   <div class="d-flex">
                     <button type="button" class="btn btn-outline-light ml-auto p-2 prevButton"><</button>
@@ -200,16 +199,15 @@
                   <div><label class="mr-3"><b>Tertiary (Masters/MPHIL)</b></label></div>
                   <div class="form-row">
                     <div class="col-md-5 mb-3">
-                      <input type="text" class="form-control inputMasters" placeholder="Authors">
+                      <input type="text" class="form-control inputEducation" placeholder="Authors">
                     </div>
                     <div class="col-md-4  mb-3">
-                      <input type="text" class="form-control inputMasters" placeholder="Article-Title">
+                      <input type="text" class="form-control inputEducation" placeholder="Article-Title">
                     </div>
                     <div class="col-md-3  mb-3">
-                      <input type="date" class="form-control inputMasters" placeholder="Issue-Date">
+                      <input type="date" class="form-control inputEducation" placeholder="Issue-Date">
                     </div>
                   </div>
-                  <div id="fillingMasters"></div>
 
                   <div class="d-flex">
                     <button type="button" class="btn btn-outline-light ml-auto p-2 prevButton"><</button>
@@ -222,16 +220,15 @@
                   <div><label class="mr-3"><b>Tertiary (Bachelors)</b></label></div>
                   <div class="form-row">
                     <div class="col-md-5 mb-3">
-                      <input type="text" class="form-control inputMasters" placeholder="Authors">
+                      <input type="text" class="form-control inputEducation" placeholder="Authors">
                     </div>
                     <div class="col-md-4  mb-3">
-                      <input type="text" class="form-control inputMasters" placeholder="Article-Title">
+                      <input type="text" class="form-control inputEducation" placeholder="Article-Title">
                     </div>
                     <div class="col-md-3  mb-3">
-                      <input type="date" class="form-control inputMasters" placeholder="Issue-Date">
+                      <input type="date" class="form-control inputEducation" placeholder="Issue-Date">
                     </div>
                   </div>
-                  <div id="fillingBachelors"></div>
 
                   <div class="d-flex">
                     <button type="button" class="btn btn-outline-light ml-auto p-2 prevButton"><</button>
@@ -244,16 +241,15 @@
                   <div><label class="mr-3"><b>Secondary</b></label></div>
                   <div class="form-row">
                     <div class="col-md-5 mb-3">
-                      <input type="text" class="form-control inputSecondary" placeholder="Authors">
+                      <input type="text" class="form-control inputEducation" placeholder="Authors">
                     </div>
                     <div class="col-md-4  mb-3">
-                      <input type="text" class="form-control inputSecondary" placeholder="Article-Title">
+                      <input type="text" class="form-control inputEducation" placeholder="Article-Title">
                     </div>
                     <div class="col-md-3  mb-3">
-                      <input type="date" class="form-control inputSecondary" placeholder="Issue-Date">
+                      <input type="date" class="form-control inputEducation" placeholder="Issue-Date">
                     </div>
                   </div>
-                  <div id="fillingSecondary"></div>
 
                   <div class="d-flex">
                     <button type="button" class="btn btn-outline-light ml-auto p-2 prevButton"><</button>
@@ -535,29 +531,47 @@
         </div>
         
         <!--phd-->
-        <div class="borderTemplate educationOutput">
-          <div class="p-2"><b>Education - Teritiary (PHD)</b></div>
-          <div class="d-flex flex-column" id="phd">
+        <div class="col w-100 borderTemplate">
+          
+          <div class="row educationOutput">
+            <div class="p-2"><b>Education - Teritiary (PHD)</b></div>
+            <div class="d-flex">
+              <div class="p-2">
+                <p id="phd"></p>
+              </div>
+            </div>
           </div>
-        </div>
-        <!--Masters-->
-        <div class="borderTemplate educationOutput">
-          <div class="p-2"><b>Education - Teritiary (Masters)</b></div>
-          <div class="d-flex flex-column" id="masters">
+
+          <div class="row educationOutput">
+            <div class="p-2"><b>Education - Teritiary (Masters)</b></div>
+            <div class="d-flex">
+              <div class="p-2">
+                <p id="masters"></p>
+              </div>
+            </div>
           </div>
-        </div>
-        <!--Bachelors-->
-        <div class="borderTemplate educationOutput">
-          <div class="p-2"><b>Education - Teritiary (Bachelors)</b></div>
-          <div class="d-flex flex-column" id="bachelors">
+
+          <div class="row educationOutput">
+            <div class="p-2"><b>Education - Teritiary (Bachelors)</b></div>
+            <div class="d-flex">
+              <div class="p-2">
+                <p id="bachelors"></p>
+              </div>
+            </div>
           </div>
-        </div>
-        <!--Secondary-->
-        <div class="borderTemplate educationOutput">
-          <div class="p-2"><b>Education - Secondary</b></div>
-          <div class="d-flex flex-column" id="secondary">
+
+          <div class="row educationOutput">
+            <div class="p-2"><b>Secondary</b></div>
+            <div class="d-flex">
+              <div class="p-2">
+                <p id="secondary"></p>
+              </div>
+            </div>
           </div>
+
+              
         </div>
+       
 
         <!--Journals-->
         <div class="borderTemplate pubOutput">
@@ -648,7 +662,7 @@
     <script src="resources/js/publications/addPatent.js"></script>
     <script src="resources/js/publications/addOthers.js"></script>
 
-    <script src="resources/js/education/select/selectEducation.js"></script>
+    <script src="resources/js/education/selectEducation.js"></script>
     
     <script src="resources/js/translation.js"></script>
     
@@ -697,6 +711,23 @@
         })
       }
 
+      //for adding output education into cv section
+      var selectEdudrop = document.getElementsByClassName('switchEducation');
+      var outputEducv = document.getElementsByClassName('educationOutput');
+      var selectEduCarousel = document.getElementsByClassName('educationCarousel');
+      var selectEduform = document.getElementsByClassName('selectEducation');
+      for(let i = 0; i < selectEdudrop.length ; i++){
+        selectEdudrop[i].addEventListener('click', function(){
+          gsap.from(outputEducv[i], {opacity:0, duration: 1, x: -20})
+        })
+      }
+      for(let j = 0; j < selectEduCarousel.length; j++){
+        selectEduCarousel[j].addEventListener('click', function(){
+          gsap.from(selectEduform[j], {opacity:0, duration:1, x:-20})
+        })
+      }
+
+
       //for adding output publication into cv section
       var selectpubdrop = document.getElementsByClassName('switchPublication');
       var outputpubcv = document.getElementsByClassName('pubOutput');
@@ -714,7 +745,6 @@
       }
       
       //for adding publications in form
-      
       var addPubButt = document.getElementById('addPublication');
       var removePubButt = document.getElementById('removePublication');
       var infoPosPubs = document.getElementById('fillingPublication');
@@ -783,9 +813,6 @@
         gsap.from(infoPosOthers.lastChild, {opacity: 0, duration: 1, y: -20})
       })
 
-      /*removePubButt.addEventListener('click', function(){
-        gsap.to(infoPosPubs.lastChild, {opacity: 0, duration: 1, x: 20})
-      })*/
       
       
     </script>

@@ -21,6 +21,12 @@ function setupUpdater(){
     , univ=document.getElementById('universityPlaceHolder')
     , depart=document.getElementById('departmentPlaceHolder')
     , researchTemp=document.getElementById('researchInterestPlaceHolder')
+    , currentTemp=document.getElementById('currentPositionPlaceHolder')
+    , educationInput=document.getElementsByClassName('inputEducation')
+    , phdTemp=document.getElementById('phd')
+    , mastersTemp=document.getElementById('masters')
+    , bachelorsTemp=document.getElementById('bachelors')
+    , secondaryTemp=document.getElementById('secondary')
     , timeout=null;
   
  /* handleChange is called 50ms after the user stops 
@@ -34,17 +40,34 @@ function setupUpdater(){
     var university = input[4].value;
     var department = input[5].value;
     var researchInterest = input[6].value;
+    var currentPosition = input[7].value + ' ' + input[8].value + ' ' + input[9].value;
     var newJournal, newConference, newMonograph, newChapter, newReview, newPending, newPatents, newOthers;
-    // if (newText==oldText) return; else oldText=newText;
+
+    var phd = educationInput[0].value + ' ' + educationInput[1].value + ' ' + educationInput[2].value;
+    var masters = educationInput[3].value + ' ' + educationInput[4].value + ' ' + educationInput[5].value;
+    var bachelors = educationInput[6].value + ' ' + educationInput[7].value + ' ' + educationInput[8].value;
+    var secondary = educationInput[9].value + ' ' + educationInput[10].value + ' ' + educationInput[11].value;
+ 
+    
+
     set(name, fullName);
     set(email, emailAddr)
     set(contactTemp, contactNo)
     set(univ, university);
     set(depart, department);
     set(researchTemp, researchInterest);
+    set(currentTemp, currentPosition);
+
+    set(phdTemp, phd);
+    set(mastersTemp, masters);
+    set(bachelorsTemp, bachelors);
+    set(secondaryTemp, secondary);
+
+    console.log(secondary);
+    //Live translation section for education
+    
 
     //Live translation section for publications.
-
     //Journals
     for(let i = 0; i < config.publicationPlaceholders.length; i++){
       newJournal = config.publications[i][0].value + config.publications[i][1].value + config.publications[i][2].value;
@@ -92,6 +115,7 @@ function setupUpdater(){
       newOthers = config.others[j][0].value + config.others[j][1].value + config.others[j][2].value;
       set(config.otherPlaceholders[j], newOthers)
     }
+    
   }
   
  /* eventHandler is called on keyboard and mouse events.
