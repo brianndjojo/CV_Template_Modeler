@@ -79,7 +79,7 @@ hr{
     border-bottom: 1px dashed black;
 }
 
-#removePublication, #removeConference, #removeMonograph, #removeChapter, #removeReview, #removePending, #removePatents, #removeOthers, #removePHD, #removeMasters, #removeBachelors, #removeSecondary{
+#removePublication, #removeConference, #removeMonograph, #removeChapter, #removeReview, #removePending, #removePatents, #removeOthers, #removePHD, #removeMasters, #removeBachelors, #removeSecondary, #removeCert{
     display: none;
 }
 
