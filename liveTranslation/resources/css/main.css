@@ -79,7 +79,7 @@ hr{
     border-bottom: 1px dashed black;
 }
 
-#removePublication, #removeConference, #removeMonograph, #removeChapter, #removeReview, #removePending, #removePatents, #removeOthers, #removePHD, #removeMasters, #removeBachelors, #removeSecondary, #removeCert{
+#removePublication, #removeConference, #removeMonograph, #removeChapter, #removeReview, #removePending, #removePatents, #removeOthers, #removePHD, #removeMasters, #removeBachelors, #removeSecondary, #removeCert, #removeFellowship{
     display: none;
 }
 
@@ -88,6 +88,6 @@ hr{
     
 }
 
-.selectPub, .selectEducation, .pubOutput, .educationOutput{
+.selectPub, .selectEducation, .pubOutput, .educationOutput, .selectExp, .expOutput, #removeIndustry, #removeEmploy, #removeLeader, #removeSkill{
     display: none;
 }

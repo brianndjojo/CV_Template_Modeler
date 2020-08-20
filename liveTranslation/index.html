@@ -70,8 +70,10 @@
                   <button class="dropdown-item switchSection" type="button">Current Position</button>
                   <button class="dropdown-item switchSection" type="button">Education</button>
                   <button class="dropdown-item switchSection" type="button">Certification</button>
+                  <button class="dropdown-item switchSection" type="button">Fellowships and Awards</button>
                   <button class="dropdown-item switchSection" type="button">Publications</button>
                   <button class="dropdown-item switchSection" type="button">Others</button>
+                  <button class="dropdown-item switchSection" type="button">Professional Experience</button>
                 </div>
               </div>
 
@@ -284,6 +286,32 @@
                 </div>
               </div>
 
+              <div id="fellowshipInput" class="detailsForm">
+                <div><label><b><h1>Fellowships and Awards</h1></b></label></div>
+                <div><label class="mr-3"><b>Please enter any fellowship/awards you have attained...</b></label></div>
+                <div class="form-row">
+                  <div class="col-md-5 mb-3">
+                    <input type="text" class="form-control inputFellowship" placeholder="Authors">
+                  </div>
+
+                  <div class="col-md-4  mb-3">
+                    <input type="text" class="form-control inputFellowship" placeholder="Article-Title">
+                  </div>
+                  
+                  <div class="col-md-3  mb-3">
+                    <input type="date" class="form-control inputFellowship" placeholder="Issue-Date">
+                  </div>
+                </div>
+                <div id="fillingFellowship"></div>
+
+                <div class="d-flex">
+                  <button type="button" class="btn btn-outline-light p-2" id="addFellowship">Add</button>
+                  <button type="button" class="btn btn-outline-light ml-1 p-2" id="removeFellowship">Remove</button>
+                  <button type="button" class="btn btn-outline-light ml-auto p-2 prevButton"><</button>
+                  <button type="button" class="btn btn-outline-light ml-1 p-2 nextButton">></button>
+                </div>
+              </div>
+
               <div id="publicationsInput" class="detailsForm">
                 <div><label><b><h1>Publications</h1></b></label></div>
                 
@@ -477,6 +505,7 @@
                 
               </div>
 
+
               <div id="othersInput" class="detailsForm">
                 <div><label><b><h1>Others</h1></b></label></div>
                 <div><label class="mr-3">If not previously included, please add in your other achievements...</label></div>
@@ -499,6 +528,120 @@
                   <button type="button" class="btn btn-outline-light ml-auto p-2 prevButton"><</button>
                   <button type="button" class="btn btn-outline-light ml-1 p-2 nextButton">></button>
                 </div>
+              </div>
+
+              
+              <div id="experienceInput" class="detailsForm">
+                <div><label><b><h1>Professional Experience</h1></b></label></div>
+                <div class="dropdown mb-3" id="dropdownExperience">
+                  <label class="mr-1">Please select any work-experience you have attained...</label>
+                  <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu3" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Choose...
+                  </button>
+                  <div class="dropdown-menu" aria-labelledby="dropdownMenu3">
+                    <button class="dropdown-item" type="button"><input type="checkbox" class="form-check-input mr-3 switchExp"><label class="expCarousel">Industrial Experience</label></button>
+                    <button class="dropdown-item" type="button"><input type="checkbox" class="form-check-input mr-3 switchExp"><label class="expCarousel">Employment</label></button>
+                    <button class="dropdown-item" type="button"><input type="checkbox" class="form-check-input mr-3 switchExp"><label class="expCarousel">Leadership</label></button>
+                    <button class="dropdown-item" type="button"><input type="checkbox" class="form-check-input mr-3 switchExp"><label class="expCarousel">Relevant Skillset</label></button>
+                  </div>
+                </div>
+
+                <!--Industrial Experience-->
+                <div class="selectExp">
+                  <div><label class="mr-3"><b>Industrial Experience</b></label></div>
+                  <div class="form-row">
+                    <div class="col-md-5 mb-3">
+                      <input type="text" class="form-control inputIndustry" placeholder="Authors">
+                    </div>
+                    <div class="col-md-4  mb-3">
+                      <input type="text" class="form-control inputIndustry" placeholder="Article-Title">
+                    </div>
+                    <div class="col-md-3  mb-3">
+                      <input type="date" class="form-control inputIndustry" placeholder="Issue-Date">
+                    </div>
+                  </div>
+                  <div id="fillingIndustry"></div>
+
+                  <div class="d-flex">
+                    <button type="button" class="btn btn-outline-light p-2" id="addIndustry">Add</button>
+                    <button type="button" class="btn btn-outline-light ml-1 p-2" id="removeIndustry">Remove</button>
+                    <button type="button" class="btn btn-outline-light ml-auto p-2 prevButton"><</button>
+                    <button type="button" class="btn btn-outline-light ml-1 p-2 nextButton">></button>
+                  </div>
+                </div>
+
+                <!--Employment-->
+                <div class="selectExp">
+                  <div><label class="mr-3"><b>Employment</b></label></div>
+                  <div class="form-row">
+                    <div class="col-md-5 mb-3">
+                      <input type="text" class="form-control inputEmploy" placeholder="Authors">
+                    </div>
+                    <div class="col-md-4  mb-3">
+                      <input type="text" class="form-control inputEmploy" placeholder="Article-Title">
+                    </div>
+                    <div class="col-md-3  mb-3">
+                      <input type="date" class="form-control inputEmploy" placeholder="Issue-Date">
+                    </div>
+                  </div>
+                  <div id="fillingEmploy"></div>
+                  <div class="d-flex">
+                    <button type="button" class="btn btn-outline-light p-2" id="addEmploy">Add</button>
+                    <button type="button" class="btn btn-outline-light ml-1 p-2" id="removeEmploy">Remove</button>
+                    <button type="button" class="btn btn-outline-light ml-auto p-2 prevButton"><</button>
+                    <button type="button" class="btn btn-outline-light ml-1 p-2 nextButton">></button>
+                  </div>
+                </div>
+                
+                <!--Leadership Experience-->
+                <div class="selectExp">
+                  <div><label class="mr-3"><b>Leadership Experience</b></label></div>
+                  <div class="form-row">
+                    <div class="col-md-5 mb-3">
+                      <input type="text" class="form-control inputLeader" placeholder="Authors">
+                    </div>
+                    <div class="col-md-4  mb-3">
+                      <input type="text" class="form-control inputLeader" placeholder="Article-Title">
+                    </div>
+                    <div class="col-md-3  mb-3">
+                      <input type="date" class="form-control inputLeader" placeholder="Issue-Date">
+                    </div>
+                  </div>
+                  <div id="fillingLeader"></div>
+                
+                  <div class="d-flex">
+                    <button type="button" class="btn btn-outline-light p-2" id="addLeader">Add</button>
+                    <button type="button" class="btn btn-outline-light ml-1 p-2" id="removeLeader">Remove</button>
+                    <button type="button" class="btn btn-outline-light ml-auto p-2 prevButton"><</button>
+                    <button type="button" class="btn btn-outline-light ml-1 p-2 nextButton">></button>
+                  </div>
+                </div>
+                
+                 <!--Relevant Skillset-->
+                 <div class="selectExp">
+                  <div><label class="mr-3"><b>Relevant Skillset</b></label></div>
+                  <div class="form-row">
+                    <div class="col-md-5 mb-3">
+                      <input type="text" class="form-control inputSkill" placeholder="Authors">
+                    </div>
+                    <div class="col-md-4  mb-3">
+                      <input type="text" class="form-control inputSkill" placeholder="Article-Title">
+                    </div>
+                    <div class="col-md-3  mb-3">
+                      <input type="date" class="form-control inputSkill" placeholder="Issue-Date">
+                    </div>
+                  </div>
+                  <div id="fillingSkill"></div>
+                  
+
+                  <div class="d-flex">
+                    <button type="button" class="btn btn-outline-light p-2" id="addSkill">Add</button>
+                    <button type="button" class="btn btn-outline-light ml-1 p-2" id="removeSkill">Remove</button>
+                    <button type="button" class="btn btn-outline-light ml-auto p-2 prevButton"><</button>
+                    <button type="button" class="btn btn-outline-light ml-1 p-2 nextButton">></button>
+                  </div>
+                </div>
+                
               </div>
             </form>
             <!--Download Button-->
@@ -601,16 +744,21 @@
             </div>
           </div>
           
-          <div class="col w-100 borderTemplate" id="certCVSection">
-            <!--phd-->
-            <div class="row certOutput">
+          <div id="certCVSection">
+            <div class="borderTemplate certOutput">
               <div class="p-2"><b>Certification</b></div>
               <div class="d-flex flex-column" id="certificationOutput">
               </div>
             </div>
-
           </div>
 
+          <div id="fellowshipCVSection">
+            <div class="borderTemplate certOutput">
+              <div class="p-2"><b>Fellowships and Awards</b></div>
+              <div class="d-flex flex-column" id="fellowshipOutput">
+              </div>
+            </div>
+          </div>
 
           <div id="publicationCVSection">
               <!--Journals-->
@@ -670,11 +818,35 @@
             </div>
           </div>
 
-          <div class="row " id="education"></div>
-          <div class="row" id="workHistory"></div>
-          <div class="row" id="additionalSkills"></div>
+          <div class="col w-100" id="expCVSection">
+
+            <div class="row expOutput" id="indsutrialCVSection">
+              <div class="p-2"><b>Industrial Experience</b></div>
+              <div class="d-flex flex-column" id="industrialExpOutput">
+              </div>
+            </div>
+
+            <div class="row expOutput" id="employmentCVSection">
+              <div class="p-2"><b>Employment</b></div>
+              <div class="d-flex flex-column" id="employmentOutput">
+              </div>
+            </div>
+
+            <div class="row expOutput" id="leadershipExpCVSection">
+              <div class="p-2"><b>Leadershp Exerience</b></div>
+              <div class="d-flex flex-column" id="leadershipOutput">
+              </div>
+            </div>
+
+            <div class="row expOutput" id="relevantSkillCVSection">
+              <div class="p-2"><b>Relevant Skillset</b></div>
+              <div class="d-flex flex-column" id="skillOutput">
+              </div>
+            </div>
+          </div>
+          
+          <div class="row" id="services"></div>
           <div class="row" id="references"></div>
-          <div class="row" id="phdSynopsis"></div>
         </div>
       </div>
 
@@ -699,8 +871,8 @@
     
     <script src="resources/js/carouselCV/move.js"></script>
     <script src="resources/js/carouselCV/switchSection.js"></script>
-    <script src="resources/js/publications/select/selectPublication.js"></script>
 
+    <script src="resources/js/publications/select/selectPublication.js"></script>
     <script src="resources/js/publications/addJournal.js"></script>
     <script src="resources/js/publications/addConference.js"></script>
     <script src="resources/js/publications/addMonograph.js"></script>
@@ -710,8 +882,15 @@
     <script src="resources/js/publications/addPatent.js"></script>
     <script src="resources/js/publications/addOthers.js"></script>
 
+    <script src="resources/js/experience/select/selectExperience.js"></script>
+    <script src="resources/js/experience/addIndustry.js"></script>
+    <script src="resources/js/experience/addEmployment.js"></script>
+    <script src="resources/js/experience/addLeader.js"></script>
+    <script src="resources/js/experience/addSkill.js"></script>
+
     <script src="resources/js/otherfolders/selectEducation.js"></script>
     <script src="resources/js/otherfolders/addCert.js"></script>
+    <script src="resources/js/otherfolders/addFellowship.js"></script>
     <script src="resources/js/translation.js"></script>
     
     <!--Download PDF script-->
@@ -801,6 +980,70 @@
         })
       }
 
+      //For Professional Certification
+      var outputCertcv = document.getElementsByClassName('certificationOutput');
+      var infoPosCert = document.getElementById('fillingCert');
+      var addCertButton = document.getElementById('addCert');
+      addCertButton.addEventListener('click', function(){
+        gsap.from(infoPosCert.lastChild, {opacity: 0, duration: 1, y: -20});
+      })
+
+       //For Fellowships & Awards
+      var outputFellowshipcv = document.getElementsByClassName('fellowshipOutput');
+      var infoPosFellowship = document.getElementById('fillingFellowship');
+      var addFellowshipButton = document.getElementById('addFellowship');
+      addFellowshipButton.addEventListener('click', function(){
+        gsap.from(infoPosFellowship.lastChild, {opacity: 0, duration: 1, y: -20});
+      })
+
+      //for adding professional experience into cv section
+      var selectExpdrop = document.getElementsByClassName('switchExp');
+      var outputExpcv = document.getElementsByClassName('expOutput');
+      var selectExpCarousel = document.getElementsByClassName('expCarousel');
+      var selectExpForms = document.getElementsByClassName('selectExp');
+      for(let i = 0; i < selectExpdrop.length; i++){
+        selectExpdrop[i].addEventListener('click', function(){
+          gsap.from(outputExpcv[i], {opacity: 0, duration: 1, x: -20})
+        })
+      }
+      for(let j = 0; j < selectExpCarousel.length; j++){
+        selectExpCarousel[j].addEventListener('click', function(){
+          gsap.from(selectExpForms[j], {opacity:0, duration:1, x: -20})
+        })
+      }
+
+      //for adding inputs for professional experience.
+      var addIndButt = document.getElementById('addIndustry');
+      var removeIndButt = document.getElementById('removeIndustry');
+      var infoPosInd = document.getElementById('fillingIndustry');
+
+      var addEmpButt = document.getElementById('addEmploy');
+      var removeEmpButt = document.getElementById('removeEmploy');
+      var infoPosEmp = document.getElementById('fillingEmploy');
+
+      var addLeadButt = document.getElementById('addLeader');
+      var removeLeadButt = document.getElementById('removeLeader');
+      var infoPosLead = document.getElementById('fillingLeader');
+
+      var addSkillButt = document.getElementById('addSkill');
+      var removeSkillButt = document.getElementById('removeSkill');
+      var infoPosSkill = document.getElementById('fillingSkill');
+
+      addIndButt.addEventListener('click', function(){
+        gsap.from(infoPosInd.lastChild, {opacity: 0, duration: 1, y: -20})
+      })
+
+      addEmpButt.addEventListener('click', function(){
+        gsap.from(infoPosEmp.lastChild, {opacity: 0, duration: 1, y: -20})
+      })
+
+      addLeadButt.addEventListener('click', function(){
+        gsap.from(infoPosLead.lastChild, {opacity: 0, duration: 1, y: -20})
+      })
+
+      addSkillButt.addEventListener('click', function(){
+        gsap.from(infoPosSkill.lastChild, {opacity: 0, duration: 1, y: -20})
+      })
 
       //for adding output publication into cv section
       var selectpubdrop = document.getElementsByClassName('switchPublication');

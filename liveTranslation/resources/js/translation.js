@@ -42,6 +42,8 @@ function setupUpdater(){
     var researchInterest = input[6].value;
     var currentPosition = input[7].value + ' ' + input[8].value + ' ' + input[9].value;
     var newJournal, newConference, newMonograph, newChapter, newReview, newPending, newPatents, newOthers;
+    var newCert, newFellowship;
+    var newIndustry, newEmployment, newLeader, newSkill;
 
     var phd = educationInput[0].value + ' ' + educationInput[1].value + ' ' + educationInput[2].value;
     var masters = educationInput[3].value + ' ' + educationInput[4].value + ' ' + educationInput[5].value;
@@ -58,13 +60,23 @@ function setupUpdater(){
     set(researchTemp, researchInterest);
     set(currentTemp, currentPosition);
 
+    //Live translation section for education
     set(phdTemp, phd);
     set(mastersTemp, masters);
     set(bachelorsTemp, bachelors);
     set(secondaryTemp, secondary);
 
-    console.log(secondary);
-    //Live translation section for education
+    //live translation for certifications
+    for(let i = 0; i < config.certPlaceholders.length; i++){
+      newCert = config.certs[i][0].value + config.certs[i][1].value + config.certs[i][2].value;
+      set(config.certPlaceholders[i], newCert);
+    }    
+
+    //Live translation for fellowship/awards
+    for(let i = 0; i < config.fellowshipPlaceholders.length; i++){
+      newFellowship = config.fellowship[i][0].value + config.fellowship[i][1].value + config.fellowship[i][2].value;
+      set(config.fellowshipPlaceholders[i], newFellowship);
+    }
     
 
     //Live translation section for publications.
@@ -114,6 +126,28 @@ function setupUpdater(){
     for(let j = 0; j < config.otherPlaceholders.length; j++){
       newOthers = config.others[j][0].value + config.others[j][1].value + config.others[j][2].value;
       set(config.otherPlaceholders[j], newOthers)
+    }
+
+    //Live translation for Internships and Professional Experience.
+    //Industrial Experience
+    for(let i = 0; i < config.industryPlaceholders.length; i++){
+      newIndustry = config.industry[i][0].value + config.industry[i][1].value + config.industry[i][2].value;
+      set(config.industryPlaceholders[i], newIndustry);
+    }
+    //Employment
+    for(let j = 0; j < config.employmentPlaceholders.length; j++){
+      newEmployment = config.employment[j][0].value + config.employment[j][1].value + config.employment[j][2].value;
+      set(config.employmentPlaceholders[j], newEmployment);
+    }
+    //Leadership Exprience
+    for(let k = 0; k < config.leadershipPlaceholders.length; k++){
+      newLeader = config.leadership[k][0].value + config.leadership[k][1].value + config.leadership[k][2].value;
+      set(config.leadershipPlaceholders[k], newLeader);
+    }
+    //Relevant SKillset
+    for(let n = 0; n < config.skillsPlaceholders.length; n++){
+      newSkill = config.skills[n][0].value + config.skills[n][1].value + config.skills[n][2].value;
+      set(config.skillsPlaceholders[n], newSkill);
     }
     
   }

@@ -28,5 +28,23 @@ var config = {
 
     others: [],
     otherPlaceholders:[],
+
+    certs: [],
+    certPlaceholders: [],
+
+    fellowship: [],
+    fellowshipPlaceholders:[],
+
+    industry:[],
+    industryPlaceholders:[],
+    
+    employment:[],
+    employmentPlaceholders:[],
+
+    leadership:[],
+    leadershipPlaceholders:[],
+
+    skills:[],
+    skillsPlaceholders:[],
     
 }
