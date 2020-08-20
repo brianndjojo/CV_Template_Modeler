@@ -46,5 +46,14 @@ var config = {
 
     skills:[],
     skillsPlaceholders:[],
+
+    affilations:[],
+    affilationsPlaceholders:[],
+
+    memberships:[],
+    membershipsPlaceholders:[],
+
+    voluntary:[],
+    voluntaryPlaceholders:[],
     
 }

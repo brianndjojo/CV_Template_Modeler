@@ -91,3 +91,7 @@ hr{
 .selectPub, .selectEducation, .pubOutput, .educationOutput, .selectExp, .expOutput, #removeIndustry, #removeEmploy, #removeLeader, #removeSkill{
     display: none;
 }
+
+.serveOutput, .selectService, #removeAffilation, #removeMemberships, #removeVoluntary, #removeInterest, #removeLanguage{
+    display: none;
+}

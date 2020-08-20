@@ -74,6 +74,7 @@
                   <button class="dropdown-item switchSection" type="button">Publications</button>
                   <button class="dropdown-item switchSection" type="button">Others</button>
                   <button class="dropdown-item switchSection" type="button">Professional Experience</button>
+                  <button class="dropdown-item switchSection" type="button">Services and Affilations</button>
                 </div>
               </div>
 
@@ -643,6 +644,146 @@
                 </div>
                 
               </div>
+
+                    
+              <div id="servicesInput" class="detailsForm">
+                <div><label><b><h1>Services and Affilations</h1></b></label></div>
+                <div class="dropdown mb-3" id="dropdownExperience">
+                  <label class="mr-1">Please select any Services and Affilations you have attained...</label>
+                  <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu4" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Choose...
+                  </button>
+                  <div class="dropdown-menu" aria-labelledby="dropdownMenu4">
+                    <button class="dropdown-item" type="button"><input type="checkbox" class="form-check-input mr-3 switchService"><label class="serviceCarousel">Affilations</label></button>
+                    <button class="dropdown-item" type="button"><input type="checkbox" class="form-check-input mr-3 switchService"><label class="serviceCarousel">Memberships</label></button>
+                    <button class="dropdown-item" type="button"><input type="checkbox" class="form-check-input mr-3 switchService"><label class="serviceCarousel">Voluntary Services</label></button>
+                    <button class="dropdown-item" type="button"><input type="checkbox" class="form-check-input mr-3 switchService"><label class="serviceCarousel">Interest</label></button>
+                    <button class="dropdown-item" type="button"><input type="checkbox" class="form-check-input mr-3 switchService"><label class="serviceCarousel">Languages</label></button>
+                    
+                  </div>
+                </div>
+
+                <!--Affilations-->
+                <div class="selectService">
+                  <div><label class="mr-3"><b>Affilations</b></label></div>
+                  <div class="form-row">
+                    <div class="col-md-5 mb-3">
+                      <input type="text" class="form-control inputAffilation" placeholder="Authors">
+                    </div>
+                    <div class="col-md-4  mb-3">
+                      <input type="text" class="form-control inputAffilation" placeholder="Article-Title">
+                    </div>
+                    <div class="col-md-3  mb-3">
+                      <input type="date" class="form-control inputAffilation" placeholder="Issue-Date">
+                    </div>
+                  </div>
+                  <div id="fillingAffilation"></div>
+
+                  <div class="d-flex">
+                    <button type="button" class="btn btn-outline-light p-2" id="addAffilation">Add</button>
+                    <button type="button" class="btn btn-outline-light ml-1 p-2" id="removeAffilation">Remove</button>
+                    <button type="button" class="btn btn-outline-light ml-auto p-2 prevButton"><</button>
+                    <button type="button" class="btn btn-outline-light ml-1 p-2 nextButton">></button>
+                  </div>
+                </div>
+
+                <!--Memberships-->
+                <div class="selectService">
+                  <div><label class="mr-3"><b>Memberships</b></label></div>
+                  <div class="form-row">
+                    <div class="col-md-5 mb-3">
+                      <input type="text" class="form-control inputMemberships" placeholder="Authors">
+                    </div>
+                    <div class="col-md-4  mb-3">
+                      <input type="text" class="form-control inputMemberships" placeholder="Article-Title">
+                    </div>
+                    <div class="col-md-3  mb-3">
+                      <input type="date" class="form-control inputMemberships" placeholder="Issue-Date">
+                    </div>
+                  </div>
+                  <div id="fillingMemberships"></div>
+                  <div class="d-flex">
+                    <button type="button" class="btn btn-outline-light p-2" id="addMemberships">Add</button>
+                    <button type="button" class="btn btn-outline-light ml-1 p-2" id="removeMemberships">Remove</button>
+                    <button type="button" class="btn btn-outline-light ml-auto p-2 prevButton"><</button>
+                    <button type="button" class="btn btn-outline-light ml-1 p-2 nextButton">></button>
+                  </div>
+                </div>
+                
+                <!--Leadership Experience-->
+                <div class="selectService">
+                  <div><label class="mr-3"><b>Voluntary Services</b></label></div>
+                  <div class="form-row">
+                    <div class="col-md-5 mb-3">
+                      <input type="text" class="form-control inputVoluntary" placeholder="Authors">
+                    </div>
+                    <div class="col-md-4  mb-3">
+                      <input type="text" class="form-control inputVoluntary" placeholder="Article-Title">
+                    </div>
+                    <div class="col-md-3  mb-3">
+                      <input type="date" class="form-control inputVoluntary" placeholder="Issue-Date">
+                    </div>
+                  </div>
+                  <div id="fillingVoluntary"></div>
+                
+                  <div class="d-flex">
+                    <button type="button" class="btn btn-outline-light p-2" id="addVoluntary">Add</button>
+                    <button type="button" class="btn btn-outline-light ml-1 p-2" id="removeVoluntary">Remove</button>
+                    <button type="button" class="btn btn-outline-light ml-auto p-2 prevButton"><</button>
+                    <button type="button" class="btn btn-outline-light ml-1 p-2 nextButton">></button>
+                  </div>
+                </div>
+
+                <!--Leadership Experience-->
+                <div class="selectService">
+                  <div><label class="mr-3"><b>Interest</b></label></div>
+                  <div class="form-row">
+                    <div class="col-md-5 mb-3">
+                      <input type="text" class="form-control inputInterest" placeholder="Authors">
+                    </div>
+                    <div class="col-md-4  mb-3">
+                      <input type="text" class="form-control inputInterest" placeholder="Article-Title">
+                    </div>
+                    <div class="col-md-3  mb-3">
+                      <input type="date" class="form-control inputInterest" placeholder="Issue-Date">
+                    </div>
+                  </div>
+                  <div id="fillingInterest"></div>
+                    
+                  <div class="d-flex">
+                    <button type="button" class="btn btn-outline-light p-2" id="addInterest">Add</button>
+                    <button type="button" class="btn btn-outline-light ml-1 p-2" id="removeInterest">Remove</button>
+                    <button type="button" class="btn btn-outline-light ml-auto p-2 prevButton"><</button>
+                    <button type="button" class="btn btn-outline-light ml-1 p-2 nextButton">></button>
+                  </div>
+                </div>
+                
+                 <!--Relevant Skillset-->
+                 <div class="selectService">
+                  <div><label class="mr-3"><b>Languages</b></label></div>
+                  <div class="form-row">
+                    <div class="col-md-5 mb-3">
+                      <input type="text" class="form-control inputLanguage" placeholder="Authors">
+                    </div>
+                    <div class="col-md-4  mb-3">
+                      <input type="text" class="form-control inputLanguage" placeholder="Article-Title">
+                    </div>
+                    <div class="col-md-3  mb-3">
+                      <input type="date" class="form-control inputLanguage" placeholder="Issue-Date">
+                    </div>
+                  </div>
+                  <div id="fillingLanguage"></div>
+                
+                  <div class="d-flex">
+                    <button type="button" class="btn btn-outline-light p-2" id="addLanguage">Add</button>
+                    <button type="button" class="btn btn-outline-light ml-1 p-2" id="removeLanguage">Remove</button>
+                    <button type="button" class="btn btn-outline-light ml-auto p-2 prevButton"><</button>
+                    <button type="button" class="btn btn-outline-light ml-1 p-2 nextButton">></button>
+                  </div>
+
+                </div>
+
+              </div>
             </form>
             <!--Download Button-->
             <div class="d-flex">
@@ -818,8 +959,8 @@
             </div>
           </div>
 
+          <!--Professional Experience-->
           <div class="col w-100" id="expCVSection">
-
             <div class="row expOutput" id="indsutrialCVSection">
               <div class="p-2"><b>Industrial Experience</b></div>
               <div class="d-flex flex-column" id="industrialExpOutput">
@@ -845,7 +986,40 @@
             </div>
           </div>
           
-          <div class="row" id="services"></div>
+          <!--Services and Affilations-->
+          <div class="col w-100" id="services">
+
+            <div class="row serveOutput" id="affilationsCV">
+              <div class="p-2"><b>Affilations</b></div>
+              <div class="d-flex flex-column" id="affilationsOutput">
+              </div>
+            </div>
+
+            <div class="row serveOutput" id="membershipCV">
+              <div class="p-2"><b>Memberships</b></div>
+              <div class="d-flex flex-column" id="membershipOutput">
+              </div>
+            </div>
+
+            <div class="row serveOutput" id="voluntaryCV">
+              <div class="p-2"><b>Voluntary Services</b></div>
+              <div class="d-flex flex-column" id="voluntaryOutput">
+              </div>
+            </div>
+
+            <div class="row serveOutput" id="interestCV">
+              <div class="p-2"><b>Interest</b></div>
+              <div class="d-flex flex-column" id="interestOutput">
+              </div>
+            </div>
+
+            <div class="row serveOutput" id="languagesCV">
+              <div class="p-2"><b>Languages</b></div>
+              <div class="d-flex flex-column" id="languageOutput">
+              </div>
+            </div>
+          </div>
+
           <div class="row" id="references"></div>
         </div>
       </div>
@@ -887,6 +1061,11 @@
     <script src="resources/js/experience/addEmployment.js"></script>
     <script src="resources/js/experience/addLeader.js"></script>
     <script src="resources/js/experience/addSkill.js"></script>
+
+    <script src="resources/js/services/select/selectServices.js"></script>
+    <script src="resources/js/services/addAffilation.js"></script>
+    <script src="resources/js/services/addMembership.js"></script>
+    <script src="resources/js/services/addVoluntary.js"></script>
 
     <script src="resources/js/otherfolders/selectEducation.js"></script>
     <script src="resources/js/otherfolders/addCert.js"></script>
