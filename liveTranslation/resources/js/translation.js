@@ -44,8 +44,7 @@ function setupUpdater(){
     var newJournal, newConference, newMonograph, newChapter, newReview, newPending, newPatents, newOthers;
     var newCert, newFellowship;
     var newIndustry, newEmployment, newLeader, newSkill;
-    var newAff, newInt, newLan, newMem, newVol;
-    var newRef;
+    var newAff, newInt, newLan, newMem, newVol, newRef;
 
     var phd = educationInput[0].value + ' ' + educationInput[1].value + ' ' + educationInput[2].value;
     var masters = educationInput[3].value + ' ' + educationInput[4].value + ' ' + educationInput[5].value;
@@ -159,13 +158,13 @@ function setupUpdater(){
     }
     
     for(let j = 0; j < config.interestPlaceholders.length; j++){
-      newInt = config.interest[i][0].value + config.interest[i][1].value + config.interest[i][2].value;
+      newInt = config.interest[j][0].value + config.interest[j][1].value + config.interest[j][2].value;
       set(config.interestPlaceholders[j], newInt);
     }
 
     for(let k = 0; k < config.languagePlaceholders.length; k++){
       newLan = config.language[k][0].value + config.language[k][1].value + config.language[k][2].value;
-      set(config.languagetPlaceholders[k], newLan);
+      set(config.languagePlaceholders[k], newLan);
     }
 
     for(let m = 0; m < config.membershipsPlaceholders.length; m++){
@@ -179,9 +178,10 @@ function setupUpdater(){
     }
     
     //for referees
-    for(let i = 0; i < config.refsPlaceholders.length; i++){
-      newRef = config.refs[i][0].value + config.refs[i][1].value + config.refs[i][2].value;
-      set(config.refsPlaceholders[i], newRef);
+    for(let z = 0; z < config.refsPlaceholders.length; z++){
+      newRef = config.refs[z][0].value + config.refs[z][1].value + config.refs[z][2].value;
+      console.log('Ref:', newRef);
+      set(config.refsPlaceholders[z], newRef);
     }
   }
   

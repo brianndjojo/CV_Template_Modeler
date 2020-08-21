@@ -987,7 +987,7 @@
           </div>
 
           <!--Professional Experience-->
-          <div class="col w-100" id="expCVSection">
+          <div class="col w-100 borderTemplate" id="expCVSection">
             <div class="row expOutput" id="indsutrialCVSection">
               <div class="p-2"><b>Industrial Experience</b></div>
               <div class="d-flex flex-column" id="industrialExpOutput">
@@ -1014,7 +1014,7 @@
           </div>
           
           <!--Services and Affilations-->
-          <div class="col w-100" id="servicesCVSection">
+          <div class="col w-100 borderTemplate" id="servicesCVSection">
 
             <div class="row serveOutput" id="affilationsCV">
               <div class="p-2"><b>Affilations</b></div>
@@ -1049,6 +1049,7 @@
 
         </div>
 
+        <!--Referees-->
         <div class="borderTemplate" id="refCVSection">
           <div class="p-2"><b>Referees</b></div>
           <div class="d-flex flex-column" id="referees">
@@ -1260,6 +1261,71 @@
         gsap.from(infoPosSkill.lastChild, {opacity: 0, duration: 1, y: -20})
       })
 
+      //For Services and Affilations switching section
+      var selectSerdrop = document.getElementsByClassName('switchService');
+      var outputSercv = document.getElementsByClassName('serveOutput');
+      var selectSerCarousel = document.getElementsByClassName('serviceCarousel');
+      var serveForms = document.getElementsByClassName('selectService');
+      for(let i = 0; i < selectSerdrop.length; i++){
+        selectSerdrop[i].addEventListener('click', function(){
+          gsap.from(outputSercv, {opacity: 0, duration:1, x:-20})
+        })
+      }
+      for(let j = 0; j < selectSerCarousel.length; j++){
+        selectSerCarousel[j].addEventListener('click', function(){
+          gsap.from(serveForms[j], {opacity: 0, duration:1, x:-20})
+        })
+      }
+
+      //For adding inputs into Services & Affilations section
+      var addAffButt = document.getElementById('addAffilation');
+      var removeAffButt = document.getElementById('removeAffilation');
+      var infoPosAff = document.getElementById('fillingAffilation');
+
+      var addIntButt = document.getElementById('addInterest');
+      var removeIntButt = document.getElementById('removeInterest');
+      var infoPosInt = document.getElementById('fillingInterest');
+
+      var addLanButt = document.getElementById('addLanguage');
+      var removeLanButt = document.getElementById('removeLanguage');
+      var infoPosLan = document.getElementById('fillingLanguage');
+
+      var addMemButt = document.getElementById('addMemberships');
+      var removeMemButt = document.getElementById('removeMemberships');
+      var infoPosMem = document.getElementById('fillingMemberships');
+
+      var addVolButt = document.getElementById('addVoluntary');
+      var removeVolButt = document.getElementById('removeVoluntary');
+      var infoPosVol = document.getElementById('fillingVoluntary');
+
+      addAffButt.addEventListener('click', function(){
+        gsap.from(infoPosAff.lastChild, {opacity: 0, duration: 1, y: -20})
+      })
+
+      addIntButt.addEventListener('click', function(){
+        gsap.from(infoPosInt.lastChild, {opacity: 0, duration: 1, y: -20})
+      })
+
+      addLanButt.addEventListener('click', function(){
+        gsap.from(infoPosLan.lastChild, {opacity: 0, duration: 1, y: -20})
+      })
+
+      addMemButt.addEventListener('click', function(){
+        gsap.from(infoPosMem.lastChild, {opacity: 0, duration: 1, y: -20})
+      })
+
+      addVolButt.addEventListener('click', function(){
+        gsap.from(infoPosVol.lastChild, {opacity: 0, duration: 1, y: -20})
+      })
+
+      var addRefButt = document.getElementById('addRef');
+      var removeRefButt = document.getElementById('removeRef');
+      var infoPosRef = document.getElementById('fillingRef');
+
+      addRefButt.addEventListener('click', function(){
+        gsap.from(infoPosRef.lastChild, {opacity:0, duration:1, y:-20})
+      })
+
       //for adding output publication into cv section
       var selectpubdrop = document.getElementsByClassName('switchPublication');
       var outputpubcv = document.getElementsByClassName('pubOutput');
@@ -1275,6 +1341,7 @@
           gsap.from(selectForms[j], {opacity:0, duration:1, x: -20})
         })
       }
+      
       
       //for adding publications in form
       var addPubButt = document.getElementById('addPublication');

@@ -1,6 +1,6 @@
-function addRef(){
+function addRefs(){
     
-    var addOthersButt = document.getElementById('addRef');
+    var addRefsButt = document.getElementById('addRef');
     var removeButton = document.getElementById('removeRef');
     var infoPos = document.getElementById('fillingRef');
     var outputPos = document.getElementById('referees');
@@ -21,7 +21,7 @@ function addRef(){
     config.refs.push(initFields);
     config.refsPlaceholders.push(paraInit);
     
-    addOthersButt.addEventListener('click', function(){
+    addRefsButt.addEventListener('click', function(){
         var inputFields = document.getElementsByClassName('inputRef');
         //var newText = inputFields[inputFields.length-3].value + inputFields[inputFields.length-2].value + inputFields[inputFields.length-1].value;
 
@@ -36,7 +36,7 @@ function addRef(){
         //Div for the form for adding pubolications.
         var inputNew = document.createElement("DIV")
         inputNew.classList.add("form-row");
-        inputNew.innerHTML = inputNew.innerHTML + '<div class="col-md-5 mb-3"> <input type="text" class="form-control inputRef" placeholder="Authors"> </div> <div class="col-md-4  mb-3"> <input type="text" class="form-control inputRef" placeholder="Article-Title"> </div> <div class="col-md-3  mb-3"> <input type="date" class="form-control inputRef" placeholder="Issue-Date"> </div>';
+        inputNew.innerHTML = inputNew.innerHTML + '<div class="col-md-5 mb-3"> <input type="text" class="form-control inputRef mt-3" placeholder="Authors"> </div> <div class="col-md-4  mb-3"> <input type="text" class="form-control inputRef mt-3" placeholder="Article-Title"> </div> <div class="col-md-3  mb-3"> <input type="date" class="form-control inputRef mt-3" placeholder="Issue-Date"> </div>';
         infoPos.appendChild(inputNew);
         
         removeButton.style.display = 'inline';
@@ -76,4 +76,4 @@ function addRef(){
 
 }
 
-addRef();
+addRefs();

@@ -36,7 +36,7 @@ function addOthers(){
         //Div for the form for adding pubolications.
         var inputNew = document.createElement("DIV")
         inputNew.classList.add("form-row");
-        inputNew.innerHTML = inputNew.innerHTML + '<div class="col-md-5 mb-3"> <input type="text" class="form-control inputOthers" placeholder="Authors"> </div> <div class="col-md-4  mb-3"> <input type="text" class="form-control inputOthers" placeholder="Article-Title"> </div> <div class="col-md-3  mb-3"> <input type="date" class="form-control inputOthers" placeholder="Issue-Date"> </div>';
+        inputNew.innerHTML = inputNew.innerHTML + '<div class="col-md-5 mb-3"> <input type="text" class="form-control inputOthers mt-3" placeholder="Authors"> </div> <div class="col-md-4  mb-3"> <input type="text" class="form-control inputOthers mt-3" placeholder="Article-Title"> </div> <div class="col-md-3  mb-3"> <input type="date" class="form-control inputOthers mt-3" placeholder="Issue-Date"> </div>';
         infoPos.appendChild(inputNew);
         
         removeButton.style.display = 'inline';
