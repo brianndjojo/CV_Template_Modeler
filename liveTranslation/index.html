@@ -75,6 +75,7 @@
                   <button class="dropdown-item switchSection" type="button">Others</button>
                   <button class="dropdown-item switchSection" type="button">Professional Experience</button>
                   <button class="dropdown-item switchSection" type="button">Services and Affilations</button>
+                  <button class="dropdown-item switchSection" type="button">Referees</button>
                 </div>
               </div>
 
@@ -710,7 +711,7 @@
                   </div>
                 </div>
                 
-                <!--Leadership Experience-->
+                <!--Voluntary Services-->
                 <div class="selectService">
                   <div><label class="mr-3"><b>Voluntary Services</b></label></div>
                   <div class="form-row">
@@ -734,7 +735,7 @@
                   </div>
                 </div>
 
-                <!--Leadership Experience-->
+                <!--Interest-->
                 <div class="selectService">
                   <div><label class="mr-3"><b>Interest</b></label></div>
                   <div class="form-row">
@@ -758,7 +759,7 @@
                   </div>
                 </div>
                 
-                 <!--Relevant Skillset-->
+                 <!--Languages-->
                  <div class="selectService">
                   <div><label class="mr-3"><b>Languages</b></label></div>
                   <div class="form-row">
@@ -784,6 +785,32 @@
                 </div>
 
               </div>
+
+              <div id="refereesInput" class="detailsForm">
+                <div><label><b><h1>Referees</h1></b></label></div>
+                <div><label class="mr-3">Please include a list of your referees...</label></div>
+                <div class="form-row">
+                  <div class="col-md-5 mb-3">
+                    <input type="text" class="form-control inputRef" placeholder="Authors">
+                  </div>
+                  <div class="col-md-4  mb-3">
+                    <input type="text" class="form-control inputRef" placeholder="Article-Title">
+                  </div>
+                  <div class="col-md-3  mb-3">
+                    <input type="date" class="form-control inputRef" placeholder="Issue-Date">
+                  </div>
+                </div>
+                <div id="fillingRef"></div>
+            
+                <div class="d-flex">
+                  <button type="button" class="btn btn-outline-light p-2" id="addRef">Add</button>
+                  <button type="button" class="btn btn-outline-light ml-1 p-2" id="removeRef">Remove</button>
+                  <button type="button" class="btn btn-outline-light ml-auto p-2 prevButton"><</button>
+                  <button type="button" class="btn btn-outline-light ml-1 p-2 nextButton">></button>
+                </div>
+              </div>
+
+
             </form>
             <!--Download Button-->
             <div class="d-flex">
@@ -987,7 +1014,7 @@
           </div>
           
           <!--Services and Affilations-->
-          <div class="col w-100" id="services">
+          <div class="col w-100" id="servicesCVSection">
 
             <div class="row serveOutput" id="affilationsCV">
               <div class="p-2"><b>Affilations</b></div>
@@ -1020,7 +1047,12 @@
             </div>
           </div>
 
-          <div class="row" id="references"></div>
+        </div>
+
+        <div class="borderTemplate" id="refCVSection">
+          <div class="p-2"><b>Referees</b></div>
+          <div class="d-flex flex-column" id="referees">
+          </div>
         </div>
       </div>
 
@@ -1066,10 +1098,14 @@
     <script src="resources/js/services/addAffilation.js"></script>
     <script src="resources/js/services/addMembership.js"></script>
     <script src="resources/js/services/addVoluntary.js"></script>
+    <script src="resources/js/services/addInterest.js"></script>
+    <script src="resources/js/services/addLanguage.js"></script>
 
     <script src="resources/js/otherfolders/selectEducation.js"></script>
     <script src="resources/js/otherfolders/addCert.js"></script>
     <script src="resources/js/otherfolders/addFellowship.js"></script>
+    <script src="resources/js/otherfolders/addRef.js"></script>
+
     <script src="resources/js/translation.js"></script>
     
     <!--Download PDF script-->

@@ -92,6 +92,6 @@ hr{
     display: none;
 }
 
-.serveOutput, .selectService, #removeAffilation, #removeMemberships, #removeVoluntary, #removeInterest, #removeLanguage{
+.serveOutput, .selectService, #removeAffilation, #removeMemberships, #removeVoluntary, #removeInterest, #removeLanguage, #removeRef{
     display: none;
 }

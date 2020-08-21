@@ -55,5 +55,14 @@ var config = {
 
     voluntary:[],
     voluntaryPlaceholders:[],
+
+    interest:[],
+    interestPlaceholders:[],
+
+    language:[],
+    languagePlaceholders:[],
+
+    refs:[],
+    refsPlaceholders:[],
     
 }
