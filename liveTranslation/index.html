@@ -7,7 +7,7 @@
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
-    <link rel="stylesheet" href="resources/css/main.css">
+    <link rel="stylesheet" href="../stylesheets/main.css">
     <title>Live Translation</title>
   </head>
 
@@ -54,7 +54,6 @@
     <div id="contentSection" class="row d-md-flex h-md-100 pt-5">
 
       <!-- First Half -->
-        
       <div id="detailsSection" class="col-md-6 p-0 bg-indigo h-md-100 align-self-center">
         <div class="d-md-flex h-100 p-5 justify-content-center">
           <div class="pt-0 pb-0">
@@ -822,7 +821,6 @@
       
 
       <!-- Second Half -->
-      
       <div id="cvSection"" class="col-md-6 p-0 bg-indigo h-md-100 pt-3">
         <div id="cvDownload">
            
@@ -1073,79 +1071,2038 @@
     <script src="https://kendo.cdn.telerik.com/2017.2.621/js/jquery.min.js"></script>
     <script src="https://kendo.cdn.telerik.com/2017.2.621/js/jszip.min.js"></script>
     <script src="https://kendo.cdn.telerik.com/2017.2.621/js/kendo.all.min.js"></script>
- 
-    <script src="resources/js/config.js"></script>
-    
-    <script src="resources/js/carouselCV/move.js"></script>
-    <script src="resources/js/carouselCV/switchSection.js"></script>
-
-    <script src="resources/js/publications/select/selectPublication.js"></script>
-    <script src="resources/js/publications/addJournal.js"></script>
-    <script src="resources/js/publications/addConference.js"></script>
-    <script src="resources/js/publications/addMonograph.js"></script>
-    <script src="resources/js/publications/addChapter.js"></script>
-    <script src="resources/js/publications/addReview.js"></script>
-    <script src="resources/js/publications/addPending.js"></script>
-    <script src="resources/js/publications/addPatent.js"></script>
-    <script src="resources/js/publications/addOthers.js"></script>
-
-    <script src="resources/js/experience/select/selectExperience.js"></script>
-    <script src="resources/js/experience/addIndustry.js"></script>
-    <script src="resources/js/experience/addEmployment.js"></script>
-    <script src="resources/js/experience/addLeader.js"></script>
-    <script src="resources/js/experience/addSkill.js"></script>
-
-    <script src="resources/js/services/select/selectServices.js"></script>
-    <script src="resources/js/services/addAffilation.js"></script>
-    <script src="resources/js/services/addMembership.js"></script>
-    <script src="resources/js/services/addVoluntary.js"></script>
-    <script src="resources/js/services/addInterest.js"></script>
-    <script src="resources/js/services/addLanguage.js"></script>
-
-    <script src="resources/js/otherfolders/selectEducation.js"></script>
-    <script src="resources/js/otherfolders/addCert.js"></script>
-    <script src="resources/js/otherfolders/addFellowship.js"></script>
-    <script src="resources/js/otherfolders/addRef.js"></script>
-
-    <script src="resources/js/translation.js"></script>
     
     <!--Download PDF script-->
     <script>
-      function ExportPdf(){ 
-        kendo.drawing
-          .drawDOM("#cvDownload", 
-          { 
-            paperSize: "A4",
-            margin: { top: "1cm", bottom: "1cm", left: "0.5cm" },
-            scale: 0.8,
-            height: 500
-          })
-          .then(function(group){
-              kendo.drawing.pdf.saveAs(group, "Exported.pdf")
-          });
-      }
-
-      var button = document.getElementById('downloadButton');
-      button.addEventListener('click', function(){
-        ExportPdf();
-      })
-
+        function ExportPdf(){ 
+          kendo.drawing
+            .drawDOM("#cvDownload", 
+            { 
+              paperSize: "A4",
+              margin: { top: "1cm", bottom: "1cm", left: "0.5cm" },
+              scale: 0.8,
+              height: 500
+            })
+            .then(function(group){
+                kendo.drawing.pdf.saveAs(group, "Exported.pdf")
+            });
+        }
+  
+        var button = document.getElementById('downloadButton');
+        button.addEventListener('click', function(){
+          ExportPdf();
+        })
+  
     </script>
-
+  
     <!--Script for responsive resizing adjustment-->
     <script>
-      $(window).on('resize', function() {
-        var win = $(this);
-        if (win.width() > 850) {
-            $('div6#detailsSection').addClass('col-md-6')
-            $('.navbar').css({"opacity": "30%"});
+        $(window).on('resize', function() {
+          var win = $(this);
+          if (win.width() > 850) {
+              $('divs#detailsSection').addClass('col-md-6')
+              $('.navbar').css({"opacity": "30%"});
+          }
+          else{
+              $('div#detailsSection').removeClass('col-md-6');
+              $('div#detailsSection').addClass('col');
+              $('.navbar').css({"opacity": "100%"});
+          }
+        });
+    </script>
+      
+    <script>
+      //CONFIGURATIONS FOR PUBLICAIONS
+      var config = {
+        currentCarousel:0,
+        prevCarousel:0,
+
+        //publication inputs for Journal
+        publications: [],
+        //publication placeholder for Journal on cv
+        publicationPlaceholders:[],
+
+        conferences: [],
+        conferencesPlaceholders:[],
+
+        monographs: [],
+        monographsPlaceholders: [],
+          
+        chapters:[],
+        chaptersPlaceholders:[],
+
+        reviews:[],
+        reviewsPlaceholders:[],
+
+        pendings:[],
+        pendingsPlaceholders:[],
+
+        patents:[],
+        patentsPlaceholders:[],
+
+        others: [],
+        otherPlaceholders:[],
+
+        certs: [],
+        certPlaceholders: [],
+
+        fellowship: [],
+        fellowshipPlaceholders:[],
+
+        industry:[],
+        industryPlaceholders:[],
+          
+        employment:[],
+        employmentPlaceholders:[],
+
+        leadership:[],
+        leadershipPlaceholders:[],
+
+        skills:[],
+        skillsPlaceholders:[],
+
+        affilations:[],
+        affilationsPlaceholders:[],
+
+        memberships:[],
+        membershipsPlaceholders:[],
+
+        voluntary:[],
+        voluntaryPlaceholders:[],
+
+        interest:[],
+        interestPlaceholders:[],
+
+        language:[],
+        languagePlaceholders:[],
+
+        refs:[],
+        refsPlaceholders:[],
+      }
+    </script>
+
+    <script>
+      function moveCV(){
+        var inputs = document.getElementsByClassName('detailsForm');
+        var nextButton = document.getElementsByClassName('nextButton');
+        var prevButton = document.getElementsByClassName('prevButton');
+        var switchSection = document.getElementsByClassName('switchSection');
+
+        inputs[config.currentCarousel].style.display="block";
+
+        for(let i = 0; i < nextButton.length; i++){
+          nextButton[i].addEventListener('click', function(){
+            if(config.currentCarousel < inputs.length-1){
+              config.prevCarousel = config.currentCarousel;
+              config.currentCarousel++;
+              
+              inputs[config.prevCarousel].style.display="none";
+              inputs[config.currentCarousel].style.display="block";
+
+              switchSection[config.prevCarousel].classList.remove('active');
+              switchSection[config.currentCarousel].classList.add('active');
+            }
+            console.log(config.currentCarousel);
+          })
         }
-        else{
-            $('div#detailsSection').removeClass('col-md-6');
-            $('div#detailsSection').addClass('col');
-            $('.navbar').css({"opacity": "100%"});
+        
+        
+        for(let j = 0; j < prevButton.length; j++){
+          prevButton[j].addEventListener('click', function(){
+            if(config.currentCarousel > 0){
+              config.prevCarousel = config.currentCarousel;
+              config.currentCarousel--;
+              inputs[config.prevCarousel].style.display="none";
+              inputs[config.currentCarousel].style.display="block";
+                    
+              switchSection[config.prevCarousel].classList.remove('active');
+              switchSection[config.currentCarousel].classList.add('active');
+            }
+            console.log(config.currentCarousel);
+          })
+        }      
+      }
+      moveCV();
+    </script>
+
+    <script>
+      function switchCarousel(){
+        var inputs = document.getElementsByClassName('detailsForm');
+        var switchSection = document.getElementsByClassName('switchSection');
+          
+        console.log(inputs);
+        console.log(inputs.length);
+        console.log(switchSection.length);
+        console.log(switchSection);
+          
+        for(let i = 0; i < switchSection.length; i++){
+          switchSection[i].addEventListener('click', function(){
+            config.prevCarousel = config.currentCarousel;
+            config.currentCarousel = i;
+                    
+            inputs[config.prevCarousel].style.display="none";
+            inputs[config.currentCarousel].style.display="block";
+                    
+            switchSection[config.prevCarousel].classList.remove('active');
+            switchSection[config.currentCarousel].classList.add('active');
+            
+            console.log(config.currentCarousel);
+            console.log(config.prevCarousel);   
+          })
         }
-      });
+      }
+      switchCarousel();
+    </script>
+
+    <script>
+      function selectPublication(){
+        var forms = document.getElementsByClassName('selectPub');
+        var outputs = document.getElementsByClassName('pubOutput');
+        var dropdownPub = document.getElementsByClassName('switchPublication');
+        var dropdowncarousel = document.getElementsByClassName('pubCarousel');
+        var prevIndex = 0;
+        forms[0].style.display="block";
+        for(let i = 0; i < dropdownPub.length; i++){
+          dropdownPub[i].addEventListener('click', function(){
+            if(outputs[i].style.display == "block"){
+              outputs[i].style.display = "none";
+            }
+            else{
+              outputs[i].style.display="block";
+            }
+          })
+        }
+
+        for(let j = 0; j < dropdowncarousel.length; j++){
+          dropdowncarousel[j].addEventListener('click', function(){
+            forms[prevIndex].style.display = 'none';
+            forms[j].style.display = 'block';
+            prevIndex = j;
+          })
+        }
+      }
+      selectPublication();
+    </script>
+
+    <script>
+      function addJournal(){
+    
+        var addPubButt = document.getElementById('addPublication');
+        var removeButton = document.getElementById('removePublication');
+        var infoPos = document.getElementById('fillingPublication');
+        var outputPos = document.getElementById('publications');
+        
+        var init = document.getElementsByClassName('inputPublications');
+        var initFields = [];
+        
+        initFields.push(init[0]);
+        initFields.push(init[1]);
+        initFields.push(init[2]);
+        
+        //Div for the added publications.
+        var paraInit = document.createElement("DIV");
+        paraInit.classList.add("p-2");
+        paraInit.classList.add("addedPub");
+        outputPos.appendChild(paraInit);
+
+        config.publications.push(initFields);
+        config.publicationPlaceholders.push(paraInit);
+
+        addPubButt.addEventListener('click', function(){
+            var inputFields = document.getElementsByClassName('inputPublications');
+            //var newText = inputFields[inputFields.length-3].value + inputFields[inputFields.length-2].value + inputFields[inputFields.length-1].value;
+
+
+            //Div for the added publications.
+            var para = document.createElement("DIV");
+            para.classList.add("p-2");
+            para.classList.add("addedPub");
+            outputPos.appendChild(para);
+
+
+            //Div for the form for adding pubolications.
+            var inputNew = document.createElement("DIV")
+            inputNew.classList.add("form-row");
+            inputNew.innerHTML = inputNew.innerHTML + '<div class="col-md-5 mb-3 mt-3"> <input type="text" class="form-control inputPublications" placeholder="Authors"> </div> <div class="col-md-4  mb-3 mt-3"> <input type="text" class="form-control inputPublications" placeholder="Article-Title"> </div> <div class="col-md-3  mb-3 mt-3"> <input type="date" class="form-control inputPublications" placeholder="Issue-Date"> </div>';
+            infoPos.appendChild(inputNew);
+            
+            removeButton.style.display = 'inline';
+
+            var newInputPos = []; //for adding new form
+            //adding the 3 latest inputs.
+            newInputPos.push(inputFields[inputFields.length-3]);
+            newInputPos.push(inputFields[inputFields.length-2]);
+            newInputPos.push(inputFields[inputFields.length-1]);
+
+            config.publications.push(newInputPos);
+            config.publicationPlaceholders.push(para);
+
+            
+            console.log(config.publications);
+            console.log(config.publicationPlaceholders);
+
+            
+            
+        });
+
+        removeButton.addEventListener('click', function(){
+            config.publications.pop(config.publications);
+            config.publicationPlaceholders.pop(config.publicationPlaceholders);   
+
+            outputPos.removeChild(outputPos.lastChild);
+            infoPos.removeChild(infoPos.lastChild);
+
+            if(outputPos.childElementCount < 2){
+                removeButton.style.display = 'none';
+            }
+              
+
+            console.log(config.publications);
+            console.log(config.publicationPlaceholders)
+
+        });
+
+      }
+      addJournal();
+    </script>
+
+    <script>
+      function addConference(){
+        var addPubButt = document.getElementById('addConference');
+        var removeButton = document.getElementById('removeConference');
+        var infoPos = document.getElementById('fillingConference');
+        var outputPos = document.getElementById('conferences');
+        
+        var init = document.getElementsByClassName('inputConference');
+        var initFields = [];
+        
+        initFields.push(init[0]);
+        initFields.push(init[1]);
+        initFields.push(init[2]);
+        
+        //Div for the added publications.
+        var paraInit = document.createElement("DIV");
+        paraInit.classList.add("p-2");
+        paraInit.classList.add("addedPub");
+        outputPos.appendChild(paraInit);
+
+        config.conferences.push(initFields);
+        config.conferencesPlaceholders.push(paraInit);
+
+        addPubButt.addEventListener('click', function(){
+            var inputFields = document.getElementsByClassName('inputConference');
+            //var newText = inputFields[inputFields.length-3].value + inputFields[inputFields.length-2].value + inputFields[inputFields.length-1].value;
+
+
+            //Div for the added publications.
+            var para = document.createElement("DIV");
+            para.classList.add("p-2");
+            para.classList.add("addedPub");
+            outputPos.appendChild(para);
+
+
+            //Div for the form for adding pubolications.
+            var inputNew = document.createElement("DIV")
+            inputNew.classList.add("form-row");
+            inputNew.innerHTML = inputNew.innerHTML + '<div class="col-md-5 mb-3 mt-3"> <input type="text" class="form-control inputConference" placeholder="Authors"> </div> <div class="col-md-4  mb-3 mt-3"> <input type="text" class="form-control inputConference" placeholder="Article-Title"> </div> <div class="col-md-3  mb-3 mt-3"> <input type="date" class="form-control inputConference" placeholder="Issue-Date"> </div>';
+            infoPos.appendChild(inputNew);
+            
+            removeButton.style.display = 'inline';
+
+            var newInputPos = []; //for adding new form
+            //adding the 3 latest inputs.
+            newInputPos.push(inputFields[inputFields.length-3]);
+            newInputPos.push(inputFields[inputFields.length-2]);
+            newInputPos.push(inputFields[inputFields.length-1]);
+
+            config.conferences.push(newInputPos);
+            config.conferencesPlaceholders.push(para);
+
+            
+            console.log(config.conferencesPlaceholders);
+            console.log(config.conferencesPlaceholders);
+
+            
+            
+        });
+
+        removeButton.addEventListener('click', function(){
+            config.conferences.pop(config.conferences);
+            config.conferencesPlaceholders.pop(config.conferencesPlaceholders);   
+
+            outputPos.removeChild(outputPos.lastChild);
+            infoPos.removeChild(infoPos.lastChild);
+
+            if(outputPos.childElementCount < 2){
+                removeButton.style.display = 'none';
+            }
+              
+
+            console.log(config.conferences);
+            console.log(config.conferencesPlaceholders)
+
+        });
+      }
+      addConference();
+    </script>
+
+    <script>
+      function addMonograph(){
+    
+        var addPubButt = document.getElementById('addMonograph');
+        var removeButton = document.getElementById('removeMonograph');
+        var infoPos = document.getElementById('fillingMonograph');
+        var outputPos = document.getElementById('monographs');
+        
+        var init = document.getElementsByClassName('inputMonograph');
+        var initFields = [];
+        
+        initFields.push(init[0]);
+        initFields.push(init[1]);
+        initFields.push(init[2]);
+        
+        //Div for the added publications.
+        var paraInit = document.createElement("DIV");
+        paraInit.classList.add("p-2");
+        paraInit.classList.add("addedPub");
+        outputPos.appendChild(paraInit);
+
+        config.monographs.push(initFields);
+        config.monographsPlaceholders.push(paraInit);
+
+        addPubButt.addEventListener('click', function(){
+            var inputFields = document.getElementsByClassName('inputMonograph');
+            //var newText = inputFields[inputFields.length-3].value + inputFields[inputFields.length-2].value + inputFields[inputFields.length-1].value;
+
+
+            //Div for the added publications.
+            var para = document.createElement("DIV");
+            para.classList.add("p-2");
+            para.classList.add("addedPub");
+            outputPos.appendChild(para);
+
+
+            //Div for the form for adding pubolications.
+            var inputNew = document.createElement("DIV")
+            inputNew.classList.add("form-row");
+            inputNew.innerHTML = inputNew.innerHTML + '<div class="col-md-5 mb-3 mt-3"> <input type="text" class="form-control inputMonograph" placeholder="Authors"> </div> <div class="col-md-4  mb-3 mt-3"> <input type="text" class="form-control inputMonograph" placeholder="Article-Title"> </div> <div class="col-md-3  mb-3 mt-3"> <input type="date" class="form-control inputMonograph" placeholder="Issue-Date"> </div>';
+            infoPos.appendChild(inputNew);
+            
+            removeButton.style.display = 'inline';
+
+            var newInputPos = []; //for adding new form
+            //adding the 3 latest inputs.
+            newInputPos.push(inputFields[inputFields.length-3]);
+            newInputPos.push(inputFields[inputFields.length-2]);
+            newInputPos.push(inputFields[inputFields.length-1]);
+
+            config.monographs.push(newInputPos);
+            config.monographsPlaceholders.push(para);
+
+            
+            console.log(config.monographs);
+            console.log(config.monographsPlaceholders);
+
+            
+            
+        });
+
+        removeButton.addEventListener('click', function(){
+            config.monographs.pop(config.monographs);
+            config.monographsPlaceholders.pop(config.monographsPlaceholders);   
+
+            outputPos.removeChild(outputPos.lastChild);
+            infoPos.removeChild(infoPos.lastChild);
+
+            if(outputPos.childElementCount < 2){
+                removeButton.style.display = 'none';
+            }
+              
+
+            console.log(config.monographs);
+            console.log(config.monographsPlaceholders)
+
+        });
+      }
+      addMonograph();
+    </script>
+
+    <script>
+      function addChapters(){
+    
+        var addPubButt = document.getElementById('addChapter');
+        var removeButton = document.getElementById('removeChapter');
+        var infoPos = document.getElementById('fillingChapter');
+        var outputPos = document.getElementById('chapters');
+        
+        var init = document.getElementsByClassName('inputChapter');
+        var initFields = [];
+        
+        initFields.push(init[0]);
+        initFields.push(init[1]);
+        initFields.push(init[2]);
+        
+        //Div for the added publications.
+        var paraInit = document.createElement("DIV");
+        paraInit.classList.add("p-2");
+        paraInit.classList.add("addedPub");
+        outputPos.appendChild(paraInit);
+      
+        config.chapters.push(initFields);
+        config.chaptersPlaceholders.push(paraInit);
+
+        addPubButt.addEventListener('click', function(){
+            var inputFields = document.getElementsByClassName('inputChapter');
+            //var newText = inputFields[inputFields.length-3].value + inputFields[inputFields.length-2].value + inputFields[inputFields.length-1].value;
+
+
+            //Div for the added publications.
+            var para = document.createElement("DIV");
+            para.classList.add("p-2");
+            para.classList.add("addedPub");
+            outputPos.appendChild(para);
+
+
+            //Div for the form for adding pubolications.
+            var inputNew = document.createElement("DIV")
+            inputNew.classList.add("form-row");
+            inputNew.innerHTML = inputNew.innerHTML + '<div class="col-md-5 mb-3 mt-3"> <input type="text" class="form-control inputChapter" placeholder="Authors"> </div> <div class="col-md-4  mb-3 mt-3"> <input type="text" class="form-control inputChapter" placeholder="Article-Title"> </div> <div class="col-md-3  mb-3 mt-3"> <input type="date" class="form-control inputChapter" placeholder="Issue-Date"> </div>';
+            infoPos.appendChild(inputNew);
+            
+            removeButton.style.display = 'inline';
+
+            var newInputPos = []; //for adding new form
+            //adding the 3 latest inputs.
+            newInputPos.push(inputFields[inputFields.length-3]);
+            newInputPos.push(inputFields[inputFields.length-2]);
+            newInputPos.push(inputFields[inputFields.length-1]);
+
+            config.chapters.push(newInputPos);
+            config.chaptersPlaceholders.push(para);
+
+            
+            console.log(config.chapters);
+            console.log(config.chaptersPlaceholders);
+
+            
+            
+        });
+
+        removeButton.addEventListener('click', function(){
+            config.chapters.pop(config.chapters);
+            config.chaptersPlaceholders.pop(config.chaptersPlaceholders);   
+
+            outputPos.removeChild(outputPos.lastChild);
+            infoPos.removeChild(infoPos.lastChild);
+
+            if(outputPos.childElementCount < 2){
+                removeButton.style.display = 'none';
+            }
+              
+
+            console.log(config.chapters);
+            console.log(config.chaptersPlaceholders);
+
+        });
+
+      }
+      addChapters();
+    </script>
+    
+    <script>
+      function addReviews(){
+    
+        var addPubButt = document.getElementById('addReview');
+        var removeButton = document.getElementById('removeReview');
+        var infoPos = document.getElementById('fillingReview');
+        var outputPos = document.getElementById('underReviews');
+        
+        var init = document.getElementsByClassName('inputReview');
+        var initFields = [];
+        
+        initFields.push(init[0]);
+        initFields.push(init[1]);
+        initFields.push(init[2]);
+        
+        //Div for the added publications.
+        var paraInit = document.createElement("DIV");
+        paraInit.classList.add("p-2");
+        paraInit.classList.add("addedPub");
+        outputPos.appendChild(paraInit);
+      
+        config.chapters.push(initFields);
+        config.chaptersPlaceholders.push(paraInit);
+
+        addPubButt.addEventListener('click', function(){
+            var inputFields = document.getElementsByClassName('inputReview');
+            //var newText = inputFields[inputFields.length-3].value + inputFields[inputFields.length-2].value + inputFields[inputFields.length-1].value;
+
+
+            //Div for the added publications.
+            var para = document.createElement("DIV");
+            para.classList.add("p-2");
+            para.classList.add("addedPub");
+            outputPos.appendChild(para);
+
+
+            //Div for the form for adding pubolications.
+            var inputNew = document.createElement("DIV")
+            inputNew.classList.add("form-row");
+            inputNew.innerHTML = inputNew.innerHTML + '<div class="col-md-5 mb-3 mt-3"> <input type="text" class="form-control inputReview" placeholder="Authors"> </div> <div class="col-md-4  mb-3 mt-3"> <input type="text" class="form-control inputReview" placeholder="Article-Title"> </div> <div class="col-md-3  mb-3 mt-3"> <input type="date" class="form-control inputReview" placeholder="Issue-Date"> </div>';
+            infoPos.appendChild(inputNew);
+            
+            removeButton.style.display = 'inline';
+
+            var newInputPos = []; //for adding new form
+            //adding the 3 latest inputs.
+            newInputPos.push(inputFields[inputFields.length-3]);
+            newInputPos.push(inputFields[inputFields.length-2]);
+            newInputPos.push(inputFields[inputFields.length-1]);
+
+            config.chapters.push(newInputPos);
+            config.chaptersPlaceholders.push(para);
+
+            
+            console.log(config.reviews);
+            console.log(config.reviewsPlaceholders);
+
+            
+            
+        });
+
+        removeButton.addEventListener('click', function(){
+            config.chapters.pop(config.reviews);
+            config.chaptersPlaceholders.pop(config.reviewsPlaceholders);   
+
+            outputPos.removeChild(outputPos.lastChild);
+            infoPos.removeChild(infoPos.lastChild);
+
+            if(outputPos.childElementCount < 2){
+                removeButton.style.display = 'none';
+            }
+              
+
+            console.log(config.reviews);
+            console.log(config.reviewsPlaceholders);
+
+        });
+      }
+      addReviews();
+    </script>
+
+    <script>
+      function addPending(){
+        var addOthersButt = document.getElementById('addPending');
+        var removeButton = document.getElementById('removePending');
+        var infoPos = document.getElementById('fillingPending');
+        var outputPos = document.getElementById('pendingSubmissions');
+        
+        var init = document.getElementsByClassName('inputPending');
+        var initFields = [];
+        
+        initFields.push(init[0]);
+        initFields.push(init[1]);
+        initFields.push(init[2]);
+        
+        //Div for the added publications.
+        var paraInit = document.createElement("DIV");
+        paraInit.classList.add("p-2");
+        paraInit.classList.add("addedPending");
+        outputPos.appendChild(paraInit);
+
+        config.others.push(initFields);
+        config.otherPlaceholders.push(paraInit);
+
+        addOthersButt.addEventListener('click', function(){
+            var inputFields = document.getElementsByClassName('inputPending');
+            //var newText = inputFields[inputFields.length-3].value + inputFields[inputFields.length-2].value + inputFields[inputFields.length-1].value;
+
+
+            //Div for the added publications.
+            var para = document.createElement("DIV");
+            para.classList.add("p-2");
+            para.classList.add("addedPending");
+            outputPos.appendChild(para);
+
+
+            //Div for the form for adding pubolications.
+            var inputNew = document.createElement("DIV")
+            inputNew.classList.add("form-row");
+            inputNew.innerHTML = inputNew.innerHTML + '<div class="col-md-5 mb-3"> <input type="text" class="form-control inputPending" placeholder="Authors"> </div> <div class="col-md-4  mb-3"> <input type="text" class="form-control inputPending" placeholder="Article-Title"> </div> <div class="col-md-3  mb-3"> <input type="date" class="form-control inputPending" placeholder="Issue-Date"> </div>';
+            infoPos.appendChild(inputNew);
+            
+            removeButton.style.display = 'inline';
+
+            var newInputPos = []; //for adding new form
+            //adding the 3 latest inputs.
+            newInputPos.push(inputFields[inputFields.length-3]);
+            newInputPos.push(inputFields[inputFields.length-2]);
+            newInputPos.push(inputFields[inputFields.length-1]);
+
+            config.pendings.push(newInputPos);
+            config.pendingsPlaceholders.push(para);
+
+            
+            console.log(config.pendings);
+            console.log(config.pendingsPlaceholders);
+
+            
+            
+        });
+
+        removeButton.addEventListener('click', function(){
+            config.pendings.pop(config.pendings);
+            config.pendingsPlaceholders.pop(config.pendingsPlaceholders);   
+
+            outputPos.removeChild(outputPos.lastChild);
+            infoPos.removeChild(infoPos.lastChild);
+            if(outputPos.childElementCount < 2){
+                removeButton.style.display = 'none';
+            }
+              
+
+            console.log(config.pendings);
+            console.log(config.pendingsceholders)
+
+        });
+      }
+      addPending();
+    </script>
+
+    <script>
+      function addPatents(){
+    
+        var addOthersButt = document.getElementById('addPatents');
+        var removeButton = document.getElementById('removePatents');
+        var infoPos = document.getElementById('fillingPatents');
+        var outputPos = document.getElementById('patents');
+        
+        var init = document.getElementsByClassName('inputPatents');
+        var initFields = [];
+        
+        initFields.push(init[0]);
+        initFields.push(init[1]);
+        initFields.push(init[2]);
+        
+        //Div for the added publications.
+        var paraInit = document.createElement("DIV");
+        paraInit.classList.add("p-2");
+        paraInit.classList.add("addedPatents");
+        outputPos.appendChild(paraInit);
+
+        config.others.push(initFields);
+        config.otherPlaceholders.push(paraInit);
+
+        addOthersButt.addEventListener('click', function(){
+            var inputFields = document.getElementsByClassName('inputPatents');
+            //var newText = inputFields[inputFields.length-3].value + inputFields[inputFields.length-2].value + inputFields[inputFields.length-1].value;
+
+
+            //Div for the added publications.
+            var para = document.createElement("DIV");
+            para.classList.add("p-2");
+            para.classList.add("addedPatents");
+            outputPos.appendChild(para);
+
+
+            //Div for the form for adding pubolications.
+            var inputNew = document.createElement("DIV")
+            inputNew.classList.add("form-row");
+            inputNew.innerHTML = inputNew.innerHTML + '<div class="col-md-5 mb-3"> <input type="text" class="form-control inputPatents" placeholder="Authors"> </div> <div class="col-md-4  mb-3"> <input type="text" class="form-control inputPatents" placeholder="Article-Title"> </div> <div class="col-md-3  mb-3"> <input type="date" class="form-control inputPatents" placeholder="Issue-Date"> </div>';
+            infoPos.appendChild(inputNew);
+            
+            removeButton.style.display = 'inline';
+
+            var newInputPos = []; //for adding new form
+            //adding the 3 latest inputs.
+            newInputPos.push(inputFields[inputFields.length-3]);
+            newInputPos.push(inputFields[inputFields.length-2]);
+            newInputPos.push(inputFields[inputFields.length-1]);
+
+            config.patents.push(newInputPos);
+            config.patentsPlaceholders.push(para);
+
+            
+            console.log(config.patents);
+            console.log(config.patentsPlaceholders);
+
+            
+            
+        });
+
+        removeButton.addEventListener('click', function(){
+            config.patents.pop(config.patents);
+            config.patentsPlaceholders.pop(config.patentsPlaceholders);   
+
+            outputPos.removeChild(outputPos.lastChild);
+            infoPos.removeChild(infoPos.lastChild);
+            if(outputPos.childElementCount < 2){
+                removeButton.style.display = 'none';
+            }
+              
+
+            console.log(config.patents);
+            console.log(config.patentsPlaceholders)
+
+        });
+      }
+      addPatents();
+    </script>
+
+    <script>
+      function addOthers(){
+        var addOthersButt = document.getElementById('addOthers');
+        var removeButton = document.getElementById('removeOthers');
+        var infoPos = document.getElementById('fillingOthers');
+        var outputPos = document.getElementById('others');
+        
+        var init = document.getElementsByClassName('inputOthers');
+        var initFields = [];
+        
+        initFields.push(init[0]);
+        initFields.push(init[1]);
+        initFields.push(init[2]);
+        
+        //Div for the added publications.
+        var paraInit = document.createElement("DIV");
+        paraInit.classList.add("p-2");
+        paraInit.classList.add("addedOthers");
+        outputPos.appendChild(paraInit);
+
+        config.others.push(initFields);
+        config.otherPlaceholders.push(paraInit);
+
+        addOthersButt.addEventListener('click', function(){
+            var inputFields = document.getElementsByClassName('inputOthers');
+            //var newText = inputFields[inputFields.length-3].value + inputFields[inputFields.length-2].value + inputFields[inputFields.length-1].value;
+
+
+            //Div for the added publications.
+            var para = document.createElement("DIV");
+            para.classList.add("p-2");
+            para.classList.add("addedOthers");
+            outputPos.appendChild(para);
+
+
+            //Div for the form for adding pubolications.
+            var inputNew = document.createElement("DIV")
+            inputNew.classList.add("form-row");
+            inputNew.innerHTML = inputNew.innerHTML + '<div class="col-md-5 mb-3"> <input type="text" class="form-control inputOthers mt-3" placeholder="Authors"> </div> <div class="col-md-4  mb-3"> <input type="text" class="form-control inputOthers mt-3" placeholder="Article-Title"> </div> <div class="col-md-3  mb-3"> <input type="date" class="form-control inputOthers mt-3" placeholder="Issue-Date"> </div>';
+            infoPos.appendChild(inputNew);
+            
+            removeButton.style.display = 'inline';
+
+            var newInputPos = []; //for adding new form
+            //adding the 3 latest inputs.
+            newInputPos.push(inputFields[inputFields.length-3]);
+            newInputPos.push(inputFields[inputFields.length-2]);
+            newInputPos.push(inputFields[inputFields.length-1]);
+
+            config.others.push(newInputPos);
+            config.otherPlaceholders.push(para);
+
+            
+            console.log(config.others);
+            console.log(config.otherPlaceholders);
+
+            
+            
+        });
+
+        removeButton.addEventListener('click', function(){
+            config.others.pop(config.others);
+            config.otherPlaceholders.pop(config.otherPlaceholders);   
+
+            outputPos.removeChild(outputPos.lastChild);
+            infoPos.removeChild(infoPos.lastChild);
+            if(outputPos.childElementCount < 2){
+                removeButton.style.display = 'none';
+            }
+              
+
+            console.log(config.others);
+            console.log(config.otherPlaceholders)
+
+        });
+      }
+      addOthers();
+    </script>
+
+    <script>
+      function selectExperience(){
+        var forms = document.getElementsByClassName('selectExp');
+        var outputs = document.getElementsByClassName('expOutput');
+        var dropdownExp = document.getElementsByClassName('switchExp');
+        var dropdowncarousel = document.getElementsByClassName('expCarousel');
+        var prevIndex = 0;
+        forms[0].style.display="block";
+        for(let i = 0; i < dropdownExp.length; i++){
+          dropdownExp[i].addEventListener('click', function(){
+            if(outputs[i].style.display == "block"){
+              outputs[i].style.display = "none";
+            }
+            else{
+              outputs[i].style.display="block";
+            }
+          })
+        }
+
+        for(let j = 0; j < dropdowncarousel.length; j++){
+          dropdowncarousel[j].addEventListener('click', function(){
+            forms[prevIndex].style.display = 'none';
+            forms[j].style.display = 'block';
+            prevIndex = j;
+          })
+        }
+      }
+      selectExperience();
+    </script>
+    
+    <script>
+      function addIndustry(){
+        var addExpButt = document.getElementById('addIndustry');
+        var removeButton = document.getElementById('removeIndustry');
+        var infoPos = document.getElementById('fillingIndustry');
+        var outputPos = document.getElementById('industrialExpOutput');
+        
+        var init = document.getElementsByClassName('inputIndustry');
+        var initFields = [];
+        
+        initFields.push(init[0]);
+        initFields.push(init[1]);
+        initFields.push(init[2]);
+        
+        //Div for the added publications.
+        var paraInit = document.createElement("DIV");
+        paraInit.classList.add("p-2");
+        paraInit.classList.add("addedExp");
+        outputPos.appendChild(paraInit);
+
+        config.industry.push(initFields);
+        config.industryPlaceholders.push(paraInit);
+
+        addExpButt.addEventListener('click', function(){
+            var inputFields = document.getElementsByClassName('inputIndustry');
+            //var newText = inputFields[inputFields.length-3].value + inputFields[inputFields.length-2].value + inputFields[inputFields.length-1].value;
+
+
+            //Div for the added publications.
+            var para = document.createElement("DIV");
+            para.classList.add("p-2");
+            para.classList.add("addedExp");
+            outputPos.appendChild(para);
+
+
+            //Div for the form for adding pubolications.
+            var inputNew = document.createElement("DIV")
+            inputNew.classList.add("form-row");
+            inputNew.innerHTML = inputNew.innerHTML + '<div class="col-md-5 mb-3 mt-3"> <input type="text" class="form-control inputIndustry" placeholder="Authors"> </div> <div class="col-md-4  mb-3 mt-3"> <input type="text" class="form-control inputIndustry" placeholder="Article-Title"> </div> <div class="col-md-3  mb-3 mt-3"> <input type="date" class="form-control inputIndustry" placeholder="Issue-Date"> </div>';
+            infoPos.appendChild(inputNew);
+            
+            removeButton.style.display = 'inline';
+
+            var newInputPos = []; //for adding new form
+            //adding the 3 latest inputs.
+            newInputPos.push(inputFields[inputFields.length-3]);
+            newInputPos.push(inputFields[inputFields.length-2]);
+            newInputPos.push(inputFields[inputFields.length-1]);
+
+            config.industry.push(newInputPos);
+            config.industryPlaceholders.push(para);
+
+            console.log(config.industry);
+            console.log(config.industryPlaceholders);
+        
+        });
+
+        removeButton.addEventListener('click', function(){
+            config.industry.pop(config.industry);
+            config.industryPlaceholders.pop(config.industryPlaceholders);   
+
+            outputPos.removeChild(outputPos.lastChild);
+            infoPos.removeChild(infoPos.lastChild);
+
+            if(outputPos.childElementCount < 2){
+                removeButton.style.display = 'none';
+            }
+
+        });
+      }
+      addIndustry();
+    </script>
+    
+    <script>
+      function addEmployment(){
+        var addExpButt = document.getElementById('addEmploy');
+        var removeButton = document.getElementById('removeEmploy');
+        var infoPos = document.getElementById('fillingEmploy');
+        var outputPos = document.getElementById('employmentOutput');
+        
+        var init = document.getElementsByClassName('inputEmploy');
+        var initFields = [];
+        
+        initFields.push(init[0]);
+        initFields.push(init[1]);
+        initFields.push(init[2]);
+        
+        //Div for the added publications.
+        var paraInit = document.createElement("DIV");
+        paraInit.classList.add("p-2");
+        paraInit.classList.add("addedExp");
+        outputPos.appendChild(paraInit);
+
+        config.employment.push(initFields);
+        config.employmentPlaceholders.push(paraInit);
+
+        addExpButt.addEventListener('click', function(){
+            var inputFields = document.getElementsByClassName('inputEmploy');
+            //var newText = inputFields[inputFields.length-3].value + inputFields[inputFields.length-2].value + inputFields[inputFields.length-1].value;
+
+
+            //Div for the added publications.
+            var para = document.createElement("DIV");
+            para.classList.add("p-2");
+            para.classList.add("addedExp");
+            outputPos.appendChild(para);
+
+
+            //Div for the form for adding pubolications.
+            var inputNew = document.createElement("DIV")
+            inputNew.classList.add("form-row");
+            inputNew.innerHTML = inputNew.innerHTML + '<div class="col-md-5 mb-3 mt-3"> <input type="text" class="form-control inputEmploy" placeholder="Authors"> </div> <div class="col-md-4  mb-3 mt-3"> <input type="text" class="form-control inputEmploy" placeholder="Article-Title"> </div> <div class="col-md-3  mb-3 mt-3"> <input type="date" class="form-control inputEmploy" placeholder="Issue-Date"> </div>';
+            infoPos.appendChild(inputNew);
+            
+            removeButton.style.display = 'inline';
+
+            var newInputPos = []; //for adding new form
+            //adding the 3 latest inputs.
+            newInputPos.push(inputFields[inputFields.length-3]);
+            newInputPos.push(inputFields[inputFields.length-2]);
+            newInputPos.push(inputFields[inputFields.length-1]);
+
+            config.employment.push(newInputPos);
+            config.employmentPlaceholders.push(para);
+
+            console.log(config.employment);
+            console.log(config.employmentPlaceholders);
+        
+        });
+
+        removeButton.addEventListener('click', function(){
+            config.employment.pop(config.employment);
+            config.employmentPlaceholders.pop(config.employmentPlaceholders);   
+
+            outputPos.removeChild(outputPos.lastChild);
+            infoPos.removeChild(infoPos.lastChild);
+
+            if(outputPos.childElementCount < 2){
+                removeButton.style.display = 'none';
+            }
+
+        });
+      }
+      addEmployment();
+    </script>
+
+    <script>
+      function addLeader(){
+        var addExpButt = document.getElementById('addLeader');
+        var removeButton = document.getElementById('removeLeader');
+        var infoPos = document.getElementById('fillingLeader');
+        var outputPos = document.getElementById('leadershipOutput');
+        
+        var init = document.getElementsByClassName('inputLeader');
+        var initFields = [];
+        
+        initFields.push(init[0]);
+        initFields.push(init[1]);
+        initFields.push(init[2]);
+        
+        //Div for the added publications.
+        var paraInit = document.createElement("DIV");
+        paraInit.classList.add("p-2");
+        paraInit.classList.add("addedExp");
+        outputPos.appendChild(paraInit);
+
+        config.leadership.push(initFields);
+        config.leadershipPlaceholders.push(paraInit);
+
+        addExpButt.addEventListener('click', function(){
+            var inputFields = document.getElementsByClassName('inputLeader');
+            //var newText = inputFields[inputFields.length-3].value + inputFields[inputFields.length-2].value + inputFields[inputFields.length-1].value;
+
+
+            //Div for the added publications.
+            var para = document.createElement("DIV");
+            para.classList.add("p-2");
+            para.classList.add("addedExp");
+            outputPos.appendChild(para);
+
+
+            //Div for the form for adding pubolications.
+            var inputNew = document.createElement("DIV")
+            inputNew.classList.add("form-row");
+            inputNew.innerHTML = inputNew.innerHTML + '<div class="col-md-5 mb-3 mt-3"> <input type="text" class="form-control inputLeader" placeholder="Authors"> </div> <div class="col-md-4  mb-3 mt-3"> <input type="text" class="form-control inputLeader" placeholder="Article-Title"> </div> <div class="col-md-3  mb-3 mt-3"> <input type="date" class="form-control inputLeader" placeholder="Issue-Date"> </div>';
+            infoPos.appendChild(inputNew);
+            
+            removeButton.style.display = 'inline';
+
+            var newInputPos = []; //for adding new form
+            //adding the 3 latest inputs.
+            newInputPos.push(inputFields[inputFields.length-3]);
+            newInputPos.push(inputFields[inputFields.length-2]);
+            newInputPos.push(inputFields[inputFields.length-1]);
+
+            config.leadership.push(newInputPos);
+            config.leadershipPlaceholders.push(para);
+
+            console.log(config.leadership);
+            console.log(config.leadershipPlaceholders);
+        
+        });
+
+        removeButton.addEventListener('click', function(){
+            config.industry.pop(config.leadership);
+            config.industryPlaceholders.pop(config.leadershipPlaceholders);   
+
+            outputPos.removeChild(outputPos.lastChild);
+            infoPos.removeChild(infoPos.lastChild);
+
+            if(outputPos.childElementCount < 2){
+                removeButton.style.display = 'none';
+            }
+
+        });
+      }
+      addLeader();
+    </script>
+
+    <script>
+      function addSkill(){
+        var addExpButt = document.getElementById('addSkill');
+        var removeButton = document.getElementById('removeSkill');
+        var infoPos = document.getElementById('fillingSkill');
+        var outputPos = document.getElementById('skillOutput');
+        
+        var init = document.getElementsByClassName('inputSkill');
+        var initFields = [];
+        
+        initFields.push(init[0]);
+        initFields.push(init[1]);
+        initFields.push(init[2]);
+        
+        //Div for the added publications.
+        var paraInit = document.createElement("DIV");
+        paraInit.classList.add("p-2");
+        paraInit.classList.add("addedExp");
+        outputPos.appendChild(paraInit);
+
+        config.skills.push(initFields);
+        config.skillsPlaceholders.push(paraInit);
+
+        addExpButt.addEventListener('click', function(){
+            var inputFields = document.getElementsByClassName('inputSkill');
+            //var newText = inputFields[inputFields.length-3].value + inputFields[inputFields.length-2].value + inputFields[inputFields.length-1].value;
+
+
+            //Div for the added publications.
+            var para = document.createElement("DIV");
+            para.classList.add("p-2");
+            para.classList.add("addedExp");
+            outputPos.appendChild(para);
+
+
+            //Div for the form for adding pubolications.
+            var inputNew = document.createElement("DIV")
+            inputNew.classList.add("form-row");
+            inputNew.innerHTML = inputNew.innerHTML + '<div class="col-md-5 mb-3 mt-3"> <input type="text" class="form-control inputSkill" placeholder="Authors"> </div> <div class="col-md-4  mb-3 mt-3"> <input type="text" class="form-control inputSkill" placeholder="Article-Title"> </div> <div class="col-md-3  mb-3 mt-3"> <input type="date" class="form-control inputSkill" placeholder="Issue-Date"> </div>';
+            infoPos.appendChild(inputNew);
+            
+            removeButton.style.display = 'inline';
+
+            var newInputPos = []; //for adding new form
+            //adding the 3 latest inputs.
+            newInputPos.push(inputFields[inputFields.length-3]);
+            newInputPos.push(inputFields[inputFields.length-2]);
+            newInputPos.push(inputFields[inputFields.length-1]);
+
+            config.skills.push(newInputPos);
+            config.skillsPlaceholders.push(para);
+
+            console.log(config.skills);
+            console.log(config.skillsPlaceholders);
+        
+        });
+
+        removeButton.addEventListener('click', function(){
+            config.skills.pop(config.skills);
+            config.skillsPlaceholders.pop(config.skillsPlaceholders);   
+
+            outputPos.removeChild(outputPos.lastChild);
+            infoPos.removeChild(infoPos.lastChild);
+
+            if(outputPos.childElementCount < 2){
+                removeButton.style.display = 'none';
+            }
+
+        });
+      }
+      addSkill();
+    </script>
+
+    <script>
+      function selectServices(){
+        var forms = document.getElementsByClassName('selectService');
+        var outputs = document.getElementsByClassName('serveOutput');
+        var dropdownServ = document.getElementsByClassName('switchService');
+        var dropdowncarousel = document.getElementsByClassName('serviceCarousel');
+        var prevIndex = 0;
+        forms[0].style.display="block";
+        for(let i = 0; i < dropdownServ.length; i++){
+            dropdownServ[i].addEventListener('click', function(){
+                if(outputs[i].style.display == "block"){
+                    outputs[i].style.display = "none";
+                }
+                else{
+                    outputs[i].style.display="block";
+                }
+            })
+        }
+
+        for(let j = 0; j < dropdowncarousel.length; j++){
+            dropdowncarousel[j].addEventListener('click', function(){
+                forms[prevIndex].style.display = 'none';
+                forms[j].style.display = 'block';
+                prevIndex = j;
+            })
+        }
+      }
+      selectServices();
+    </script>
+
+    <script>
+      function addAffilation(){
+        var addSerButt = document.getElementById('addAffilation');
+        var removeButton = document.getElementById('removeAffilation');
+        var infoPos = document.getElementById('fillingAffilation');
+        var outputPos = document.getElementById('affilationsOutput');
+        
+        var init = document.getElementsByClassName('inputAffilation');
+        var initFields = [];
+        
+        initFields.push(init[0]);
+        initFields.push(init[1]);
+        initFields.push(init[2]);
+        
+        //Div for the added publications.
+        var paraInit = document.createElement("DIV");
+        paraInit.classList.add("p-2");
+        paraInit.classList.add("addedAff");
+        outputPos.appendChild(paraInit);
+
+        config.affilations.push(initFields);
+        config.affilationsPlaceholders.push(paraInit);
+
+        addSerButt.addEventListener('click', function(){
+            var inputFields = document.getElementsByClassName('inputAffilation');
+            //var newText = inputFields[inputFields.length-3].value + inputFields[inputFields.length-2].value + inputFields[inputFields.length-1].value;
+      
+            //Div for the added publications.
+            var para = document.createElement("DIV");
+            para.classList.add("p-2");
+            para.classList.add("addedAff");
+            outputPos.appendChild(para);
+
+            //Div for the form for adding pubolications.
+            var inputNew = document.createElement("DIV")
+            inputNew.classList.add("form-row");
+            inputNew.innerHTML = inputNew.innerHTML + '<div class="col-md-5 mb-3 mt-3"> <input type="text" class="form-control inputAffilation" placeholder="Authors"> </div> <div class="col-md-4  mb-3 mt-3"> <input type="text" class="form-control inputAffilation" placeholder="Article-Title"> </div> <div class="col-md-3  mb-3 mt-3"> <input type="date" class="form-control inputAffilation" placeholder="Issue-Date"> </div>';
+            infoPos.appendChild(inputNew);
+            
+            removeButton.style.display = 'inline';
+
+            var newInputPos = []; //for adding new form
+            //adding the 3 latest inputs.
+            newInputPos.push(inputFields[inputFields.length-3]);
+            newInputPos.push(inputFields[inputFields.length-2]);
+            newInputPos.push(inputFields[inputFields.length-1]);
+
+            config.affilations.push(newInputPos);
+            config.affilationsPlaceholders.push(para);
+
+            console.log(config.affilations);
+            console.log(config.affilationsPlaceholders);
+        
+        });
+
+        removeButton.addEventListener('click', function(){
+            config.affilations.pop(config.affilations);
+            config.affilationsPlaceholders.pop(config.affilationsPlaceholders);   
+
+            outputPos.removeChild(outputPos.lastChild);
+            infoPos.removeChild(infoPos.lastChild);
+
+            if(outputPos.childElementCount < 2){
+                removeButton.style.display = 'none';
+            }
+
+        });
+      }
+      addAffilation();
+    </script>
+    
+    <script>
+      function addMembership(){
+        var addSerButt = document.getElementById('addMemberships');
+        var removeButton = document.getElementById('removeMemberships');
+        var infoPos = document.getElementById('fillingMemberships');
+        var outputPos = document.getElementById('membershipOutput');
+        
+        var init = document.getElementsByClassName('inputMemberships');
+        var initFields = [];
+        
+        initFields.push(init[0]);
+        initFields.push(init[1]);
+        initFields.push(init[2]);
+        
+        //Div for the added publications.
+        var paraInit = document.createElement("DIV");
+        paraInit.classList.add("p-2");
+        paraInit.classList.add("addedMem");
+        outputPos.appendChild(paraInit);
+
+        config.affilations.push(initFields);
+        config.affilationsPlaceholders.push(paraInit);
+
+        addSerButt.addEventListener('click', function(){
+            var inputFields = document.getElementsByClassName('inputMemberships');
+            //var newText = inputFields[inputFields.length-3].value + inputFields[inputFields.length-2].value + inputFields[inputFields.length-1].value;
+      
+            //Div for the added publications.
+            var para = document.createElement("DIV");
+            para.classList.add("p-2");
+            para.classList.add("addedMem");
+            outputPos.appendChild(para);
+
+            //Div for the form for adding pubolications.
+            var inputNew = document.createElement("DIV")
+            inputNew.classList.add("form-row");
+            inputNew.innerHTML = inputNew.innerHTML + '<div class="col-md-5 mb-3 mt-3"> <input type="text" class="form-control inputMemberships" placeholder="Authors"> </div> <div class="col-md-4  mb-3 mt-3"> <input type="text" class="form-control inputMemberships" placeholder="Article-Title"> </div> <div class="col-md-3  mb-3 mt-3"> <input type="date" class="form-control inputMemberships" placeholder="Issue-Date"> </div>';
+            infoPos.appendChild(inputNew);
+            
+            removeButton.style.display = 'inline';
+
+            var newInputPos = []; //for adding new form
+            //adding the 3 latest inputs.
+            newInputPos.push(inputFields[inputFields.length-3]);
+            newInputPos.push(inputFields[inputFields.length-2]);
+            newInputPos.push(inputFields[inputFields.length-1]);
+
+            config.affilations.push(newInputPos);
+            config.affilationsPlaceholders.push(para);
+
+        
+        
+        });
+
+        removeButton.addEventListener('click', function(){
+            config.affilations.pop(config.affilations);
+            config.affilationsPlaceholders.pop(config.affilationsPlaceholders);   
+
+            outputPos.removeChild(outputPos.lastChild);
+            infoPos.removeChild(infoPos.lastChild);
+
+            if(outputPos.childElementCount < 2){
+                removeButton.style.display = 'none';
+            }
+
+        });
+      }
+      addMembership();
+    </script>
+
+    <script>
+      function addVoluntary(){
+        var addVolButt = document.getElementById('addVoluntary');
+        var removeButton = document.getElementById('removeVoluntary');
+        var infoPos = document.getElementById('fillingVoluntary');
+        var outputPos = document.getElementById('voluntaryOutput');
+        
+        var init = document.getElementsByClassName('inputVoluntary');
+        var initFields = [];
+        
+        initFields.push(init[0]);
+        initFields.push(init[1]);
+        initFields.push(init[2]);
+        
+        //Div for the added publications.
+        var paraInit = document.createElement("DIV");
+        paraInit.classList.add("p-2");
+        paraInit.classList.add("addedVol");
+        outputPos.appendChild(paraInit);
+
+        config.affilations.push(initFields);
+        config.affilationsPlaceholders.push(paraInit);
+
+        addVolButt.addEventListener('click', function(){
+            var inputFields = document.getElementsByClassName('inputVoluntary');
+            //var newText = inputFields[inputFields.length-3].value + inputFields[inputFields.length-2].value + inputFields[inputFields.length-1].value;
+      
+            //Div for the added publications.
+            var para = document.createElement("DIV");
+            para.classList.add("p-2");
+            para.classList.add("addedVol");
+            outputPos.appendChild(para);
+
+            //Div for the form for adding pubolications.
+            var inputNew = document.createElement("DIV")
+            inputNew.classList.add("form-row");
+            inputNew.innerHTML = inputNew.innerHTML + '<div class="col-md-5 mb-3 mt-3"> <input type="text" class="form-control inputVoluntary" placeholder="Authors"> </div> <div class="col-md-4  mb-3 mt-3"> <input type="text" class="form-control inputVoluntary" placeholder="Article-Title"> </div> <div class="col-md-3  mb-3 mt-3"> <input type="date" class="form-control inputVoluntary" placeholder="Issue-Date"> </div>';
+            infoPos.appendChild(inputNew);
+            
+            removeButton.style.display = 'inline';
+
+            var newInputPos = []; //for adding new form
+            //adding the 3 latest inputs.
+            newInputPos.push(inputFields[inputFields.length-3]);
+            newInputPos.push(inputFields[inputFields.length-2]);
+            newInputPos.push(inputFields[inputFields.length-1]);
+
+            config.voluntary.push(newInputPos);
+            config.voluntaryPlaceholders.push(para);
+
+            console.log(config.voluntary);
+            console.log(config.voluntaryPlaceholders);
+        
+        });
+
+        removeButton.addEventListener('click', function(){
+            config.affilations.pop(config.voluntary);
+            config.affilationsPlaceholders.pop(config.voluntaryPlaceholders);   
+
+            outputPos.removeChild(outputPos.lastChild);
+            infoPos.removeChild(infoPos.lastChild);
+
+            if(outputPos.childElementCount < 2){
+                removeButton.style.display = 'none';
+            }
+
+        });
+      }
+      addVoluntary();
+    </script>
+
+    <script>
+      function addInterest(){
+        var addSerButt = document.getElementById('addInterest');
+        var removeButton = document.getElementById('removeInterest');
+        var infoPos = document.getElementById('fillingInterest');
+        var outputPos = document.getElementById('interestOutput');
+        
+        var init = document.getElementsByClassName('inputInterest');
+        var initFields = [];
+        
+        initFields.push(init[0]);
+        initFields.push(init[1]);
+        initFields.push(init[2]);
+        
+        //Div for the added publications.
+        var paraInit = document.createElement("DIV");
+        paraInit.classList.add("p-2");
+        paraInit.classList.add("addedInt");
+        outputPos.appendChild(paraInit);
+
+        config.interest.push(initFields);
+        config.interestPlaceholders.push(paraInit);
+
+        addSerButt.addEventListener('click', function(){
+            var inputFields = document.getElementsByClassName('inputInterest');
+            //var newText = inputFields[inputFields.length-3].value + inputFields[inputFields.length-2].value + inputFields[inputFields.length-1].value;
+      
+            //Div for the added publications.
+            var para = document.createElement("DIV");
+            para.classList.add("p-2");
+            para.classList.add("addedInt");
+            outputPos.appendChild(para);
+
+            //Div for the form for adding pubolications.
+            var inputNew = document.createElement("DIV")
+            inputNew.classList.add("form-row");
+            inputNew.innerHTML = inputNew.innerHTML + '<div class="col-md-5 mb-3 mt-3"> <input type="text" class="form-control inputInterest" placeholder="Authors"> </div> <div class="col-md-4  mb-3 mt-3"> <input type="text" class="form-control inputInterest" placeholder="Article-Title"> </div> <div class="col-md-3  mb-3 mt-3"> <input type="date" class="form-control inputInterest" placeholder="Issue-Date"> </div>';
+            infoPos.appendChild(inputNew);
+            
+            removeButton.style.display = 'inline';
+
+            var newInputPos = []; //for adding new form
+            //adding the 3 latest inputs.
+            newInputPos.push(inputFields[inputFields.length-3]);
+            newInputPos.push(inputFields[inputFields.length-2]);
+            newInputPos.push(inputFields[inputFields.length-1]);
+
+            config.interest.push(newInputPos);
+            config.interestPlaceholders.push(para);
+
+        
+        });
+
+        removeButton.addEventListener('click', function(){
+            config.interest.pop(config.interest);
+            config.interestPlaceholders.pop(config.interestPlaceholders);   
+
+            outputPos.removeChild(outputPos.lastChild);
+            infoPos.removeChild(infoPos.lastChild);
+
+            if(outputPos.childElementCount < 2){
+                removeButton.style.display = 'none';
+            }
+
+        });
+      }
+      addInterest();
+    </script>
+
+    <script>
+      function addInterest(){
+        var addSerButt = document.getElementById('addLanguage');
+        var removeButton = document.getElementById('removeLanguage');
+        var infoPos = document.getElementById('fillingLanguage');
+        var outputPos = document.getElementById('languageOutput');
+        
+        var init = document.getElementsByClassName('inputLanguage');
+        var initFields = [];
+        
+        initFields.push(init[0]);
+        initFields.push(init[1]);
+        initFields.push(init[2]);
+        
+        //Div for the added publications.
+        var paraInit = document.createElement("DIV");
+        paraInit.classList.add("p-2");
+        paraInit.classList.add("addedLang");
+        outputPos.appendChild(paraInit);
+
+        config.language.push(initFields);
+        config.languagePlaceholders.push(paraInit);
+
+        addSerButt.addEventListener('click', function(){
+            var inputFields = document.getElementsByClassName('inputLanguage');
+            //var newText = inputFields[inputFields.length-3].value + inputFields[inputFields.length-2].value + inputFields[inputFields.length-1].value;
+      
+            //Div for the added publications.
+            var para = document.createElement("DIV");
+            para.classList.add("p-2");
+            para.classList.add("addedLang");
+            outputPos.appendChild(para);
+
+            //Div for the form for adding pubolications.
+            var inputNew = document.createElement("DIV")
+            inputNew.classList.add("form-row");
+            inputNew.innerHTML = inputNew.innerHTML + '<div class="col-md-5 mb-3 mt-3"> <input type="text" class="form-control inputLanguage" placeholder="Authors"> </div> <div class="col-md-4  mb-3 mt-3"> <input type="text" class="form-control inputLanguage" placeholder="Article-Title"> </div> <div class="col-md-3  mb-3 mt-3"> <input type="date" class="form-control inputLanguage" placeholder="Issue-Date"> </div>';
+            infoPos.appendChild(inputNew);
+            
+            removeButton.style.display = 'inline';
+
+            var newInputPos = []; //for adding new form
+            //adding the 3 latest inputs.
+            newInputPos.push(inputFields[inputFields.length-3]);
+            newInputPos.push(inputFields[inputFields.length-2]);
+            newInputPos.push(inputFields[inputFields.length-1]);
+
+            config.language.push(newInputPos);
+            config.languagePlaceholders.push(para);
+
+            console.log(config.language);
+            console.log(config.languagePlaceholders);
+        
+        });
+
+        removeButton.addEventListener('click', function(){
+            config.language.pop(config.language);
+            config.languagePlaceholders.pop(config.languagePlaceholders);   
+
+            outputPos.removeChild(outputPos.lastChild);
+            infoPos.removeChild(infoPos.lastChild);
+
+            if(outputPos.childElementCount < 2){
+                removeButton.style.display = 'none';
+            }
+
+        });
+      }
+      addInterest();
+    </script>
+
+    <script>
+      function selectEducation(){
+        var forms = document.getElementsByClassName('selectEducation');
+        var outputs = document.getElementsByClassName('educationOutput');
+        var dropdownPub = document.getElementsByClassName('switchEducation');
+        var dropdowncarousel = document.getElementsByClassName('educationCarousel');
+        var prevIndex = 0;
+        forms[0].style.display="block";
+
+        for(let i = 0; i < dropdownPub.length; i++){
+            dropdownPub[i].addEventListener('click', function(){
+                if(outputs[i].style.display == "block"){
+                    outputs[i].style.display = "none";
+                }
+                else{
+                    outputs[i].style.display="block";
+                }
+            })
+        }
+
+        for(let j = 0; j < dropdowncarousel.length; j++){
+            dropdowncarousel[j].addEventListener('click', function(){
+                forms[prevIndex].style.display = 'none';
+                forms[j].style.display = 'block';
+                prevIndex = j;
+            })
+        }
+      }
+      selectEducation();
+    </script>
+
+    <script>
+      function addCert(){
+        var addPubButt = document.getElementById('addCert');
+        var removeButton = document.getElementById('removeCert');
+        var infoPos = document.getElementById('fillingCert');
+        var outputPos = document.getElementById('certificationOutput');
+        
+        var init = document.getElementsByClassName('inputCert');
+        var initFields = [];
+        
+        initFields.push(init[0]);
+        initFields.push(init[1]);
+        initFields.push(init[2]);
+        
+        //Div for the added publications.
+        var paraInit = document.createElement("DIV");
+        paraInit.classList.add("p-2");
+        paraInit.classList.add("addedCert");
+        outputPos.appendChild(paraInit);
+      
+        config.certs.push(initFields);
+        config.certPlaceholders.push(paraInit);
+
+        addPubButt.addEventListener('click', function(){
+            var inputFields = document.getElementsByClassName('inputCert');
+            //var newText = inputFields[inputFields.length-3].value + inputFields[inputFields.length-2].value + inputFields[inputFields.length-1].value;
+
+
+            //Div for the added publications.
+            var para = document.createElement("DIV");
+            para.classList.add("p-2");
+            para.classList.add("addedCert");
+            outputPos.appendChild(para);
+
+
+            //Div for the form for adding pubolications.
+            var inputNew = document.createElement("DIV")
+            inputNew.classList.add("form-row");
+            inputNew.innerHTML = inputNew.innerHTML + '<div class="col-md-5 mb-3 mt-3"> <input type="text" class="form-control inputCert" placeholder="Authors"> </div> <div class="col-md-4  mb-3 mt-3"> <input type="text" class="form-control inputCert" placeholder="Article-Title"> </div> <div class="col-md-3  mb-3 mt-3"> <input type="date" class="form-control inputCert" placeholder="Issue-Date"> </div>';
+            infoPos.appendChild(inputNew);
+            
+            removeButton.style.display = 'inline';
+
+            var newInputPos = []; //for adding new form
+            //adding the 3 latest inputs.
+            newInputPos.push(inputFields[inputFields.length-3]);
+            newInputPos.push(inputFields[inputFields.length-2]);
+            newInputPos.push(inputFields[inputFields.length-1]);
+
+            config.certs.push(newInputPos);
+            config.certPlaceholders.push(para);
+
+            
+            console.log(config.certs);
+            console.log(config.certPlaceholders);
+
+            
+            
+        });
+
+        removeButton.addEventListener('click', function(){
+            config.chapters.pop(config.certs);
+            config.chaptersPlaceholders.pop(config.certPlaceholders);   
+
+            outputPos.removeChild(outputPos.lastChild);
+            infoPos.removeChild(infoPos.lastChild);
+
+            if(outputPos.childElementCount < 2){
+                removeButton.style.display = 'none';
+            }
+            console.log(config.certs);
+            console.log(config.certPlaceholders);
+        });
+      }
+      addCert();
+    </script>
+    
+    <script>
+      function addFellowship(){
+    
+          var addPubButt = document.getElementById('addFellowship');
+          var removeButton = document.getElementById('removeFellowship');
+          var infoPos = document.getElementById('fillingFellowship');
+          var outputPos = document.getElementById('fellowshipOutput');
+          
+          var init = document.getElementsByClassName('inputFellowship');
+          var initFields = [];
+          
+          initFields.push(init[0]);
+          initFields.push(init[1]);
+          initFields.push(init[2]);
+          
+          //Div for the added publications.
+          var paraInit = document.createElement("DIV");
+          paraInit.classList.add("p-2");
+          paraInit.classList.add("addedFellowship");
+          outputPos.appendChild(paraInit);
+        
+          config.fellowship.push(initFields);
+          config.fellowshipPlaceholders.push(paraInit);
+
+          addPubButt.addEventListener('click', function(){
+              var inputFields = document.getElementsByClassName('inputFellowship');
+              //var newText = inputFields[inputFields.length-3].value + inputFields[inputFields.length-2].value + inputFields[inputFields.length-1].value;
+
+
+              //Div for the added publications.
+              var para = document.createElement("DIV");
+              para.classList.add("p-2");
+              para.classList.add("addedFellowship");
+              outputPos.appendChild(para);
+
+
+              //Div for the form for adding pubolications.
+              var inputNew = document.createElement("DIV")
+              inputNew.classList.add("form-row");
+              inputNew.innerHTML = inputNew.innerHTML + '<div class="col-md-5 mb-3 mt-3"> <input type="text" class="form-control inputFellowship" placeholder="Authors"> </div> <div class="col-md-4  mb-3 mt-3"> <input type="text" class="form-control inputFellowship" placeholder="Article-Title"> </div> <div class="col-md-3  mb-3 mt-3"> <input type="date" class="form-control inputFellowship" placeholder="Issue-Date"> </div>';
+              infoPos.appendChild(inputNew);
+              
+              removeButton.style.display = 'inline';
+
+              var newInputPos = []; //for adding new form
+              //adding the 3 latest inputs.
+              newInputPos.push(inputFields[inputFields.length-3]);
+              newInputPos.push(inputFields[inputFields.length-2]);
+              newInputPos.push(inputFields[inputFields.length-1]);
+
+              config.certs.push(newInputPos);
+              config.certPlaceholders.push(para);
+
+              
+              console.log(config.fellowship);
+              console.log(config.fellowshipPlaceholders);
+
+              
+              
+          });
+
+          removeButton.addEventListener('click', function(){
+              config.chapters.pop(config.fellowship);
+              config.chaptersPlaceholders.pop(config.fellowshipPlaceholders);   
+
+              outputPos.removeChild(outputPos.lastChild);
+              infoPos.removeChild(infoPos.lastChild);
+
+              if(outputPos.childElementCount < 2){
+                  removeButton.style.display = 'none';
+              }
+                
+
+              console.log(config.fellowship);
+              console.log(config.fellowshipPlaceholders);
+
+          });
+
+      }
+      addFellowship();
+    </script>
+
+    <script>
+      function addRefs(){
+        var addRefsButt = document.getElementById('addRef');
+        var removeButton = document.getElementById('removeRef');
+        var infoPos = document.getElementById('fillingRef');
+        var outputPos = document.getElementById('referees');
+        
+        var init = document.getElementsByClassName('inputRef');
+        var initFields = [];
+        
+        initFields.push(init[0]);
+        initFields.push(init[1]);
+        initFields.push(init[2]);
+        
+        //Div for the added publications.
+        var paraInit = document.createElement("DIV");
+        paraInit.classList.add("p-2");
+        paraInit.classList.add("addedRef");
+        outputPos.appendChild(paraInit);
+
+        config.refs.push(initFields);
+        config.refsPlaceholders.push(paraInit);
+        
+        addRefsButt.addEventListener('click', function(){
+            var inputFields = document.getElementsByClassName('inputRef');
+            //var newText = inputFields[inputFields.length-3].value + inputFields[inputFields.length-2].value + inputFields[inputFields.length-1].value;
+
+
+            //Div for the added publications.
+            var para = document.createElement("DIV");
+            para.classList.add("p-2");
+            para.classList.add("addedRef");
+            outputPos.appendChild(para);
+
+
+            //Div for the form for adding pubolications.
+            var inputNew = document.createElement("DIV")
+            inputNew.classList.add("form-row");
+            inputNew.innerHTML = inputNew.innerHTML + '<div class="col-md-5 mb-3"> <input type="text" class="form-control inputRef mt-3" placeholder="Authors"> </div> <div class="col-md-4  mb-3"> <input type="text" class="form-control inputRef mt-3" placeholder="Article-Title"> </div> <div class="col-md-3  mb-3"> <input type="date" class="form-control inputRef mt-3" placeholder="Issue-Date"> </div>';
+            infoPos.appendChild(inputNew);
+            
+            removeButton.style.display = 'inline';
+
+            var newInputPos = []; //for adding new form
+            //adding the 3 latest inputs.
+            newInputPos.push(inputFields[inputFields.length-3]);
+            newInputPos.push(inputFields[inputFields.length-2]);
+            newInputPos.push(inputFields[inputFields.length-1]);
+
+            config.refs.push(newInputPos);
+            config.refsPlaceholders.push(para);
+
+            
+            console.log(config.refs);
+            console.log(config.refsPlaceholders);
+
+            
+            
+        });
+
+        removeButton.addEventListener('click', function(){
+            config.refs.pop(config.refs);
+            config.refsPlaceholders.pop(config.refsPlaceholders);   
+
+            outputPos.removeChild(outputPos.lastChild);
+            infoPos.removeChild(infoPos.lastChild);
+            if(outputPos.childElementCount < 2){
+                removeButton.style.display = 'none';
+            }
+              
+
+            console.log(config.refs);
+            console.log(config.refsPlaceholders)
+
+        });
+      }
+      addRefs();
+    </script>
+
+    <!--Live Translation-->
+    <script>
+      /* A convenience function to reverse a string, and 
+      * one to set the content of an element.
+      */
+
+      /*https://inimino.org/~inimino/blog/javascript_live_text_input*/
+      
+      //adds text properly to the field.
+      function set(el,text){
+        while(el.firstChild)
+          el.removeChild(el.firstChild);
+        el.appendChild(document.createTextNode(text))
+      }
+      /* setupUpdater will be called once, on page load.
+        */
+        
+      function setupUpdater(){
+        var input=document.getElementsByTagName('input')
+          , name=document.getElementById('namePlaceHolder')
+          , email=document.getElementById('emailPlaceHolder')
+          , contactTemp=document.getElementById('phonePlaceHolder')
+          , univ=document.getElementById('universityPlaceHolder')
+          , depart=document.getElementById('departmentPlaceHolder')
+          , researchTemp=document.getElementById('researchInterestPlaceHolder')
+          , currentTemp=document.getElementById('currentPositionPlaceHolder')
+          , educationInput=document.getElementsByClassName('inputEducation')
+          , phdTemp=document.getElementById('phd')
+          , mastersTemp=document.getElementById('masters')
+          , bachelorsTemp=document.getElementById('bachelors')
+          , secondaryTemp=document.getElementById('secondary')
+          , timeout=null;
+        
+      /* handleChange is called 50ms after the user stops 
+          typing. */
+
+
+        function handleChange(){
+          var fullName = document.getElementById('maritalStatus').value + ' ' + input[0].value + ' ' + input[1].value;
+          var emailAddr = input[2].value;
+          var contactNo = input[3].value;
+          var university = input[4].value;
+          var department = input[5].value;
+          var researchInterest = input[6].value;
+          var currentPosition = input[7].value + ' ' + input[8].value + ' ' + input[9].value;
+          var newJournal, newConference, newMonograph, newChapter, newReview, newPending, newPatents, newOthers;
+          var newCert, newFellowship;
+          var newIndustry, newEmployment, newLeader, newSkill;
+          var newAff, newInt, newLan, newMem, newVol, newRef;
+
+          var phd = educationInput[0].value + ' ' + educationInput[1].value + ' ' + educationInput[2].value;
+          var masters = educationInput[3].value + ' ' + educationInput[4].value + ' ' + educationInput[5].value;
+          var bachelors = educationInput[6].value + ' ' + educationInput[7].value + ' ' + educationInput[8].value;
+          var secondary = educationInput[9].value + ' ' + educationInput[10].value + ' ' + educationInput[11].value;
+      
+          
+
+          set(name, fullName);
+          set(email, emailAddr)
+          set(contactTemp, contactNo)
+          set(univ, university);
+          set(depart, department);
+          set(researchTemp, researchInterest);
+          set(currentTemp, currentPosition);
+
+          //Live translation section for education
+          set(phdTemp, phd);
+          set(mastersTemp, masters);
+          set(bachelorsTemp, bachelors);
+          set(secondaryTemp, secondary);
+
+          //live translation for certifications
+          for(let i = 0; i < config.certPlaceholders.length; i++){
+            newCert = config.certs[i][0].value + config.certs[i][1].value + config.certs[i][2].value;
+            set(config.certPlaceholders[i], newCert);
+          }    
+
+          //Live translation for fellowship/awards
+          for(let i = 0; i < config.fellowshipPlaceholders.length; i++){
+            newFellowship = config.fellowship[i][0].value + config.fellowship[i][1].value + config.fellowship[i][2].value;
+            set(config.fellowshipPlaceholders[i], newFellowship);
+          }
+          
+
+          //Live translation section for publications.
+          //Journals
+          for(let i = 0; i < config.publicationPlaceholders.length; i++){
+            newJournal = config.publications[i][0].value + config.publications[i][1].value + config.publications[i][2].value;
+            set(config.publicationPlaceholders[i], newJournal);
+          }
+
+          //Conferences
+          for(let k = 0; k < config.conferencesPlaceholders.length; k++){
+            newConference = config.conferences[k][0].value + config.conferences[k][1].value + config.conferences[k][2];
+            set(config.conferencesPlaceholders[k], newConference);
+          }
+
+          //Monographs
+          for(let l = 0; l < config.monographsPlaceholders.length; l++){
+            newMonograph = config.monographs[l][0].value + config.monographs[l][1].value + config.monographs[l][2].value;
+            set(config.monographsPlaceholders[l], newMonograph);
+          }
+
+          //Book Chapters
+          for(let m = 0; m < config.chaptersPlaceholders.length; m++){
+            newChapter = config.chapters[m][0].value + config.chapters[m][1].value + config.chapters[m][2].value;
+            set(config.chaptersPlaceholders[m], newChapter);
+          }
+
+          //Under Review
+          for(let n = 0; n < config.reviewsPlaceholders.length; n++){
+            newReview = config.reviews[n][0].value + config.reviews[n][1].value + config.reviews[n][2].value;
+            set(config.reviewsPlaceholders[n], newReview);
+          }
+
+          //Pending Submissions
+          for(let o = 0; o < config.pendingsPlaceholders.length; o++){
+            newPending = config.pendings[o][0].value + config.pendings[o][1].value + config.pendings[o][2].value;
+            set(config.pendingsPlaceholders[o], newPending);
+          }
+
+          //Patents
+          for(let p = 0; p < config.patentsPlaceholders.length; p++){
+            newPatents = config.patents[p][0].value + config.patents[p][1].value + config.patents[p][2].value;
+            set(config.patentsPlaceholders[p], newPatents);
+          }
+
+          //Others
+          for(let j = 0; j < config.otherPlaceholders.length; j++){
+            newOthers = config.others[j][0].value + config.others[j][1].value + config.others[j][2].value;
+            set(config.otherPlaceholders[j], newOthers)
+          }
+
+          //Live translation for Internships and Professional Experience.
+          //Industrial Experience
+          for(let i = 0; i < config.industryPlaceholders.length; i++){
+            newIndustry = config.industry[i][0].value + config.industry[i][1].value + config.industry[i][2].value;
+            set(config.industryPlaceholders[i], newIndustry);
+          }
+          //Employment
+          for(let j = 0; j < config.employmentPlaceholders.length; j++){
+            newEmployment = config.employment[j][0].value + config.employment[j][1].value + config.employment[j][2].value;
+            set(config.employmentPlaceholders[j], newEmployment);
+          }
+          //Leadership Exprience
+          for(let k = 0; k < config.leadershipPlaceholders.length; k++){
+            newLeader = config.leadership[k][0].value + config.leadership[k][1].value + config.leadership[k][2].value;
+            set(config.leadershipPlaceholders[k], newLeader);
+          }
+          //Relevant SKillset
+          for(let n = 0; n < config.skillsPlaceholders.length; n++){
+            newSkill = config.skills[n][0].value + config.skills[n][1].value + config.skills[n][2].value;
+            set(config.skillsPlaceholders[n], newSkill);
+          }
+
+          //Live Translation for services
+          for(let i = 0; i < config.affilationsPlaceholders.length; i++){
+            newAff = config.affilations[i][0].value + config.affilations[i][1].value + config.affilations[i][2].value;
+            set(config.affilationsPlaceholders[i], newAff);
+          }
+          
+          for(let j = 0; j < config.interestPlaceholders.length; j++){
+            newInt = config.interest[j][0].value + config.interest[j][1].value + config.interest[j][2].value;
+            set(config.interestPlaceholders[j], newInt);
+          }
+
+          for(let k = 0; k < config.languagePlaceholders.length; k++){
+            newLan = config.language[k][0].value + config.language[k][1].value + config.language[k][2].value;
+            set(config.languagePlaceholders[k], newLan);
+          }
+
+          for(let m = 0; m < config.membershipsPlaceholders.length; m++){
+            newMem = config.memberships[m][0].value + config.memberships[m][1].value + config.memberships[m][2].value;
+            set(config.membershipsPlaceholders[m], newMem);
+          }
+
+          for(let n = 0; n < config.voluntaryPlaceholders.length; n++){
+            newVol = config.voluntary[n][0].value + config.voluntary[n][1].value + config.voluntary[n][2].value;
+            set(config.voluntaryPlaceholders[n], newVol);
+          }
+          
+          //for referees
+          for(let z = 0; z < config.refsPlaceholders.length; z++){
+            newRef = config.refs[z][0].value + config.refs[z][1].value + config.refs[z][2].value;
+            console.log('Ref:', newRef);
+            set(config.refsPlaceholders[z], newRef);
+          }
+        }
+        
+      /* eventHandler is called on keyboard and mouse events.
+          If there is a pending timeout, it cancels it.
+          It sets a timeout to call handleChange in 50ms. */
+        function eventHandler(){
+        if(timeout) clearTimeout(timeout);
+        timeout=setTimeout(handleChange, 50);
+        }
+
+        for(i= 0 ; i < input.length; i++){
+          input[i].onkeydown=input[i].onkeyup=input[i].onclick=eventHandler;
+        }
+      }
+      setupUpdater();
     </script>
     
     <!--animation scripts-->
@@ -1412,10 +3369,7 @@
         gsap.from(infoPosOthers.lastChild, {opacity: 0, duration: 1, y: -20})
       })
 
-      
-      
     </script>
-
 
   </body>
 </html>
