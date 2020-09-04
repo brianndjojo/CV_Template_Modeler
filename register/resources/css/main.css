@@ -1,7 +1,30 @@
+/******************************************************/
+html,body{
+    min-width: 100%;
+    min-height: 100%;
+    height: 100%;
+    background: rgba(26, 30, 43);
+}
+
+html::-webkit-scrollbar {
+    display: none;
+}
+  
+  /* Hide scrollbar for IE, Edge and Firefox */
+html{
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+}
+
+
 body{
     overflow-x: hidden;
-    background-color: rgba(26, 30, 43);
+    background-color: rgba(26, 30, 43,0.3);
     min-height: 100%;
+}
+
+hr{
+    color: white;
 }
 
 #loader {
@@ -28,10 +51,18 @@ body{
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    width: 100%;
+    
     min-height: 100vh;
     background-color: rgba(26, 30, 43, 0.8);
     color: white;
+    
+}
+
+div.landing-content2{
+    text-align: center;
+   
+    font-size: 10px;
+   
     
 }
 
@@ -51,11 +82,64 @@ body{
     }
 }
 
+#carouselExampleFade{
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    min-width: 100%;
+    min-width: 2048px;
+    z-index: -1;  
+  
+}
+
+.landing-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    
+    min-height: 100vh;
+    background-color: rgba(26, 30, 43, 0.8);
+    color: white;
+    
+}
+
 div.landing-content2{
     text-align: center;
    
     font-size: 10px;
+    padding: 30px;
+    
 }
+
+.login{
+    border-radius: 25px;
+    border: 1.5px solid #e0dada;
+    padding: 60px;
+    background: rgba(0, 0, 0, 0.5);
+    text-align: center;
+}
+
+#carouselExampleFade{
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    min-width: 100%;
+    min-width: 2048px;
+    
+    z-index: -1;
+}
+
+.loginTitle{
+    font-size: 20px; 
+    color: rgb(173, 173, 173);
+    display: block;
+}
+
+.loginTitle:hover{
+    cursor: pointer;
+}
+
 
 .register{
     border-radius: 25px;
@@ -75,12 +159,12 @@ div.landing-content2{
     cursor: pointer;
 }
 
-
 .navbar{
     position: fixed;
     width: 100%;
-    z-index: 10;
-    border-bottom: 1px solid rgb(136, 135, 135);
+    z-index: 1;
+    border-bottom: 1px solid rgba(94, 94, 94, 0.2);
+    transition: all 0.4s ease;
 }
 
 .container{
@@ -93,9 +177,8 @@ div.landing-content2{
     display: inline-block;
 }
 
-
-.col-sm{
-    cursor: pointer;
+.textarea{
+    font-size: 1em;
 }
 
 .footer-copyright{
@@ -103,62 +186,117 @@ div.landing-content2{
     background: rgba(0, 0, 0, 0.3);
 }
 
+.borderTemplate{
+  
+    border-top: 1px dashed black;
+}
+
+.col-sm{
+    cursor: pointer;
+}
+
 .form-control{
-    box-shadow: none;;
+    box-shadow: none;
+    background: rgba(0, 0, 0, 0.9);
 }
 
 
+.form-control-lg{
+    background: rgba(0, 0, 0, 0.9);
+}
 
+.custom-select{
+    fill: white;
+    background: rgba(0, 0, 0, 0.9);
+}
+/*CUSTOM*/
+/* 
+.flash-content{
+	display: flex;
+    justify-content: center;
+    align-items: center;
+    
+}
+ */
 
-/*.pace {
-    pointer-events: none;
-    user-select: none;
-    z-index: 2000;
-    position: fixed;
-    margin: auto;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    width: 400px;
-    border: 0px;
-    height: 1px;
-    overflow: hidden;
-    background:#1b1b1b;
-  }
+table#admin {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: auto;
+	
+  color:white;
+	font-size:0.9rem;
+}
+
+tr.adminD {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+	
+}
+
+th.adminH {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+	min-width:150px;
+	max-width:650px;
+	
+}
+
+#myInput, #myInput2{
   
-  .pace .pace-progress {
-    box-sizing: border-box;
-    transform: translate3d(0, 0, 0);
-    max-width: 400px;
-    position: fixed;
-    z-index: 2000;
-    display: block;
-    position: absolute;
-    top: 0;
-    right: 100%;
-    height: 100%;
+  width: 60%;
+  font-size: 11px;
+  padding: 12px 20px 12px 40px;
+  border: 1px solid #ddd;
+  margin-bottom: 12px;
+}
+
+tr.adminD.tableContent th.adminH{
+	/* font-style: italic; */
+	font-weight: normal;
+}
+
+#contentSection{
+    min-height: 100%;
+    overflow-y: auto;
+}
+
+#detailsSection{
+    padding: 0 0 0 0;
+    color: white;
     width: 100%;
-    background: grey;
-  }
-  
-  .pace.pace-inactive {
+}
+
+#cvSection{
+    padding: 0 0 0 0;
+    width: 100%;
+    overflow-y: auto;
+    background: white;
+}
+
+@media only screen and (max-width: 850px) {
+    #cvSection{
+        display: none;
+        margin: 0;
+        padding: 0;
+    }
+}
+
+#removePublication, #removeConference, #removeMonograph, #removeChapter, #removeReview, #removePending, #removePatents, #removeOthers, #removePHD, #removeMasters, #removeBachelors, #removeSecondary, #removeCert, #removeFellowship{
     display: none;
-  }
-  */
-  /*#preloader{
-    width:100%;
-    height:100vh;
-    background:#101010;
-    overflow:hidden;
-    position:fixed;
-    transition-timing-function: cubic-bezier(0.19, 1, 0.22, 1);
-  }
-  
-  .p {
-      position: absolute;
-      top: 40%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      color: #fff;
-  }*/
+}
+
+.detailsForm{
+    display: none;
+    
+}
+
+.selectPub, .selectEducation, .pubOutput, .educationOutput, .selectExp, .expOutput, #removeIndustry, #removeEmploy, #removeLeader, #removeSkill{
+    display: none;
+}
+
+.serveOutput, .selectService, #removeAffilation, #removeMemberships, #removeVoluntary, #removeInterest, #removeLanguage, #removeRef{
+    display: none;
+}
