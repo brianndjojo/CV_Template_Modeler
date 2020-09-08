@@ -62,8 +62,6 @@ div.landing-content2{
     text-align: center;
    
     font-size: 10px;
-   
-    
 }
 
 #registrationCarousel{
@@ -73,6 +71,9 @@ div.landing-content2{
     left: 0;
 }
 
+.leadDescription:hover{
+    cursor: pointer;
+}
 
 @media only screen and (max-width: 850px) {
     #registrationCarousel{
