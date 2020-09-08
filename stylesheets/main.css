@@ -141,6 +141,10 @@ div.landing-content2{
     cursor: pointer;
 }
 
+.landingTitle{
+    color: rgb(173, 173, 173);
+    display: block;
+}
 
 .register{
     border-radius: 25px;
@@ -301,3 +305,45 @@ tr.adminD.tableContent th.adminH{
 .serveOutput, .selectService, #removeAffilation, #removeMemberships, #removeVoluntary, #removeInterest, #removeLanguage, #removeRef{
     display: none;
 }
+
+#TOS{
+    border: 10px solid rgba(233,212,96, 0.7);
+}
+
+#prices{
+    border: 10px solid rgba(233,212,96, 0.7);
+}
+
+#pricesFill{
+    color: rgb(255, 245, 190);
+  
+}
+
+#links{
+    border: 10px solid rgb(0,0,0);
+}
+
+#linksFill{
+    color: #f76781;
+}
+
+#firstBg{
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    min-width: 100%;
+    min-height: 100%;
+    z-index: 0; 
+    opacity: 10%;
+}
+
+#secondBg{
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    min-width: 100%;
+    min-height: 100%;
+    z-index: 0; 
+    opacity: 30%;
+}
+
