@@ -2,9 +2,8 @@
 
 ## Technology Stack
 
-- **TailwindCSS & Bootstrap&&
 - **Vanilla JQuery**
-- **Vanilla HTML & CSS**
+- **Vanilla HTML & CSS & Bootstrap**
 
 ## Demo
 - Landing Page: https://cvlandingpage.surge.sh
