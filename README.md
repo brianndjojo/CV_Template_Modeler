@@ -1,4 +1,5 @@
 # livetranslation
+- This is the frontend section used for a MERN stack project.. Essentially, it was used for a CV Template Builder site.
 
 ## Technology Stack
 
